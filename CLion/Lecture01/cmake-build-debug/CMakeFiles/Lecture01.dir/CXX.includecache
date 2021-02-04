@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+D:/Documents/GitHub/CPP-Learning/CLion/Lecture01/Date.h
+iostream
+-
+
+D:/Documents/GitHub/CPP-Learning/CLion/Lecture01/Person.h
+string
+-
+Date.h
+D:/Documents/GitHub/CPP-Learning/CLion/Lecture01/Date.h
+
+D:/Documents/GitHub/CPP-Learning/CLion/Lecture01/main.cpp
+iostream
+-
+./Date.h
+D:/Documents/GitHub/CPP-Learning/CLion/Lecture01/Date.h
+./Person.h
+D:/Documents/GitHub/CPP-Learning/CLion/Lecture01/Person.h
+

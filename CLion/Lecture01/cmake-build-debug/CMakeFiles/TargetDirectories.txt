@@ -1,0 +1,3 @@
+D:/Documents/GitHub/CPP-Learning/CLion/Lecture01/cmake-build-debug/CMakeFiles/Lecture01.dir
+D:/Documents/GitHub/CPP-Learning/CLion/Lecture01/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/Documents/GitHub/CPP-Learning/CLion/Lecture01/cmake-build-debug/CMakeFiles/rebuild_cache.dir
