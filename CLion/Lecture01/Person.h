@@ -5,6 +5,13 @@
 #include "Date.h"
 
 class Person {
+private:
+    std::string name;
+    Date date;
+    double age;
+    double height;
+    double weight;
+
 public:
     Person();
 
@@ -13,9 +20,21 @@ public:
 
     void reset();
 
-private:
-    std::string name;
-    Date date;
+    double calcHatSize(double h, double m);
+
+    double calcJacketSize(double h, double m, double age);
+
+    double getAge();
+
+    void setAge(double age);
+
+    double getHeight();
+
+    void setHeight(double h);
+
+    double getWeight();
+
+    void setWeight(double m);
 };
 
 #endif // PERSON_H

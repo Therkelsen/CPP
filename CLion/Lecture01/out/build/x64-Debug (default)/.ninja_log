@@ -1,0 +1,5 @@
+# ninja log v5
+3	555	6345728652074601	CMakeFiles/Lecture01.dir/main.cpp.obj	280d0a32074e1066
+0	556	6345728652074601	CMakeFiles/Lecture01.dir/Date.cpp.obj	dbdc3f507c3d05c2
+1	527	6345728781534248	CMakeFiles/Lecture01.dir/Person.cpp.obj	296e5d23b07aedf7
+527	842	6345728784449756	Lecture01.exe	69131d5f932f4ec8
