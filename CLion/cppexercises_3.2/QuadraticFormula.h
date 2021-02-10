@@ -15,6 +15,8 @@ private:
     double c{};
     double d{};
 
+    std::string solution;
+
 public:
 
     double getDeterminant();
@@ -29,6 +31,8 @@ public:
     double getB();
 
     double getC();
+
+    std::string solve();
 };
 
 

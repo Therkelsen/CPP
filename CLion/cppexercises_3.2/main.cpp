@@ -4,7 +4,7 @@
 
 int main() {
 
-    QuadraticFormula q1 = QuadraticFormula(1,2,3);
+    QuadraticFormula q1 = QuadraticFormula(6,4,0);
 
     std::cout << "A: " << q1.getA() << std::endl;
     std::cout << "B: " << q1.getB() << std::endl;

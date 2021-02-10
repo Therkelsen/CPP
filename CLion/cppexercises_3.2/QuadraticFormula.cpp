@@ -29,18 +29,26 @@ double QuadraticFormula::getDeterminant(){
     return d;
 }
 
-std::string QuadraticFormula::solve1(){
+std::string QuadraticFormula::solve(){
     if(d > 0) {
-        return std::to_string((-b+d)/2*d);
+        solution.append(std::to_string((-b+d)/2*d));
     } else {
         return std::to_string((-b+d)/2*d) + "i";
     }
 }
 
+std::string QuadraticFormula::solve1(){
+    if(d > 0) {
+        return std::to_string((-b+d)/2*a);
+    } else {
+        return std::to_string((-b+d)/2*a) + "i";
+    }
+}
+
 std::string QuadraticFormula::solve2(){
     if(d > 0) {
-        return std::to_string((-b-d)/2*d);
+        return std::to_string((-b-d)/2*a);
     } else {
-        return std::to_string((-b-d)/2*d) + "i";
+        return std::to_string((-b-d)/2*a) + "i";
     }
 }

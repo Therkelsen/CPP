@@ -35,6 +35,8 @@ public:
     double getWeight();
 
     void setWeight(double m);
+
+    double calcWaistSize(double m);
 };
 
 #endif // PERSON_H
