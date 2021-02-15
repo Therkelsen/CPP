@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+D:/Documents/GitHub/CPP-Learning/CLion/cppexercises/5.2_ex_Approx/Ex.h
+
+D:/Documents/GitHub/CPP-Learning/CLion/cppexercises/5.2_ex_Approx/main.cpp
+iostream
+-
+Ex.h
+D:/Documents/GitHub/CPP-Learning/CLion/cppexercises/5.2_ex_Approx/Ex.h
+
