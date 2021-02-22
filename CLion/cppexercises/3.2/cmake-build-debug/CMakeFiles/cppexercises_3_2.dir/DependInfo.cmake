@@ -4,8 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "D:/Documents/GitHub/CPP-Learning/CLion/cppexercises_3.2/QuadraticFormula.cpp" "D:/Documents/GitHub/CPP-Learning/CLion/cppexercises_3.2/cmake-build-debug/CMakeFiles/cppexercises_3_2.dir/QuadraticFormula.cpp.obj"
-  "D:/Documents/GitHub/CPP-Learning/CLion/cppexercises_3.2/main.cpp" "D:/Documents/GitHub/CPP-Learning/CLion/cppexercises_3.2/cmake-build-debug/CMakeFiles/cppexercises_3_2.dir/main.cpp.obj"
+  "D:/Documents/GitHub/CPP-Learning/CLion/cppexercises/3.2/QuadraticFormula.cpp" "D:/Documents/GitHub/CPP-Learning/CLion/cppexercises/3.2/cmake-build-debug/CMakeFiles/cppexercises_3_2.dir/QuadraticFormula.cpp.obj"
+  "D:/Documents/GitHub/CPP-Learning/CLion/cppexercises/3.2/main.cpp" "D:/Documents/GitHub/CPP-Learning/CLion/cppexercises/3.2/cmake-build-debug/CMakeFiles/cppexercises_3_2.dir/main.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

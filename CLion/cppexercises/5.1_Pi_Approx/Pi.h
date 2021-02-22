@@ -14,6 +14,8 @@ public:
     double pi = M_PI;
     double piApproximated;
     double approximatePi(int n);
+
+    double approximatePiOptimal(int n);
 };
 
 

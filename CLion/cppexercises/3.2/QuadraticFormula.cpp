@@ -30,25 +30,19 @@ double QuadraticFormula::getDeterminant(){
 }
 
 std::string QuadraticFormula::solve(){
-    if(d > 0) {
-        solution.append(std::to_string((-b+d)/2*d));
-    } else {
-        return std::to_string((-b+d)/2*d) + "i";
-    }
-}
-
-std::string QuadraticFormula::solve1(){
-    if(d > 0) {
-        return std::to_string((-b+d)/2*a);
-    } else {
-        return std::to_string((-b+d)/2*a) + "i";
-    }
-}
-
-std::string QuadraticFormula::solve2(){
-    if(d > 0) {
-        return std::to_string((-b-d)/2*a);
-    } else {
-        return std::to_string((-b-d)/2*a) + "i";
+    if (getDeterminant() == 0) {
+        x1 = std::to_string((-b)/(2*a));
+        solution = "x1 = " + x1;
+        return solution;
+    } else if (getDeterminant() > 0) {
+        x1 = std::to_string((-b+sqrt(getDeterminant()))/(2*a));
+        x2 = std::to_string((-b-sqrt(getDeterminant()))/(2*a));
+        solution = "x1 = " + x1 + " | x2 = " + x2;
+        return solution;
+    } else if (getDeterminant() < 0) {
+        x1 = std::to_string(-b/(2*a)) + " + " + std::to_string(sqrt(-1*getDeterminant())/(2*a)) + "i";
+        x2 = std::to_string(-b/(2*a)) + " - " + std::to_string(sqrt(-1*getDeterminant())/(2*a)) + "i";
+        solution = "x1 = " + x1 + " | x2 = " + x2;
+        return solution;
     }
 }

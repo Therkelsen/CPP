@@ -63,10 +63,10 @@ RM = "D:\Programmer\JetBrains\CLion 2020.3.2\bin\cmake\win\bin\cmake.exe" -E rm 
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = D:\Documents\GitHub\CPP-Learning\CLion\cppexercises_3.2
+CMAKE_SOURCE_DIR = D:\Documents\GitHub\CPP-Learning\CLion\cppexercises\3.2
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = D:\Documents\GitHub\CPP-Learning\CLion\cppexercises_3.2\cmake-build-debug
+CMAKE_BINARY_DIR = D:\Documents\GitHub\CPP-Learning\CLion\cppexercises\3.2\cmake-build-debug
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -93,14 +93,14 @@ clean: CMakeFiles/cppexercises_3_2.dir/clean
 CMakeFiles/cppexercises_3_2.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\cppexercises_3_2.dir\build.make CMakeFiles/cppexercises_3_2.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\cppexercises_3_2.dir\build.make CMakeFiles/cppexercises_3_2.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=D:\Documents\GitHub\CPP-Learning\CLion\cppexercises_3.2\cmake-build-debug\CMakeFiles --progress-num=1,2,3 "Built target cppexercises_3_2"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=D:\Documents\GitHub\CPP-Learning\CLion\cppexercises\3.2\cmake-build-debug\CMakeFiles --progress-num=1,2,3 "Built target cppexercises_3_2"
 .PHONY : CMakeFiles/cppexercises_3_2.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/cppexercises_3_2.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\Documents\GitHub\CPP-Learning\CLion\cppexercises_3.2\cmake-build-debug\CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\Documents\GitHub\CPP-Learning\CLion\cppexercises\3.2\cmake-build-debug\CMakeFiles 3
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/cppexercises_3_2.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\Documents\GitHub\CPP-Learning\CLion\cppexercises_3.2\cmake-build-debug\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\Documents\GitHub\CPP-Learning\CLion\cppexercises\3.2\cmake-build-debug\CMakeFiles 0
 .PHONY : CMakeFiles/cppexercises_3_2.dir/rule
 
 # Convenience name for target.

@@ -62,10 +62,10 @@ RM = "D:\Programmer\JetBrains\CLion 2020.3.2\bin\cmake\win\bin\cmake.exe" -E rm 
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = D:\Documents\GitHub\CPP-Learning\CLion\cppexercises_3.2
+CMAKE_SOURCE_DIR = D:\Documents\GitHub\CPP-Learning\CLion\cppexercises\3.2
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = D:\Documents\GitHub\CPP-Learning\CLion\cppexercises_3.2\cmake-build-debug
+CMAKE_BINARY_DIR = D:\Documents\GitHub\CPP-Learning\CLion\cppexercises\3.2\cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/cppexercises_3_2.dir/depend.make
@@ -78,29 +78,29 @@ include CMakeFiles/cppexercises_3_2.dir/flags.make
 
 CMakeFiles/cppexercises_3_2.dir/main.cpp.obj: CMakeFiles/cppexercises_3_2.dir/flags.make
 CMakeFiles/cppexercises_3_2.dir/main.cpp.obj: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Documents\GitHub\CPP-Learning\CLion\cppexercises_3.2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/cppexercises_3_2.dir/main.cpp.obj"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\cppexercises_3_2.dir\main.cpp.obj -c D:\Documents\GitHub\CPP-Learning\CLion\cppexercises_3.2\main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Documents\GitHub\CPP-Learning\CLion\cppexercises\3.2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/cppexercises_3_2.dir/main.cpp.obj"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\cppexercises_3_2.dir\main.cpp.obj -c D:\Documents\GitHub\CPP-Learning\CLion\cppexercises\3.2\main.cpp
 
 CMakeFiles/cppexercises_3_2.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cppexercises_3_2.dir/main.cpp.i"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\Documents\GitHub\CPP-Learning\CLion\cppexercises_3.2\main.cpp > CMakeFiles\cppexercises_3_2.dir\main.cpp.i
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\Documents\GitHub\CPP-Learning\CLion\cppexercises\3.2\main.cpp > CMakeFiles\cppexercises_3_2.dir\main.cpp.i
 
 CMakeFiles/cppexercises_3_2.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cppexercises_3_2.dir/main.cpp.s"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\Documents\GitHub\CPP-Learning\CLion\cppexercises_3.2\main.cpp -o CMakeFiles\cppexercises_3_2.dir\main.cpp.s
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\Documents\GitHub\CPP-Learning\CLion\cppexercises\3.2\main.cpp -o CMakeFiles\cppexercises_3_2.dir\main.cpp.s
 
 CMakeFiles/cppexercises_3_2.dir/QuadraticFormula.cpp.obj: CMakeFiles/cppexercises_3_2.dir/flags.make
 CMakeFiles/cppexercises_3_2.dir/QuadraticFormula.cpp.obj: ../QuadraticFormula.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Documents\GitHub\CPP-Learning\CLion\cppexercises_3.2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/cppexercises_3_2.dir/QuadraticFormula.cpp.obj"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\cppexercises_3_2.dir\QuadraticFormula.cpp.obj -c D:\Documents\GitHub\CPP-Learning\CLion\cppexercises_3.2\QuadraticFormula.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Documents\GitHub\CPP-Learning\CLion\cppexercises\3.2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/cppexercises_3_2.dir/QuadraticFormula.cpp.obj"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\cppexercises_3_2.dir\QuadraticFormula.cpp.obj -c D:\Documents\GitHub\CPP-Learning\CLion\cppexercises\3.2\QuadraticFormula.cpp
 
 CMakeFiles/cppexercises_3_2.dir/QuadraticFormula.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cppexercises_3_2.dir/QuadraticFormula.cpp.i"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\Documents\GitHub\CPP-Learning\CLion\cppexercises_3.2\QuadraticFormula.cpp > CMakeFiles\cppexercises_3_2.dir\QuadraticFormula.cpp.i
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\Documents\GitHub\CPP-Learning\CLion\cppexercises\3.2\QuadraticFormula.cpp > CMakeFiles\cppexercises_3_2.dir\QuadraticFormula.cpp.i
 
 CMakeFiles/cppexercises_3_2.dir/QuadraticFormula.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cppexercises_3_2.dir/QuadraticFormula.cpp.s"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\Documents\GitHub\CPP-Learning\CLion\cppexercises_3.2\QuadraticFormula.cpp -o CMakeFiles\cppexercises_3_2.dir\QuadraticFormula.cpp.s
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\Documents\GitHub\CPP-Learning\CLion\cppexercises\3.2\QuadraticFormula.cpp -o CMakeFiles\cppexercises_3_2.dir\QuadraticFormula.cpp.s
 
 # Object files for target cppexercises_3_2
 cppexercises_3_2_OBJECTS = \
@@ -116,7 +116,7 @@ cppexercises_3_2.exe: CMakeFiles/cppexercises_3_2.dir/build.make
 cppexercises_3_2.exe: CMakeFiles/cppexercises_3_2.dir/linklibs.rsp
 cppexercises_3_2.exe: CMakeFiles/cppexercises_3_2.dir/objects1.rsp
 cppexercises_3_2.exe: CMakeFiles/cppexercises_3_2.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=D:\Documents\GitHub\CPP-Learning\CLion\cppexercises_3.2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable cppexercises_3_2.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=D:\Documents\GitHub\CPP-Learning\CLion\cppexercises\3.2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable cppexercises_3_2.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\cppexercises_3_2.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -129,6 +129,6 @@ CMakeFiles/cppexercises_3_2.dir/clean:
 .PHONY : CMakeFiles/cppexercises_3_2.dir/clean
 
 CMakeFiles/cppexercises_3_2.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" D:\Documents\GitHub\CPP-Learning\CLion\cppexercises_3.2 D:\Documents\GitHub\CPP-Learning\CLion\cppexercises_3.2 D:\Documents\GitHub\CPP-Learning\CLion\cppexercises_3.2\cmake-build-debug D:\Documents\GitHub\CPP-Learning\CLion\cppexercises_3.2\cmake-build-debug D:\Documents\GitHub\CPP-Learning\CLion\cppexercises_3.2\cmake-build-debug\CMakeFiles\cppexercises_3_2.dir\DependInfo.cmake --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" D:\Documents\GitHub\CPP-Learning\CLion\cppexercises\3.2 D:\Documents\GitHub\CPP-Learning\CLion\cppexercises\3.2 D:\Documents\GitHub\CPP-Learning\CLion\cppexercises\3.2\cmake-build-debug D:\Documents\GitHub\CPP-Learning\CLion\cppexercises\3.2\cmake-build-debug D:\Documents\GitHub\CPP-Learning\CLion\cppexercises\3.2\cmake-build-debug\CMakeFiles\cppexercises_3_2.dir\DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/cppexercises_3_2.dir/depend
 

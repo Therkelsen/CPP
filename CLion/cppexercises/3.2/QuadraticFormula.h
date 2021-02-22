@@ -16,6 +16,8 @@ private:
     double d{};
 
     std::string solution;
+    std::string x1;
+    std::string x2;
 
 public:
 
