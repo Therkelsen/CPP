@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+D:/Documents/GitHub/CPP-Learning/CLion/cppexercises/3.2_Quadratic_Equation_Solver/QuadraticFormula.h
+string
+-
+
+D:/Documents/GitHub/CPP-Learning/CLion/cppexercises/3.2_Quadratic_Equation_Solver/main.cpp
+iostream
+-
+cmath
+-
+./QuadraticFormula.h
+D:/Documents/GitHub/CPP-Learning/CLion/cppexercises/3.2_Quadratic_Equation_Solver/QuadraticFormula.h
+

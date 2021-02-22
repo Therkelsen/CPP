@@ -1,6 +1,8 @@
 #include <cmath>
 #include "Person.h"
 
+//  This class contains solutions for 3.1, 3.3, 3.4,
+
 Person::Person()
 {
 
