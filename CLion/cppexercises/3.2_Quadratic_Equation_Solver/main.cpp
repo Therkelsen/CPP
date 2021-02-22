@@ -3,11 +3,9 @@
 #include "./QuadraticFormula.h"
 
 int main() {
-
-    int state {1};
     double a,b,c;
 
-    while (state == 1) {
+    while (true) {
         std::cout << "Please enter your variable values for 2nd degree equation" << std::endl;
         std::cout << "Enter a:" << std::endl;
         std::cin >> a;
