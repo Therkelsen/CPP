@@ -1,0 +1,4 @@
+* text=auto
+*.c linguist-vendored=false
+*.cmake linguist-vendored=false
+*.make linguist-vendored=false
