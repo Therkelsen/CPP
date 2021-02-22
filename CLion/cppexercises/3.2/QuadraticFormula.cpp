@@ -6,6 +6,7 @@
 #include <cmath>
 #include <string>
 
+//  Constructor method
 QuadraticFormula::QuadraticFormula(double a, double b, double c) {
     this->a = a;
     this->b = b;
@@ -13,22 +14,24 @@ QuadraticFormula::QuadraticFormula(double a, double b, double c) {
     this->d = (b*b)-4*a*c;
 }
 
-double QuadraticFormula::getA() {
+//  Getter methods
+double QuadraticFormula::getA() const {
     return a;
 }
 
-double QuadraticFormula::getB() {
+double QuadraticFormula::getB() const {
     return b;
 }
 
-double QuadraticFormula::getC() {
+double QuadraticFormula::getC() const {
     return c;
 }
 
-double QuadraticFormula::getDeterminant(){
+double QuadraticFormula::getDeterminant() const{
     return d;
 }
 
+//  Solves the quadratic formula and returns the solution
 std::string QuadraticFormula::solve(){
     if (getDeterminant() == 0) {
         x1 = std::to_string((-b)/(2*a));
@@ -44,5 +47,7 @@ std::string QuadraticFormula::solve(){
         x2 = std::to_string(-b/(2*a)) + " - " + std::to_string(sqrt(-1*getDeterminant())/(2*a)) + "i";
         solution = "x1 = " + x1 + " | x2 = " + x2;
         return solution;
+    } else {
+        return "You fucked up, this should not be possible";
     }
 }

@@ -21,18 +21,18 @@ private:
 
 public:
 
-    double getDeterminant();
+    double getDeterminant() const;
 
     std::string solve1();
     std::string solve2();
 
     QuadraticFormula(double a, double b, double c);
 
-    double getA();
+    double getA() const;
 
-    double getB();
+    double getB() const;
 
-    double getC();
+    double getC() const;
 
     std::string solve();
 };
