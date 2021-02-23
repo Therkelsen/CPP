@@ -1,67 +1,79 @@
 #include <cmath>
 #include "Person.h"
 
-//  This class contains solutions for 3.1, 3.3, 3.4,
+//  This class contains solutions for 3.1, 3.3 & 3.4
 
 Person::Person()
 {
 
 }
 
-std::string Person::getName() const {
-    return name;
-}
-
 void Person::setName(const std::string& name) {
     this->name = name;
-}
-
-void Person::reset() {
-    name = "";
-}
-
-double Person::getAge() {
-    return age;
 }
 
 void Person::setAge(double age) {
     this->age = age;
 }
 
-double Person::getHeight() {
-    return height;
-}
-
 void Person::setHeight(double h) {
     this->height = h;
-}
-
-double Person::getWeight() {
-    return weight;
 }
 
 void Person::setWeight(double m) {
     this->weight = m;
 }
 
-double Person::calcHatSize(double h, double m) {
-    return m/h*41.25*3.14;
+void Person::setGender(std::string gender) {
+    this->gender = gender;
 }
 
-double Person::calcJacketSize(double h, double m, double age) {
-    double size = (h*m/335);
-    if (age > 30) {
-        int diff = age - 30;
+std::string Person::getName() const {
+    return name;
+}
+
+double Person::getAge() {
+    return age;
+}
+
+double Person::getHeight() {
+    return height;
+}
+
+double Person::getWeight() {
+    return weight;
+}
+
+std::string Person::getGender() {
+    return gender;
+}
+
+double Person::calcHatSize() {
+    return getWeight()/getHeight()*41.25*3.14;
+}
+
+double Person::calcJacketSize() {
+    double size = (getHeight()*getWeight()/335);
+    if (getAge() > 30) {
+        double diff = getAge() - 30;
         size += diff/10 * 1/8;
     }
     return size;
 }
 
-double Person::calcWaistSize(double m) {
-    double size = (m/2.6);
-    if (age > 28) {
-        int diff = age - 28;
+double Person::calcWaistSize() {
+    double size = (getWeight()/2.6);
+    if (getAge() > 28) {
+        double diff = getAge() - 28;
         size += diff/2 * 1/10;
     }
     return size;
+}
+
+double Person::BMR() {
+    if (getGender() == "M") {
+        return (10*getWeight()) + (6.25 * getHeight() - (5 * getAge()) + 5);
+    } else {
+        return (10*getWeight()) + (6.25 * getHeight() - (5 * getAge()) - 161);
+    }
 }

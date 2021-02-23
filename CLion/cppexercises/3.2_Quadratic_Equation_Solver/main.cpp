@@ -3,7 +3,7 @@
 #include "./QuadraticFormula.h"
 
 int main() {
-    double a,b,c;
+    double a, b, c;
 
     while (true) {
         std::cout << "Please enter your variable values for 2nd degree equation" << std::endl;
