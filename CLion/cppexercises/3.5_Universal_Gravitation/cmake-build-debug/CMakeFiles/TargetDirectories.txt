@@ -1,0 +1,3 @@
+D:/Documents/GitHub/CPP-Learning/CLion/cppexercises/3.5_Universal_Gravitation/cmake-build-debug/CMakeFiles/3_5_Universal_Gravitation.dir
+D:/Documents/GitHub/CPP-Learning/CLion/cppexercises/3.5_Universal_Gravitation/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/Documents/GitHub/CPP-Learning/CLion/cppexercises/3.5_Universal_Gravitation/cmake-build-debug/CMakeFiles/rebuild_cache.dir

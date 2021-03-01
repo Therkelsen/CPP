@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+D:/Documents/GitHub/CPP-Learning/CLion/cppexercises/3.5_Universal_Gravitation/Mass.h
+cmath
+-
+
+D:/Documents/GitHub/CPP-Learning/CLion/cppexercises/3.5_Universal_Gravitation/main.cpp
+iostream
+-
+Mass.h
+D:/Documents/GitHub/CPP-Learning/CLion/cppexercises/3.5_Universal_Gravitation/Mass.h
+iostream
+-
+cmath
+-
+
