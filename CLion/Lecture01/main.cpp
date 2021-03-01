@@ -1,8 +1,22 @@
 
 #include <iostream>
 #include <ctime>
+#include <iomanip>
 #include "./Date.h"
 #include "./Person.h"
+
+using namespace std;
+
+void printOptions(){
+    cout << "\nWelcome to the clothing size calculator" << endl;
+    cout << "Press 2 to enter your details" << endl;
+    cout << "Press 3 to get your basic info" << endl;
+    cout << "Press 4 to get your clothing sizes" << endl;
+    cout << "Press 5 to get your BMR" << endl;
+    cout << "Press 6 to exit the program" << endl;
+}
+
+string sep = "  |  ";
 
 int main() {
 
@@ -12,40 +26,35 @@ int main() {
     Person p1;
     Date d1 = Date();
 
-    std::string state = "1";
+    string state = "1";
 
-    std::cout << "==============================" << std::endl;
+    cout << "==============================" << endl;
 
-    while (std::stol(state) < 6) {
-        switch (std::stol(state)) {
+    while (stol(state) < 6) {
+        switch (stol(state)) {
             case 1: {
-                std::cout << "\nWelcome to the clothing size calculator" << std::endl;
-                std::cout << "Press 2 to enter your details" << std::endl;
-                std::cout << "Press 3 to get your basic info" << std::endl;
-                std::cout << "Press 4 to get your clothing sizes" << std::endl;
-                std::cout << "Press 5 to get your BMR" << std::endl;
-                std::cout << "Press 6 to exit the program" << std::endl;
-                getline(std::cin, state);
+                printOptions();
+                getline(cin, state);
                 break;
             }
             case 2: {
-                std::string x;
+                string x;
 
-                std::cout << "\nWhat is your name?" << std::endl;
-                getline(std::cin, x);
+                /*cout << "\nWhat is your name?" << endl;
+                getline(cin, x);
                 p1.setName(x);
 
-                std::cout << "What is your birth year? (YYYY)" << std::endl;
-                getline(std::cin, x);
-                d1.setYear(std::stol(x));
+                cout << "What is your birth year? (YYYY)" << endl;
+                getline(cin, x);
+                d1.setYear(stol(x));
 
-                std::cout << "What is your birth month? (MM)" << std::endl;
-                getline(std::cin, x);
-                d1.setMonth(std::stol(x));
+                cout << "What is your birth month? (MM)" << endl;
+                getline(cin, x);
+                d1.setMonth(stol(x));
 
-                std::cout << "What is your birth day? (DD)" << std::endl;
-                getline(std::cin, x);
-                d1.setDay(std::stol(x));
+                cout << "What is your birth day? (DD)" << endl;
+                getline(cin, x);
+                d1.setDay(stol(x));
 
                 p1.setAge((timePtr->tm_year + 1900 - d1.getYear()) - 1);
 
@@ -54,83 +63,96 @@ int main() {
                         p1.setAge(p1.getAge() + 1);
                     }
                 }
-                std::string y;
-                std::cout << "What is your height? (In centimeters)" << std::endl;
-                getline(std::cin, y);
-                p1.setHeight(std::stol(y));
+                string y;
+                cout << "What is your height? (In centimeters)" << endl;
+                getline(cin, y);
+                p1.setHeight(stol(y));
 
-                std::cout << "What is your weight? (In kilograms)" << std::endl;
-                getline(std::cin, y);
-                p1.setWeight(std::stol(y));
+                cout << "What is your weight? (In kilograms)" << endl;
+                getline(cin, y);
+                p1.setWeight(stol(y));
 
-                std::cout << "What is your gender? (Note, only M or F are valid inputs)" << std::endl;
-                getline(std::cin, y);
+                cout << "What is your gender? (Note, only M or F are valid inputs)" << endl;
+                getline(cin, y);
                 if (y == "M" || y == "F") {
                     p1.setGender(y);
+                } else if (y == "m") {
+                    p1.setGender("M");
+                } else if (y == "f") {
+                    p1.setGender("F");
                 } else {
-                    std::cout << "\nYou dumbass, I specifically told you ONLY \"M\" and \"F\" are valid inputs!" << std::endl;
-                    std::cout << "Press 2 to enter your details" << std::endl;
-                    std::cout << "Press 3 to get your basic info" << std::endl;
-                    std::cout << "Press 4 to get your clothing sizes" << std::endl;
-                    std::cout << "Press 5 to get your BMR" << std::endl;
-                    std::cout << "Press 6 to exit the program" << std::endl;
-                    getline(std::cin, state);
+                    cout << "\nYou dumbass, I specifically told you ONLY \"M\" and \"F\" are valid inputs!" << endl;
+                    printOptions();
+                    getline(cin, state);
                     break;
-                }
+                }*/
 
-                std::cout << "\nWelcome to the clothing size calculator" << std::endl;
-                std::cout << "Press 2 to enter your details" << std::endl;
-                std::cout << "Press 3 to get your basic info" << std::endl;
-                std::cout << "Press 4 to get your clothing sizes" << std::endl;
-                std::cout << "Press 5 to get your BMR" << std::endl;
-                std::cout << "Press 6 to exit the program" << std::endl;
-                getline(std::cin, state);
+                cout << "How active were you today?"                                                                                << endl;
+                cout << "Press the number that corresponds\nto the activities you did today."                                       << endl;
+                cout << "Hit 0 when you are done entering your\ninfo or weren't active today\n"                                     << endl;
+                cout <<               p1.text[0][0]  << sep << setw(4) << p1.text[0][1]  << sep <<                p1.text[0][2]  << endl;
+                cout << setw(6) << p1.text[1][0]  << sep << setw(4) << p1.text[1][1]  << sep << setw(31) << p1.text[1][2]  << endl;
+                cout << setw(6) << p1.text[2][0]  << sep << setw(4) << p1.text[2][1]  << sep << setw(31) << p1.text[2][2]  << endl;
+                cout << setw(6) << p1.text[3][0]  << sep << setw(4) << p1.text[3][1]  << sep << setw(32) << p1.text[3][2]  << endl;
+                cout << setw(6) << p1.text[4][0]  << sep << setw(4) << p1.text[4][1]  << sep << setw(7)  << p1.text[4][2]  << endl;
+                cout << setw(6) << p1.text[5][0]  << sep << setw(4) << p1.text[5][1]  << sep << setw(26) << p1.text[5][2]  << endl;
+                cout << setw(6) << p1.text[6][0]  << sep << setw(4) << p1.text[6][1]  << sep << setw(58) << p1.text[6][2]  << endl;
+                cout << setw(6) << p1.text[7][0]  << sep << setw(4) << p1.text[7][1]  << sep << setw(37) << p1.text[7][2]  << endl;
+                cout << setw(6) << p1.text[8][0]  << sep << setw(4) << p1.text[8][1]  << sep << setw(46) << p1.text[8][2]  << endl;
+                cout << setw(6) << p1.text[9][0]  << sep << setw(4) << p1.text[9][1]  << sep << setw(51) << p1.text[9][2]  << endl;
+                cout << setw(6) << p1.text[10][0] << sep <<               p1.text[10][1] << sep << setw(23) << p1.text[10][2] << endl;
+                cout << setw(6) << p1.text[11][0] << sep <<               p1.text[11][1] << sep << setw(24) << p1.text[11][2] << endl;
+                string input;
+                double METs {0};
+                while (input != "COMPLETELY DONE TAKING INPUTS FOR METS") {
+                    getline(cin, input);
+                    if (stoi(input) == 0) {
+                        p1.addMETs(METs);
+                        p1.caloriesBurnt(p1.getMETs(), p1.getWeight());
+                        input = "COMPLETELY DONE TAKING INPUTS FOR METS";
+                        break;
+                    } else {
+                        METs += stoi(input);
+                        input = "";
+                    }
+                }
+                printOptions();
+                getline(cin, state);
                 break;
             }
 
             case 3: {
-                std::cout << "\nName: " << p1.getName() << std::endl;
-                std::cout << "Birthday: " << d1.getBirthday() << std::endl;
-                std::cout << "Age: " << p1.getAge() << std::endl;
-                std::cout << "Height: " << p1.getHeight() << std::endl;
-                std::cout << "Weight: " << p1.getWeight() << std::endl;
 
-                std::cout << "\nWelcome to the clothing size calculator" << std::endl;
-                std::cout << "Press 2 to enter your details" << std::endl;
-                std::cout << "Press 3 to get your basic info" << std::endl;
-                std::cout << "Press 4 to get your clothing sizes" << std::endl;
-                std::cout << "Press 5 to get your BMR" << std::endl;
-                std::cout << "Press 6 to exit the program" << std::endl;
-                getline(std::cin, state);
                 break;
             }
 
             case 4: {
-                std::cout << "\nClothes: " << std::endl;
-                std::cout << "Hat size: " << p1.calcHatSize() << std::endl;
-                std::cout << "Jacket size: " << p1.calcJacketSize() << std::endl;
+                cout << "\nName: " << p1.getName() << endl;
+                cout << "Birthday: " << d1.getBirthday() << endl;
+                cout << "Age: " << p1.getAge() << endl;
+                cout << "Height: " << p1.getHeight() << endl;
+                cout << "Weight: " << p1.getWeight() << endl;
 
-                std::cout << "\nWelcome to the clothing size calculator" << std::endl;
-                std::cout << "Press 2 to enter your details" << std::endl;
-                std::cout << "Press 3 to get your basic info" << std::endl;
-                std::cout << "Press 4 to get your clothing sizes" << std::endl;
-                std::cout << "Press 5 to get your BMR" << std::endl;
-                std::cout << "Press 6 to exit the program" << std::endl;
-                getline(std::cin, state);
+                printOptions();
+                getline(cin, state);
                 break;
             }
 
             case 5: {
-                std::cout << "\nYour Basal Metabolic Rate is: " << std::endl;
-                std::cout << p1.BMR() << std::endl;
+                cout << "\nClothes: " << endl;
+                cout << "Hat size: " << p1.calcHatSize() << endl;
+                cout << "Jacket size: " << p1.calcJacketSize() << endl;
 
-                std::cout << "\nWelcome to the clothing size calculator" << std::endl;
-                std::cout << "Press 2 to enter your details" << std::endl;
-                std::cout << "Press 3 to get your basic info" << std::endl;
-                std::cout << "Press 4 to get your clothing sizes" << std::endl;
-                std::cout << "Press 5 to get your BMR" << std::endl;
-                std::cout << "Press 6 to exit the program" << std::endl;
-                getline(std::cin, state);
+                printOptions();
+                getline(cin, state);
+            }
+
+            case 6: {
+                cout << "\nYour Basal Metabolic Rate is: " << endl;
+                cout << p1.BMR() << endl;
+
+                printOptions();
+                getline(cin, state);
                 break;
             }
 
@@ -141,6 +163,6 @@ int main() {
 
     }
 
-    std::cout << "Exiting program" << std::endl;
+    cout << "Exiting program" << endl;
     return 0;
 }

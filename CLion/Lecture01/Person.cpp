@@ -77,3 +77,17 @@ double Person::BMR() {
         return (10*getWeight()) + (6.25 * getHeight() - (5 * getAge()) - 161);
     }
 }
+
+void Person::addMETs(double METs) {
+    this->METs += METs;
+}
+
+double Person::getMETs() {
+    return METs;
+}
+
+
+
+double Person::caloriesBurnt(double MET, double m, double t) {
+    return MET * m * t;
+}
