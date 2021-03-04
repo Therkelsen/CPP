@@ -2,7 +2,7 @@
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
-      <config projectName="3_5_Universal_Gravitation" targetName="3_5_Universal_Gravitation" />
+      <config projectName="9_1_Laaneberegning" targetName="9_1_Laaneberegning" />
     </generated>
   </component>
   <component name="CMakeSettings">
@@ -11,7 +11,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="256f7ef9-8a81-4990-8b5a-f4e152c746a8" name="Default Changelist" comment="" />
+    <list default="true" id="c1e0f79e-dbe5-4a5e-ac0b-ffef88dd0e3a" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -24,7 +24,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
   </component>
-  <component name="ProjectId" id="1p9afeUxSHcCgUevcjSQ7M0Vc8t" />
+  <component name="ProjectId" id="1pITGGmM4LLQrsHAJqgCQZdL2WJ" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -41,9 +41,15 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RunManager">
-    <configuration name="3_5_Universal_Gravitation" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="3_5_Universal_Gravitation" TARGET_NAME="3_5_Universal_Gravitation" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="3_5_Universal_Gravitation" RUN_TARGET_NAME="3_5_Universal_Gravitation">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="9_1_Laaneberegning" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="9_1_Laaneberegning" TARGET_NAME="9_1_Laaneberegning" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="9_1_Laaneberegning" RUN_TARGET_NAME="9_1_Laaneberegning">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -57,13 +63,12 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="256f7ef9-8a81-4990-8b5a-f4e152c746a8" name="Default Changelist" comment="" />
-      <created>1614597864400</created>
+      <changelist id="c1e0f79e-dbe5-4a5e-ac0b-ffef88dd0e3a" name="Default Changelist" comment="" />
+      <created>1614869506561</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1614597864400</updated>
-      <workItem from="1614597865877" duration="4274000" />
-      <workItem from="1614869363712" duration="142000" />
+      <updated>1614869506561</updated>
+      <workItem from="1614869508010" duration="5579000" />
     </task>
     <servers />
   </component>
@@ -80,6 +85,5 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
