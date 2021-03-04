@@ -57,7 +57,13 @@ double Loan::totalInterest() const {
     double total;
     double tempDebt = getDebt();
     for (int i {0}; i < getYears()*getPaymentsPerYear(); i++) {
-        total += getDebt()*getInterestPerPayment();
+        total += tempDebt*getInterestPerPayment();
+        //Gæld = Gæld - Afdrag
+        //Afdrag = Ydelse - Rente
+        //Rente = Gæld * Terminsrente
+        //Gæld = Gæld - Ydelse - Gæld * Terminsrente
+        tempDebt -= getGrant() - tempDebt * getInterestPerPayment();
+        std::cout << "Total: " << total << std::endl;
     }
     return total;
 };
