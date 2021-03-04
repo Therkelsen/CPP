@@ -13,36 +13,36 @@ Loan::Loan (double debt, int years, int paymentsPerYear, double interestRate) {
     _paymentsPerYear = paymentsPerYear;
     _interestRate = interestRate;
     _interestPerPayment = interestRate/paymentsPerYear;
-};
+}
 
 // Returns the number of years the loan lasts
 int Loan::getYears () const {
     return _years;
-};
+}
 
 // Amount of payments per year
 int Loan::getPaymentsPerYear() const {
     return _paymentsPerYear;
-};
+}
 void Loan::setPaymentsPerYear(int paymentsPerYear) {
     _paymentsPerYear = paymentsPerYear;
-};
+}
 
 // Debt
 double Loan::getDebt() const {
     return _debt;
-};
+}
 void Loan::setDebt(double debt) {
     _debt = debt;
-};
+}
 
 // Interest
 double Loan::getInterestRate() const {
     return _interestRate;
-};
+}
 void Loan::setInterestRate(double rate) {
     _interestRate = rate;
-};
+}
 
 double Loan::getInterestPerPayment() const {
     return _interestPerPayment;
@@ -65,19 +65,19 @@ double Loan::totalInterest() const {
         tempDebt -= getGrant() - tempDebt * getInterestPerPayment();
     }
     return total;
-};
+}
 
 // Calculate the total repayment of a loan including the interests,
 double Loan::totalPayment() const {
     return getGrant() * getPaymentsPerYear() * getYears();
-};
+}
 
 // Calculate the total net interest of a loan after tax refund
 double Loan::totalInterestTaxDeducted (double taxDeductionRate) const {
-
-};
+    return 0;
+}
 
 // Output the periodical payments with unpaid balance, paid interest and repayment of each payment to stream object ost
 void Loan::outputPeriodicalPayments (std::ostream & ost) const {
 
-};
+}
