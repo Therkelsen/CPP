@@ -54,7 +54,7 @@ double Loan::getGrant() const{
 
 // Calculate the total interest of a loan for all the years
 double Loan::totalInterest() const {
-    double total;
+    double total {0};
     double tempDebt = getDebt();
     for (int i {0}; i < getYears()*getPaymentsPerYear(); i++) {
         total += tempDebt*getInterestPerPayment();
@@ -63,14 +63,13 @@ double Loan::totalInterest() const {
         //Rente = Gæld * Terminsrente
         //Gæld = Gæld - Ydelse - Gæld * Terminsrente
         tempDebt -= getGrant() - tempDebt * getInterestPerPayment();
-        std::cout << "Total: " << total << std::endl;
     }
     return total;
 };
 
 // Calculate the total repayment of a loan including the interests,
 double Loan::totalPayment() const {
-
+    return getGrant() * getPaymentsPerYear() * getYears();
 };
 
 // Calculate the total net interest of a loan after tax refund
