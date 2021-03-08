@@ -17,7 +17,7 @@ private:
 public:
     Loan();
 
-    Loan (double debt , int years , int paymentsPerYear , double interestRate );
+    Loan (double debt, int years, int paymentsPerYear, double interestRate);
 
     // Returns the number of years the loan lasts
     int getYears () const;
@@ -50,6 +50,7 @@ public:
 
     double getInterestPerPayment() const;
 
+    int totalPayments() const;
 };
 
 
