@@ -80,12 +80,10 @@ double Loan::totalPayment() const {
 
 // Calculate the total net interest of a loan after tax refund
 double Loan::totalInterestTaxDeducted (double taxDeductionRate) const {
-    double interest_Returned = totalInterest() * taxDeductionRate;
-
-    if (taxDeductionRate >= 1) {
-        return totalInterest();
+    if (taxDeductionRate > 1) {
+        return totalInterest() * taxDeductionRate / 100;
     }
-    return interest_Returned;
+    return totalInterest() * taxDeductionRate;
 }
 
 // Output the periodical payments with unpaid balance, paid interest and repayment of each payment to stream object ost
@@ -99,13 +97,13 @@ void Loan::outputPeriodicalPayments (std::ostream & ost) const {
         periodicalPayments[2][i] = getGrant() - periodicalPayments[1][i];
         periodicalPayments[3][i] = tempDebt;
     }
-    ost << "Termin" << std::setw(11) << "Ydelse" << std::setw(11) << "Rente" << std::setw(11);
-    ost << "Afdrag" << std::setw(11) << "Restg\x91ld" << std::endl;
+    ost << "Termin" << std::setw(15) << "Ydelse" << std::setw(15) << "Rente" << std::setw(15);
+    ost << "Afdrag" << std::setw(15) << "Restg\x91ld" << std::endl;
 
     for (int i {0}; i < totalPayments(); i++) {
         ost << std::fixed << std::setprecision(2) << std::setw(6) << (i + 1) << " ";
         for (int j {0}; j < 4; j++) {
-            ost << std::setw(10) << periodicalPayments[j][i] << " ";
+            ost << std::setw(10) << std::abs(periodicalPayments[j][i]) << " DKK ";
         }
         ost << std::endl;
     }

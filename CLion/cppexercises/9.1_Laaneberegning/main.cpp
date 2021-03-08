@@ -6,24 +6,32 @@ using namespace std;
 
 int main() {
 
-    double taxDeductionRate;
+    double taxDeductionRate, debt, interestRate;
+    int years, paymentsPerYear;
 
-    Loan l1(1000000, 15, 4, 0.03);
+    cout << "Velkommen til l\x86neberegner beregner 3000 bum bum maskinen" << endl;
+    cout << "Start lige med, at indtaste dit l\x86ns hovedstol" << endl;
+    cin >> debt;
 
-    cout << "Please enter your municipality tax deduction rate in decimal: "    << endl;
+    cout << "Skriv s\x86 renten p\x86 l\x86net" << endl;
+    cin >> interestRate;
+    if (interestRate > 1) {
+        interestRate /= 100;
+    }
+
+    cout << "S\x86 skal jeg vide l\x9B" << "betiden p\x86 dit l\x86n, i \x86r" << endl;
+    cin >> years;
+
+    cout << "Jeg skal ogs\x86 have antal terminer pr. \x86r, p\x86 dit l\x86n" << endl;
+    cin >> paymentsPerYear;
+
+    cout << "Til sidst indtaster du din kommunale skattefradragssats"    << endl;
     cin  >> taxDeductionRate;
+
+    Loan l1(debt, years, paymentsPerYear, interestRate);
+
     l1.outputPeriodicalPayments(std::cout);
-    /*
-    cout << fixed << setprecision(2);
-    cout << "Grant:            "                << l1.getGrant()                                    << " DKK"   << endl;
-    cout << "Years:            "                << l1.getYears()                                                << endl;
-    cout << "Payments/year:    "                << l1.getPaymentsPerYear()                                      << endl;
-    cout << "Interest rate:    "                << l1.getInterestRate()                             << " %"     << endl;
-    cout << "Debt:             "                << l1.getDebt()                                     << " DKK"   << endl;
-    cout << "Interest/payment: "                << l1.getInterestPerPayment()                       << " %"     << endl;
-    cout << "Total interest:   "                << l1.totalInterest()                               << " DKK"   << endl;
-    cout << "Total payment:    "                << l1.totalPayment()                                << " DKK"   << endl;
-    cout << "Total interested tax deducted: "   << l1.totalInterestTaxDeducted(taxDeductionRate)                << endl;*/
+    cout << "\nSum af rentefradag: " << l1.totalInterestTaxDeducted(taxDeductionRate) << " DKK";
 
     return 0;
 }
