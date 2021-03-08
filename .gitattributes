@@ -2,3 +2,4 @@
 *.c linguist-vendored=false
 *.cmake linguist-vendored=false
 *.make linguist-vendored=false
+*.xml linguist-vendored=false
