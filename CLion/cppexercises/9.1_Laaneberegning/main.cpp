@@ -25,7 +25,7 @@ int main() {
     cout << "Jeg skal ogs\x86 have antal terminer pr. \x86r, p\x86 dit l\x86n" << endl;
     cin >> paymentsPerYear;
 
-    cout << "Til sidst indtaster du din kommunale skattefradragssats"    << endl;
+    cout << "Til sidst indtaster du din kommunale skattefradragssats" << endl;
     cin  >> taxDeductionRate;
 
     Loan l1(debt, years, paymentsPerYear, interestRate);

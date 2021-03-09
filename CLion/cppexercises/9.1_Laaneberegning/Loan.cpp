@@ -6,6 +6,7 @@
 #include <cmath>
 #include <iostream>
 #include <iomanip>
+#include <string>
 
 Loan::Loan() = default;
 
@@ -20,6 +21,10 @@ Loan::Loan (double debt, int years, int paymentsPerYear, double interestRate) {
 // Returns the number of years the loan lasts
 int Loan::getYears () const {
     return _years;
+}
+
+void Loan::setYears(int years) {
+    _years = years;
 }
 
 // Amount of payments per year
@@ -62,7 +67,7 @@ double Loan::getGrant() const{
 double Loan::totalInterest() const {
     double total {0};
     double tempDebt = getDebt();
-    for (int i {0}; i < totalPayments(); i++) {
+    for (unsigned int i {0}; i < totalPayments(); i++) {
         total += tempDebt*getInterestPerPayment();
         //Gæld = Gæld - Afdrag
         //Afdrag = Ydelse - Rente
@@ -88,23 +93,42 @@ double Loan::totalInterestTaxDeducted (double taxDeductionRate) const {
 
 // Output the periodical payments with unpaid balance, paid interest and repayment of each payment to stream object ost
 void Loan::outputPeriodicalPayments (std::ostream & ost) const {
-    double periodicalPayments[4][totalPayments()];
-    double tempDebt = getDebt();
-    for (int i {0}; i < totalPayments(); i++) {
-        periodicalPayments[0][i] = getGrant();
-        periodicalPayments[1][i] = (tempDebt * getInterestPerPayment());
-        tempDebt -= getGrant() - tempDebt * getInterestPerPayment();
-        periodicalPayments[2][i] = getGrant() - periodicalPayments[1][i];
-        periodicalPayments[3][i] = tempDebt;
-    }
-    ost << "Termin" << std::setw(15) << "Ydelse" << std::setw(15) << "Rente" << std::setw(15);
-    ost << "Afdrag" << std::setw(15) << "Restg\x91ld" << std::endl;
+    double interest [totalPayments()];
+    double payment  [totalPayments()];
+    double debt     [totalPayments()];
 
-    for (int i {0}; i < totalPayments(); i++) {
-        ost << std::fixed << std::setprecision(2) << std::setw(6) << (i + 1) << " ";
-        for (int j {0}; j < 4; j++) {
-            ost << std::setw(10) << std::abs(periodicalPayments[j][i]) << " DKK ";
-        }
+    *(interest + 0) = getDebt() * getInterestPerPayment();
+    *(payment + 0)  = getGrant() - *(interest + 0);
+    *(debt + 0)     = getDebt();
+
+    ost << "Termin" << std::setw(19) << "Ydelse" << std::setw(20) << "Rente" << std::setw(20);
+    ost << "Afdrag" << std::setw(20) << "Restg\x91ld" << std::endl;
+
+    for (unsigned int i {1}; i <= totalPayments(); i++) {
+        *(interest + i) = *(debt + i - 1) * getInterestPerPayment();
+        *(payment + i)  = getGrant() - *(interest + i);
+        *(debt + i)     = *(debt + i - 1) - *(payment + i);
+        ost << std::fixed << std::setprecision(2) << std::setw(6) << i << " ";
+        ost << std::setw(14) << bankersRounding(getGrant()) << " DKK ";
+        ost << std::setw(15) << bankersRounding(*(interest + i)) << " DKK ";
+        ost << std::setw(15) << bankersRounding(*(payment + i))  << " DKK ";
+        ost << std::setw(15) << std::abs(bankersRounding(*(debt + i))) << " DKK ";
         ost << std::endl;
+    }
+}
+
+double Loan::bankersRounding(double x) const {
+    std::string xString = std::to_string(x);
+    char delim = '.';
+    char secondDigit = xString.at(xString.find(delim) + 2);
+    char thirdDigit = xString.at(xString.find(delim) + 3);
+
+    if ((((int)thirdDigit == 5 && (int)secondDigit % 2 != 0) || (int)thirdDigit > 5) && x > 0.1) {
+        xString.erase((xString.find(delim) + 3), xString.length()*10);
+        x = std::stod(xString);
+        return x += 0.01;
+    } else {
+        xString.erase((xString.find(delim) + 3), xString.length()*10);
+        return std::stod(xString);
     }
 }

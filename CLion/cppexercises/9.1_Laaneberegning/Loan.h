@@ -21,6 +21,7 @@ public:
 
     // Returns the number of years the loan lasts
     int getYears () const;
+    void setYears(int years);
 
     // Amount of payments per year
     int getPaymentsPerYear() const;
@@ -51,6 +52,8 @@ public:
     double getInterestPerPayment() const;
 
     int totalPayments() const;
+
+    double bankersRounding(double x) const;
 };
 
 
