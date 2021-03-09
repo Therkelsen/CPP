@@ -65,12 +65,12 @@ double Loan::getInterestPerPayment() const {
 
 // Returns total amount of payments
 int Loan::amountOfPayments() const {
-    return getYears()*getPaymentsPerYear();
+    return getYears() * getPaymentsPerYear();
 }
 
 // Returns the grant
 double Loan::getGrant() const{
-    return getDebt()*(getInterestPerPayment()/(1-pow(1+getInterestPerPayment(),-(amountOfPayments()))));
+    return getDebt() * (getInterestPerPayment() / (1 - pow(1 + getInterestPerPayment(), - (amountOfPayments()))));
 }
 
 // Calculate the total interest of a loan for all the years
@@ -78,7 +78,7 @@ double Loan::totalInterest() const {
     double total {0};
     double tempDebt = getDebt();
     for (unsigned int i {0}; i < amountOfPayments(); i++) {
-        total += tempDebt*getInterestPerPayment();
+        total += tempDebt * getInterestPerPayment();
         //Gæld = Gæld - Afdrag
         //Afdrag = Ydelse - Rente
         //Rente = Gæld * Terminsrente
@@ -111,17 +111,20 @@ void Loan::outputPeriodicalPayments (std::ostream & ost) const {
     *(payment + 0)  = getGrant() - *(interest + 0);
     *(debt + 0)     = getDebt();
 
-    ost << "Termin" << std::setw(19) << "Ydelse" << std::setw(20) << "Rente" << std::setw(20);
-    ost << "Afdrag" << std::setw(20) << "Restg\x91ld" << std::endl;
+    ost << "Termin"         << std::setw(19);
+    ost << "Ydelse"         << std::setw(20);
+    ost << "Rente"          << std::setw(20);
+    ost << "Afdrag"         << std::setw(20);
+    ost << "Restg\x91ld"    << std::endl;
 
     for (unsigned int i {1}; i <= amountOfPayments(); i++) {
         *(interest + i) = *(debt + i - 1) * getInterestPerPayment();
         *(payment + i)  = getGrant() - *(interest + i);
         *(debt + i)     = *(debt + i - 1) - *(payment + i);
         ost << std::fixed << std::setprecision(2) << std::setw(6) << i << " ";
-        ost << std::setw(14) << bankersRounding(getGrant()) << " DKK ";
-        ost << std::setw(15) << bankersRounding(*(interest + i)) << " DKK ";
-        ost << std::setw(15) << bankersRounding(*(payment + i))  << " DKK ";
+        ost << std::setw(14) << bankersRounding(getGrant())         << " DKK ";
+        ost << std::setw(15) << bankersRounding(*(interest + i))    << " DKK ";
+        ost << std::setw(15) << bankersRounding(*(payment + i))     << " DKK ";
         ost << std::setw(15) << std::abs(bankersRounding(*(debt + i))) << " DKK ";
         ost << std::endl;
     }
@@ -149,17 +152,23 @@ void Loan::outputPeriodicalPayments (std::ostream & ost) const {
 }
 
 /* Uses bankers rounding, to round off a double, explained here:
-Bankers Rounding is an algorithm for rounding quantities to integers, in which numbers which are equidistant from the two nearest integers are rounded to the nearest even integer. Thus, 0.5 rounds down to 0; 1.5 rounds up to 2. A similar algorithm can be constructed for rounding to other sets besides the integers (in particular, sets which a constant interval between adjacent members).
-Other decimal fractions round as you would expect--0.4 to 0, 0.6 to 1, 1.4 to 1, 1.6 to 2, etc. Only x.5 numbers get the "special" treatment.
+Bankers Rounding is an algorithm for rounding quantities to integers,
+in which numbers which are equidistant from the two nearest integers
+are rounded to the nearest even integer. Thus, 0.5 rounds down to 0; 1.5
+rounds up to 2. A similar algorithm can be constructed for rounding to other
+sets besides the integers (in particular, sets which a constant interval between adjacent members).
+Other decimal fractions round as you would expect--0.4 to 0, 0.6 to 1, 1.4 to 1, 1.6 to 2, etc.
+Only x.5 numbers get the "special" treatment.
 So called because banks supposedly use it for certain computations.
-The supposed advantage to bankers rounding is that it is unbiased, and thus produces better results with various operations that involve rounding.
+The supposed advantage to bankers rounding is that it is unbiased, and thus produces
+better results with various operations that involve rounding.
 It should be noted that it is unbiased only in the limit. That is, an average of all errors approaches 0.0.
 */
 double Loan::bankersRounding(double x) {
     std::string xString = std::to_string(x);
     char delim = '.';
     char secondDigit = xString.at(xString.find(delim) + 2);
-    char thirdDigit = xString.at(xString.find(delim) + 3);
+    char thirdDigit  = xString.at(xString.find(delim) + 3);
 
     if ((((int)thirdDigit == 5 && (int)secondDigit % 2 != 0) || (int)thirdDigit > 5) && x > 0.1) {
         xString.erase((xString.find(delim) + 3), xString.length()*10);

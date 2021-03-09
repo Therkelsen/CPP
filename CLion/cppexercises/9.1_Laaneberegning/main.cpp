@@ -31,7 +31,7 @@ int main() {
     Loan l1(debt, years, paymentsPerYear, interestRate);
 
     l1.outputPeriodicalPayments(std::cout);
-    cout << "\nSum af rentefradag: " << l1.totalInterestTaxDeducted(taxDeductionRate) << " DKK";
+    cout << "\nSum af rentefradag: " << l1.totalInterestTaxDeducted(l1.bankersRounding(taxDeductionRate)) << " DKK";
 
     return 0;
 }
