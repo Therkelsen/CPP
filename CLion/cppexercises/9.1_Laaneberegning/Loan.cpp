@@ -8,9 +8,9 @@
 #include <iomanip>
 #include <string>
 
-Loan::Loan() = default;
+Loan::Loan() = default; // Default constructor
 
-Loan::Loan (double debt, int years, int paymentsPerYear, double interestRate) {
+Loan::Loan (double debt, int years, int paymentsPerYear, double interestRate) { // Main constructor
     _debt = debt;
     _years = years;
     _paymentsPerYear = paymentsPerYear;
@@ -23,6 +23,7 @@ int Loan::getYears () const {
     return _years;
 }
 
+// Sets years
 void Loan::setYears(int years) {
     _years = years;
 }
@@ -31,6 +32,8 @@ void Loan::setYears(int years) {
 int Loan::getPaymentsPerYear() const {
     return _paymentsPerYear;
 }
+
+// Sets payments per year
 void Loan::setPaymentsPerYear(int paymentsPerYear) {
     _paymentsPerYear = paymentsPerYear;
 }
@@ -39,35 +42,42 @@ void Loan::setPaymentsPerYear(int paymentsPerYear) {
 double Loan::getDebt() const {
     return _debt;
 }
+
+// Sets debt
 void Loan::setDebt(double debt) {
     _debt = debt;
 }
 
-// Interest
+// Returns interest
 double Loan::getInterestRate() const {
     return _interestRate;
 }
+
+// Sets interest
 void Loan::setInterestRate(double rate) {
     _interestRate = rate;
 }
 
+// Returns interest per payment
 double Loan::getInterestPerPayment() const {
     return _interestPerPayment;
 }
 
-int Loan::totalPayments() const {
+// Returns total amount of payments
+int Loan::amountOfPayments() const {
     return getYears()*getPaymentsPerYear();
 }
 
+// Returns the grant
 double Loan::getGrant() const{
-    return getDebt()*(getInterestPerPayment()/(1-pow(1+getInterestPerPayment(),-(totalPayments()))));
+    return getDebt()*(getInterestPerPayment()/(1-pow(1+getInterestPerPayment(),-(amountOfPayments()))));
 }
 
 // Calculate the total interest of a loan for all the years
 double Loan::totalInterest() const {
     double total {0};
     double tempDebt = getDebt();
-    for (unsigned int i {0}; i < totalPayments(); i++) {
+    for (unsigned int i {0}; i < amountOfPayments(); i++) {
         total += tempDebt*getInterestPerPayment();
         //Gæld = Gæld - Afdrag
         //Afdrag = Ydelse - Rente
@@ -80,7 +90,7 @@ double Loan::totalInterest() const {
 
 // Calculate the total repayment of a loan including the interests,
 double Loan::totalPayment() const {
-    return getGrant() * totalPayments();
+    return getGrant() * amountOfPayments();
 }
 
 // Calculate the total net interest of a loan after tax refund
@@ -93,9 +103,9 @@ double Loan::totalInterestTaxDeducted (double taxDeductionRate) const {
 
 // Output the periodical payments with unpaid balance, paid interest and repayment of each payment to stream object ost
 void Loan::outputPeriodicalPayments (std::ostream & ost) const {
-    double interest [totalPayments()];
-    double payment  [totalPayments()];
-    double debt     [totalPayments()];
+    double interest [amountOfPayments()];
+    double payment  [amountOfPayments()];
+    double debt     [amountOfPayments()];
 
     *(interest + 0) = getDebt() * getInterestPerPayment();
     *(payment + 0)  = getGrant() - *(interest + 0);
@@ -104,7 +114,7 @@ void Loan::outputPeriodicalPayments (std::ostream & ost) const {
     ost << "Termin" << std::setw(19) << "Ydelse" << std::setw(20) << "Rente" << std::setw(20);
     ost << "Afdrag" << std::setw(20) << "Restg\x91ld" << std::endl;
 
-    for (unsigned int i {1}; i <= totalPayments(); i++) {
+    for (unsigned int i {1}; i <= amountOfPayments(); i++) {
         *(interest + i) = *(debt + i - 1) * getInterestPerPayment();
         *(payment + i)  = getGrant() - *(interest + i);
         *(debt + i)     = *(debt + i - 1) - *(payment + i);
@@ -115,9 +125,37 @@ void Loan::outputPeriodicalPayments (std::ostream & ost) const {
         ost << std::setw(15) << std::abs(bankersRounding(*(debt + i))) << " DKK ";
         ost << std::endl;
     }
+
+    /* Another way to solve it, without pointers:
+    double periodicalPayments[4][amountOfPayments()];
+    double tempDebt = getDebt();
+    for (int i {0}; i < amountOfPayments(); i++) {
+        periodicalPayments[0][i] = getGrant();
+        periodicalPayments[1][i] = (tempDebt * getInterestPerPayment());
+        tempDebt -= getGrant() - tempDebt * getInterestPerPayment();
+        periodicalPayments[2][i] = getGrant() - periodicalPayments[1][i];
+        periodicalPayments[3][i] = tempDebt;
+    }
+    ost << "Termin" << std::setw(15) << "Ydelse" << std::setw(15) << "Rente" << std::setw(15);
+    ost << "Afdrag" << std::setw(15) << "Restg\x91ld" << std::endl;
+
+    for (int i {0}; i < amountOfPayments(); i++) {
+        ost << std::fixed << std::setprecision(2) << std::setw(6) << (i + 1) << " ";
+        for (int j {0}; j < 4; j++) {
+            ost << std::setw(10) << std::abs(periodicalPayments[j][i]) << " DKK ";
+        }
+
+    */
 }
 
-double Loan::bankersRounding(double x) const {
+/* Uses bankers rounding, to round off a double, explained here:
+Bankers Rounding is an algorithm for rounding quantities to integers, in which numbers which are equidistant from the two nearest integers are rounded to the nearest even integer. Thus, 0.5 rounds down to 0; 1.5 rounds up to 2. A similar algorithm can be constructed for rounding to other sets besides the integers (in particular, sets which a constant interval between adjacent members).
+Other decimal fractions round as you would expect--0.4 to 0, 0.6 to 1, 1.4 to 1, 1.6 to 2, etc. Only x.5 numbers get the "special" treatment.
+So called because banks supposedly use it for certain computations.
+The supposed advantage to bankers rounding is that it is unbiased, and thus produces better results with various operations that involve rounding.
+It should be noted that it is unbiased only in the limit. That is, an average of all errors approaches 0.0.
+*/
+double Loan::bankersRounding(double x) {
     std::string xString = std::to_string(x);
     char delim = '.';
     char secondDigit = xString.at(xString.find(delim) + 2);

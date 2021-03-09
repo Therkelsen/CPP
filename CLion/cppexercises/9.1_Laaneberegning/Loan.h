@@ -51,9 +51,9 @@ public:
 
     double getInterestPerPayment() const;
 
-    int totalPayments() const;
+    int amountOfPayments() const;
 
-    double bankersRounding(double x) const;
+    static double bankersRounding(double x) ;
 };
 
 
