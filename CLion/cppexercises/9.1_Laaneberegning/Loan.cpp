@@ -116,16 +116,17 @@ void Loan::outputPeriodicalPayments (std::ostream & ost) const {
     ost << "Rente"          << std::setw(20);
     ost << "Afdrag"         << std::setw(20);
     ost << "Restg\x91ld"    << std::endl;
+    ost << std::fixed << std::setprecision(2);
 
     for (unsigned int i {1}; i <= amountOfPayments(); i++) {
         *(interest + i) = *(debt + i - 1) * getInterestPerPayment();
         *(payment + i)  = getGrant() - *(interest + i);
         *(debt + i)     = *(debt + i - 1) - *(payment + i);
-        ost << std::fixed << std::setprecision(2) << std::setw(6) << i << " ";
+        ost << std::setw(6) << i << " ";
         ost << std::setw(14) << bankersRounding(getGrant())         << " DKK ";
         ost << std::setw(15) << bankersRounding(*(interest + i))    << " DKK ";
         ost << std::setw(15) << bankersRounding(*(payment + i))     << " DKK ";
-        ost << std::setw(15) << std::abs(bankersRounding(*(debt + i))) << " DKK ";
+        ost << std::setw(15) << std::abs(bankersRounding(*(debt + i)))      << " DKK ";
         ost << std::endl;
     }
 
@@ -151,7 +152,8 @@ void Loan::outputPeriodicalPayments (std::ostream & ost) const {
     */
 }
 
-/* Uses bankers rounding, to round off a double, explained here:
+/*
+Uses bankers rounding, to round off a double, explained here:
 Bankers Rounding is an algorithm for rounding quantities to integers,
 in which numbers which are equidistant from the two nearest integers
 are rounded to the nearest even integer. Thus, 0.5 rounds down to 0; 1.5
@@ -165,7 +167,9 @@ better results with various operations that involve rounding.
 It should be noted that it is unbiased only in the limit. That is, an average of all errors approaches 0.0.
 */
 double Loan::bankersRounding(double x) {
-    std::string xString = std::to_string(x);
+    return nearbyint(x * 100) / 100;
+
+    /*std::string xString = std::to_string(x);
     char delim = '.';
     char secondDigit = xString.at(xString.find(delim) + 2);
     char thirdDigit  = xString.at(xString.find(delim) + 3);
@@ -177,5 +181,5 @@ double Loan::bankersRounding(double x) {
     } else {
         xString.erase((xString.find(delim) + 3), xString.length()*10);
         return std::stod(xString);
-    }
+    }*/
 }
