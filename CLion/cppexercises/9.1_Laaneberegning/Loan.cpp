@@ -16,6 +16,7 @@ Loan::Loan (double debt, int years, int paymentsPerYear, double interestRate) { 
     _paymentsPerYear = paymentsPerYear;
     _interestRate = interestRate;
     _interestPerPayment = interestRate/paymentsPerYear;
+
 }
 
 // Returns the number of years the loan lasts
@@ -69,8 +70,16 @@ int Loan::amountOfPayments() const {
 }
 
 // Returns the grant
-double Loan::getGrant() const{
+double Loan::getGrant() const {
     return getDebt() * (getInterestPerPayment() / (1 - pow(1 + getInterestPerPayment(), - (amountOfPayments()))));
+}
+
+void Loan::setTaxDeductionRate(double taxDeductionRate) {
+    _taxDeductionRate = taxDeductionRate;
+}
+
+double Loan::getTaxDeductionRate() const {
+    return _taxDeductionRate;
 }
 
 // Calculate the total interest of a loan for all the years
@@ -130,7 +139,9 @@ void Loan::outputPeriodicalPayments (std::ostream & ost) const {
         ost << std::endl;
     }
 
-    /* Another way to solve it, without pointers:
+    ost << "\nSum af rentefradag: " << totalInterestTaxDeducted(bankersRounding(getTaxDeductionRate())) << " DKK";
+
+    /*Another way to solve it, without pointers:
     double periodicalPayments[4][amountOfPayments()];
     double tempDebt = getDebt();
     for (int i {0}; i < amountOfPayments(); i++) {
@@ -149,7 +160,7 @@ void Loan::outputPeriodicalPayments (std::ostream & ost) const {
             ost << std::setw(10) << std::abs(periodicalPayments[j][i]) << " DKK ";
         }
 
-    */
+*/
 }
 
 /*

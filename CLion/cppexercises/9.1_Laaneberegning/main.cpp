@@ -1,3 +1,5 @@
+
+
 #include <iostream>
 #include "Loan.h"
 #include <iomanip>
@@ -30,8 +32,8 @@ int main() {
 
     Loan l1(debt, years, paymentsPerYear, interestRate);
 
+    l1.setTaxDeductionRate(taxDeductionRate);
     l1.outputPeriodicalPayments(std::cout);
-    cout << "\nSum af rentefradag: " << l1.totalInterestTaxDeducted(l1.bankersRounding(taxDeductionRate)) << " DKK";
 
     return 0;
 }

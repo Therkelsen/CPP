@@ -14,11 +14,13 @@
     <list default="true" id="c1e0f79e-dbe5-4a5e-ac0b-ffef88dd0e3a" name="Default Changelist" comment="Some cleaning up of code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Loan.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Loan.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Loan.h" beforeDir="false" afterPath="$PROJECT_DIR$/Loan.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/9_1_Laaneberegning.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/9_1_Laaneberegning.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/9_1_Laaneberegning.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/9_1_Laaneberegning.dir/CXX.includecache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/9_1_Laaneberegning.dir/Loan.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/9_1_Laaneberegning.dir/Loan.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/9_1_Laaneberegning.dir/main.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/9_1_Laaneberegning.dir/main.cpp.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/9_1_Laaneberegning.dir/objects.a" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/9_1_Laaneberegning.dir/objects.a" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +90,14 @@
       <workItem from="1615297377682" duration="711000" />
       <workItem from="1615367460824" duration="98000" />
       <workItem from="1615368781261" duration="2673000" />
-      <workItem from="1615372394615" duration="2389000" />
+      <workItem from="1615372394615" duration="3410000" />
+      <workItem from="1615383086356" duration="446000" />
+      <workItem from="1615384413767" duration="604000" />
+      <workItem from="1615462624980" duration="3069000" />
+      <workItem from="1615558001422" duration="6254000" />
+      <workItem from="1615593691338" duration="38000" />
+      <workItem from="1615834725255" duration="895000" />
+      <workItem from="1615893460286" duration="14000" />
     </task>
     <task id="LOCAL-00001" summary="Some cleaning up of code">
       <created>1615298034063</created>

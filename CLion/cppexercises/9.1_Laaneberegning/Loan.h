@@ -11,7 +11,7 @@
 class Loan {
 
 private:
-    double _debt{}, _interestRate{}, _interestPerPayment{};
+    double _debt{}, _interestRate{}, _interestPerPayment{}, _taxDeductionRate{};
     int _years{}, _paymentsPerYear{};
 
 public:
@@ -42,6 +42,10 @@ public:
 
     // Calculate the total repayment of a loan including the interests,
     double totalPayment() const;
+
+    void setTaxDeductionRate(double taxDeductionRate);
+
+    double getTaxDeductionRate() const;
 
     // Calculate the total net interest of a loan after tax refund
     double totalInterestTaxDeducted (double taxDeductionRate) const;
