@@ -67,24 +67,13 @@ RM = "D:\Programs\Software\JetBrains\CLion 2020.3.2\bin\cmake\win\bin\cmake.exe"
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = D:\Documents\GitHub\CPP-Learning\CLion\cppexercises\9.1_Laaneberegning
+CMAKE_SOURCE_DIR = D:\Documents\GitHub\CPP-Learning\CLion\cppexercises\18.1_template_ArrayList
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = D:\Documents\GitHub\CPP-Learning\CLion\cppexercises\9.1_Laaneberegning\cmake-build-debug
+CMAKE_BINARY_DIR = D:\Documents\GitHub\CPP-Learning\CLion\cppexercises\18.1_template_ArrayList\cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
-
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	"D:\Programs\Software\JetBrains\CLion 2020.3.2\bin\cmake\win\bin\cmake.exe" -E echo "No interactive CMake dialog available."
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
 
 # Special rule for the target rebuild_cache
 rebuild_cache:
@@ -97,11 +86,22 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	"D:\Programs\Software\JetBrains\CLion 2020.3.2\bin\cmake\win\bin\cmake.exe" -E echo "No interactive CMake dialog available."
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
+
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\Documents\GitHub\CPP-Learning\CLion\cppexercises\9.1_Laaneberegning\cmake-build-debug\CMakeFiles D:\Documents\GitHub\CPP-Learning\CLion\cppexercises\9.1_Laaneberegning\cmake-build-debug\CMakeFiles\progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\Documents\GitHub\CPP-Learning\CLion\cppexercises\18.1_template_ArrayList\cmake-build-debug\CMakeFiles D:\Documents\GitHub\CPP-Learning\CLion\cppexercises\18.1_template_ArrayList\cmake-build-debug\CMakeFiles\progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\Documents\GitHub\CPP-Learning\CLion\cppexercises\9.1_Laaneberegning\cmake-build-debug\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\Documents\GitHub\CPP-Learning\CLion\cppexercises\18.1_template_ArrayList\cmake-build-debug\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -130,44 +130,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named 9_1_Laaneberegning
+# Target rules for targets named 18_1_template_ArrayList
 
 # Build rule for target.
-9_1_Laaneberegning: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 9_1_Laaneberegning
-.PHONY : 9_1_Laaneberegning
+18_1_template_ArrayList: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 18_1_template_ArrayList
+.PHONY : 18_1_template_ArrayList
 
 # fast build rule for target.
-9_1_Laaneberegning/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\9_1_Laaneberegning.dir\build.make CMakeFiles/9_1_Laaneberegning.dir/build
-.PHONY : 9_1_Laaneberegning/fast
-
-Loan.obj: Loan.cpp.obj
-
-.PHONY : Loan.obj
-
-# target to build an object file
-Loan.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\9_1_Laaneberegning.dir\build.make CMakeFiles/9_1_Laaneberegning.dir/Loan.cpp.obj
-.PHONY : Loan.cpp.obj
-
-Loan.i: Loan.cpp.i
-
-.PHONY : Loan.i
-
-# target to preprocess a source file
-Loan.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\9_1_Laaneberegning.dir\build.make CMakeFiles/9_1_Laaneberegning.dir/Loan.cpp.i
-.PHONY : Loan.cpp.i
-
-Loan.s: Loan.cpp.s
-
-.PHONY : Loan.s
-
-# target to generate assembly for a file
-Loan.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\9_1_Laaneberegning.dir\build.make CMakeFiles/9_1_Laaneberegning.dir/Loan.cpp.s
-.PHONY : Loan.cpp.s
+18_1_template_ArrayList/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\18_1_template_ArrayList.dir\build.make CMakeFiles/18_1_template_ArrayList.dir/build
+.PHONY : 18_1_template_ArrayList/fast
 
 main.obj: main.cpp.obj
 
@@ -175,7 +148,7 @@ main.obj: main.cpp.obj
 
 # target to build an object file
 main.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\9_1_Laaneberegning.dir\build.make CMakeFiles/9_1_Laaneberegning.dir/main.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\18_1_template_ArrayList.dir\build.make CMakeFiles/18_1_template_ArrayList.dir/main.cpp.obj
 .PHONY : main.cpp.obj
 
 main.i: main.cpp.i
@@ -184,7 +157,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\9_1_Laaneberegning.dir\build.make CMakeFiles/9_1_Laaneberegning.dir/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\18_1_template_ArrayList.dir\build.make CMakeFiles/18_1_template_ArrayList.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -193,7 +166,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\9_1_Laaneberegning.dir\build.make CMakeFiles/9_1_Laaneberegning.dir/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\18_1_template_ArrayList.dir\build.make CMakeFiles/18_1_template_ArrayList.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 # Help Target
@@ -204,10 +177,7 @@ help:
 	@echo ... depend
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... 9_1_Laaneberegning
-	@echo ... Loan.obj
-	@echo ... Loan.i
-	@echo ... Loan.s
+	@echo ... 18_1_template_ArrayList
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
