@@ -7,7 +7,6 @@
 
 #include <iostream>
 
-
 template <typename T>
 class ArrayList
 {
@@ -17,10 +16,8 @@ public:
     //Copy constructor
     ArrayList(ArrayList<T>& c);
 
-
     //move constructor
     ArrayList(ArrayList<T>&& c);
-
 
     //constructor with initialization of
     // "initialized elements
@@ -30,7 +27,6 @@ public:
 
     //Copy assignment operator
     ArrayList<T>& operator=(const ArrayList<T>& a);
-
 
     //move assignment operator
     ArrayList<T>& operator=(ArrayList<T>&& a);
@@ -69,7 +65,6 @@ private:
     T* mElems;
 };
 
-
 template<typename T>
 ArrayList<T>::ArrayList(){
     mElems = new T[1];
@@ -77,13 +72,12 @@ ArrayList<T>::ArrayList(){
     mReserved = 1;
 }
 
-/*
 template<typename T>
 ArrayList<T>::ArrayList(int initialized){
-
+    mElems = new T[initialized];
+    mSize = 0;
+    mReserved = initialized;
 }
-*/
-
 
 //copy-constructor
 template<typename T>
@@ -97,28 +91,22 @@ ArrayList<T>::ArrayList(ArrayList<T>& c){
     }
 }
 
-
-
 //move constructor
 template<typename T>
 ArrayList<T>::ArrayList(ArrayList<T>&& c){
-    mElems = std::move(c.mElems);
-    mSize = std::move(c.mSize);
-    mReserved = std::move(c.mReserved);
+    mElems = c.mElems;
+    mSize = c.mSize;
+    mReserved = c.mReserved;
 
-    for(int i = 0; i < c.mSize; i++){
-        mElems[i] = std::move(c.mElems[i]);
-    }
+    c.mElems = nullptr;
+    c.mReserved = 0;
+    c.mSize = 0;
 }
-
-
 
 template<typename T>
 ArrayList<T>::~ArrayList(){
     delete[] mElems;
 }
-
-
 
 template<typename T>
 ArrayList<T>& ArrayList<T>::operator=(const ArrayList<T>& a){
@@ -136,13 +124,15 @@ ArrayList<T>& ArrayList<T>::operator=(const ArrayList<T>& a){
 
 template<typename T>
 ArrayList<T>& ArrayList<T>::operator=(ArrayList<T>&& a){
-    mElems = std::move(a.mElems);
-    mSize = std::move(a.mSize);
-    mReserved = std::move(a.mReserved);
+    delete[] mElems;
+    mElems = a.mElems;
+    mSize = a.mSize;
+    mReserved = a.mReserved;
 
-    for(int i = 0; i < a.mSize; i++){
-        mElems[i] = std::move(a.mElems[i]);
-    }
+    a.mElems = nullptr;
+    a.mReserved = 0;
+    a.mSize = 0;
+
     return *this;
 }
 
@@ -158,9 +148,9 @@ void ArrayList<T>::extendStorage(){
     for(int i = 0; i < mSize; i++){
         mElems[i] = arr[i];
     }
+    delete[] arr;
     mReserved *= 2;
 }
-
 
 template<typename T>
 void ArrayList<T>::add(const T& element){
@@ -178,10 +168,10 @@ void ArrayList<T>::add(int idx, const T& element){
         extendStorage();
     }
 
-    for (int i = idx; i < mSize-2; i++){
-        auto temp = mElems[i+1];
-        mElems[i+1] = mElems[i];
-        mElems[i+2] = temp;
+    T value;
+    mElems[mSize] = value;
+    for (int i = mSize; i > idx; i--){
+        mElems[i] = mElems[i - 1];
     }
     mElems[idx] = element;
     mSize++;
@@ -200,13 +190,9 @@ T& ArrayList<T>::operator[](int idx){
 
 template<typename T>
 void ArrayList<T>::remove(int idx){
-
-    for (int i = mSize + 2; i > idx; i--){
-        auto temp = mElems[i-1];
-        mElems[i-1] = mElems[i];
-        mElems[i-2] = temp;
+    for (int i = idx; i < mSize; i++){
+        mElems[i] = mElems[i + 1];
     }
-    //  mElems[mSize] = nullptr;
     mSize--;
 }
 
@@ -247,7 +233,7 @@ void ArrayList<T>::trimToSize(){
     for(int i = 0; i < mSize; i++){
         mElems[i] = arr[i];
     }
-
+    delete[] arr;
     mReserved = mSize;
 }
 

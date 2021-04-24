@@ -8,26 +8,23 @@ int main() {
         array.add(i*1.1) ;
     }
 
-
     array.add(4, -5);
+
     array.remove(1);
 
     for (int i = 0; i < array.size(); ++i) {
         std::cout << array[i] << ", ";
     }
-/*
+
     std::cout << "\b\b " << std::endl << std::endl;
 
-
-
-    std::cout << " ArrayList have reserved space for " << array.reserved()
+    std::cout << "ArrayList have reserved space for " << array.reserved()
     << " elements and stores " << array.size() << "elements ." << std::endl;
 
     array.trimToSize();
 
     std::cout << "ArrayList is now trimmed and have reserved space for " << array . reserved ()
     << " elements and stores " << array.size() << " elements ." << std::endl << std::endl;
-
 
     ArrayList<double> subArray = array.subArrayList(1, 10);
 
@@ -100,6 +97,6 @@ int main() {
         std::cout << subArray3[i] << ", ";
     }
     std::cout << "\b\b " << std::endl << std::endl;
-    */
+
     return 0;
 }
