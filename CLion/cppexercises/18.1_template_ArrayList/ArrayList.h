@@ -7,17 +7,16 @@
 
 #include <iostream>
 
-template <typename T>
-class ArrayList
-{
+template<typename T>
+class ArrayList {
 public:
     ArrayList();
 
     //Copy constructor
-    ArrayList(ArrayList<T>& c);
+    ArrayList(ArrayList<T> &c);
 
     //move constructor
-    ArrayList(ArrayList<T>&& c);
+    ArrayList(ArrayList<T> &&c);
 
     //constructor with initialization of
     // "initialized elements
@@ -26,19 +25,19 @@ public:
     virtual ~ArrayList();
 
     //Copy assignment operator
-    ArrayList<T>& operator=(const ArrayList<T>& a);
+    ArrayList<T> &operator=(const ArrayList<T> &a);
 
     //move assignment operator
-    ArrayList<T>& operator=(ArrayList<T>&& a);
+    ArrayList<T> &operator=(ArrayList<T> &&a);
 
     //Add element to dynamic array
-    void add(const T& element);
+    void add(const T &element);
 
-    void add(int idx, const T& element);
+    void add(int idx, const T &element);
 
-    const T& operator [](int idx) const;
+    const T &operator[](int idx) const;
 
-    T& operator[](int idx);
+    T &operator[](int idx);
 
     void remove(int idx);
 
@@ -54,7 +53,7 @@ public:
 
     ArrayList<T> subArrayList(int fromIdx, int toIdx) const;
 
-    T* toArray();
+    T *toArray();
 
 
 private:
@@ -62,38 +61,40 @@ private:
 
     int mReserved;
     int mSize;
-    T* mElems;
+    T *mElems;
 };
 
+//  Default constructor
 template<typename T>
-ArrayList<T>::ArrayList(){
+ArrayList<T>::ArrayList() {
     mElems = new T[1];
     mSize = 0;
     mReserved = 1;
 }
 
+//  Constructor med given størrelse
 template<typename T>
-ArrayList<T>::ArrayList(int initialized){
+ArrayList<T>::ArrayList(int initialized) {
     mElems = new T[initialized];
     mSize = 0;
     mReserved = initialized;
 }
 
-//copy-constructor
+//  Copy-constructor
 template<typename T>
-ArrayList<T>::ArrayList(ArrayList<T>& c){
+ArrayList<T>::ArrayList(ArrayList<T> &c) {
     mElems = new T[c.mReserved];
     mSize = c.mSize;
     mReserved = c.mReserved;
 
-    for(int i = 0; i < c.mSize; i++){
+    for (int i = 0; i < c.mSize; i++) {
         mElems[i] = c.mElems[i];
     }
 }
 
-//move constructor
+//  Move constructor
 template<typename T>
-ArrayList<T>::ArrayList(ArrayList<T>&& c){
+ArrayList<T>::ArrayList(ArrayList<T> &&c) {
     mElems = c.mElems;
     mSize = c.mSize;
     mReserved = c.mReserved;
@@ -103,27 +104,29 @@ ArrayList<T>::ArrayList(ArrayList<T>&& c){
     c.mSize = 0;
 }
 
+//  Destructor
 template<typename T>
-ArrayList<T>::~ArrayList(){
+ArrayList<T>::~ArrayList() {
     delete[] mElems;
 }
 
+//  Copy assignment operator (arr1 = arr2;)
 template<typename T>
-ArrayList<T>& ArrayList<T>::operator=(const ArrayList<T>& a){
+ArrayList<T> &ArrayList<T>::operator=(const ArrayList<T> &a) {
     delete[] mElems;
     mElems = new T[a.mReserved];
     mSize = a.mSize;
     mReserved = a.mReserved;
 
-    for(int i = 0; i < a.mSize; i++){
+    for (int i = 0; i < a.mSize; i++) {
         mElems[i] = a.mElems[i];
     }
     return *this;
 }
 
-
+//  Move assignment operator (arr1 = std::move(arr2);)
 template<typename T>
-ArrayList<T>& ArrayList<T>::operator=(ArrayList<T>&& a){
+ArrayList<T> &ArrayList<T>::operator=(ArrayList<T> &&a) {
     delete[] mElems;
     mElems = a.mElems;
     mSize = a.mSize;
@@ -136,113 +139,117 @@ ArrayList<T>& ArrayList<T>::operator=(ArrayList<T>&& a){
     return *this;
 }
 
-
+//  Fordobler størrelsen af arrayet
 template<typename T>
-void ArrayList<T>::extendStorage(){
-    T* arr = new T[mReserved*2];
-    for(int i = 0; i < mSize; i++){
+void ArrayList<T>::extendStorage() {
+    T *arr = new T[mReserved * 2];
+    for (int i = 0; i < mSize; i++) {
         arr[i] = mElems[i];
     }
-    delete [] mElems;
-    mElems = new T[mReserved*2];
-    for(int i = 0; i < mSize; i++){
+    delete[] mElems;
+    mElems = new T[mReserved * 2];
+    for (int i = 0; i < mSize; i++) {
         mElems[i] = arr[i];
     }
     delete[] arr;
     mReserved *= 2;
 }
 
+//  Tilføjer et nyt givent element i arrayet
 template<typename T>
-void ArrayList<T>::add(const T& element){
-    if(mSize == mReserved){
+void ArrayList<T>::add(const T &element) {
+    if (mSize == mReserved) {
         extendStorage();
     }
     mElems[mSize] = element;
     mSize++;
 }
 
-
+//  Tilføjer et nyt element på idx plads i array,
+//  og rykker resten af elementerne én plads frem
 template<typename T>
-void ArrayList<T>::add(int idx, const T& element){
-    if(mSize == mReserved){
+void ArrayList<T>::add(int idx, const T &element) {
+    if (mSize == mReserved) {
         extendStorage();
     }
 
     T value;
     mElems[mSize] = value;
-    for (int i = mSize; i > idx; i--){
+    for (int i = mSize; i > idx; i--) {
         mElems[i] = mElems[i - 1];
     }
     mElems[idx] = element;
     mSize++;
 }
 
+//  Firkant parentes operator
 template<typename T>
-const T& ArrayList<T>::operator[](int idx) const{
+const T &ArrayList<T>::operator[](int idx) const {
     return mElems[idx];
 }
 
+//  Const firkant parentes operator
 template<typename T>
-T& ArrayList<T>::operator[](int idx){
+T &ArrayList<T>::operator[](int idx) {
     return mElems[idx];
 }
 
-
+//  Fjerner et element fra idx plads og rykker resten én tand
 template<typename T>
-void ArrayList<T>::remove(int idx){
-    for (int i = idx; i < mSize; i++){
+void ArrayList<T>::remove(int idx) {
+    for (int i = idx; i < mSize; i++) {
         mElems[i] = mElems[i + 1];
     }
     mSize--;
 }
 
-
-template <typename T>
-int ArrayList<T>::size() const{
+//  Returnerer størrelsen af arrayet
+template<typename T>
+int ArrayList<T>::size() const {
     return mSize;
 }
 
-
-template <typename T>
-int ArrayList<T>::reserved() const{
+//  Returnerer mængden af reserverede pladser i arrayet
+template<typename T>
+int ArrayList<T>::reserved() const {
     return mReserved;
 }
 
-
-
-template <typename T>
-bool ArrayList<T>::isEmpty() const{
-    if(mSize > 0){
+//  Tjekker om arrayet er tomt
+template<typename T>
+bool ArrayList<T>::isEmpty() const {
+    if (mSize > 0) {
         return false;
-    }else{
+    } else {
         return true;
     }
 }
 
+//  Trimmer størrelsen på arrayet ned til minimum størrelse
+template<typename T>
+void ArrayList<T>::trimToSize() {
+    T *arr = new T[mSize];
 
-template <typename T>
-void ArrayList<T>::trimToSize(){
-    T* arr = new T[mSize];
-
-    for(int i = 0; i < mSize; i++){
+    for (int i = 0; i < mSize; i++) {
         arr[i] = mElems[i];
     }
     delete[] mElems;
     mElems = new T[mSize];
 
-    for(int i = 0; i < mSize; i++){
+    for (int i = 0; i < mSize; i++) {
         mElems[i] = arr[i];
     }
     delete[] arr;
     mReserved = mSize;
 }
 
-template <typename T>
-void ArrayList<T>::sort(){
+//  Sorterer arrayet med en insertion sort
+template<typename T>
+void ArrayList<T>::sort() {
 
-    for (int i = 0; i < mSize - 1; i++){
-        for(int j = i + 1; j < mSize; j++){
-            if(mElems[i] > mElems[j]){
+    for (int i = 0; i < mSize - 1; i++) {
+        for (int j = i + 1; j < mSize; j++) {
+            if (mElems[i] > mElems[j]) {
                 auto temp = mElems[j];
                 mElems[j] = mElems[i];
                 mElems[i] = temp;
@@ -251,28 +258,25 @@ void ArrayList<T>::sort(){
     }
 }
 
-
-//Vi antager at det er fra og med formIdx og til og med toIdx
-template <typename T>
-ArrayList<T> ArrayList<T>::subArrayList(int fromIdx, int toIdx) const{
+//  Danner et nyt array fra fromIdx til og med toIdx
+template<typename T>
+ArrayList<T> ArrayList<T>::subArrayList(int fromIdx, int toIdx) const {
     ArrayList<T> a1;
-    for(int i = fromIdx; i <= toIdx; i++){
+    for (int i = fromIdx; i <= toIdx; i++) {
         a1.add(mElems[i]);
     }
     return a1;
 }
 
-// Arrayet mister sin "reserved" - egenskab og bliver fyldt helt ud med
-// tal.
-template <typename T>
-T* ArrayList<T>::toArray(){
-    T* arr = new T[mSize];
-    for(int i = 0; i < mSize; i++){
+//  Konverterer til C style array
+template<typename T>
+T *ArrayList<T>::toArray() {
+    T *arr = new T[mSize];
+    for (int i = 0; i < mSize; i++) {
         arr[i] = mElems[i];
     }
 
     return arr;
 }
-
 
 #endif //INC_18_1_TEMPLATE_ARRAYLIST_ARRAYLIST_H
