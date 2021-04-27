@@ -98,5 +98,14 @@ int main() {
     }
     std::cout << "\b\b " << std::endl << std::endl;
 
+    // Ekstra kode til at teste sortering af array
+
+    subArray3.sort();
+    std::cout << " subArray3 sorted = ";
+    for (int i = 0; i < subArray3.size(); ++i) {
+        std::cout << subArray3[i] << ", ";
+    }
+    std::cout << "\b\b " << std::endl << std::endl;
+
     return 0;
 }

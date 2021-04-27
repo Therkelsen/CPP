@@ -64,7 +64,7 @@ private:
     T *mElems;
 };
 
-//  Default constructor
+//  Default constructor som laver et array med plads til ét element
 template<typename T>
 ArrayList<T>::ArrayList() {
     mElems = new T[1];
@@ -72,7 +72,7 @@ ArrayList<T>::ArrayList() {
     mReserved = 1;
 }
 
-//  Constructor med given størrelse
+//  Constructor som laver et array med plads med en given størrelse (initialized)
 template<typename T>
 ArrayList<T>::ArrayList(int initialized) {
     mElems = new T[initialized];
@@ -80,7 +80,7 @@ ArrayList<T>::ArrayList(int initialized) {
     mReserved = initialized;
 }
 
-//  Copy-constructor
+//  Copy-constructor som kopierer den reference man får som parameter, ind i et nyt array
 template<typename T>
 ArrayList<T>::ArrayList(ArrayList<T> &c) {
     mElems = new T[c.mReserved];
@@ -92,7 +92,7 @@ ArrayList<T>::ArrayList(ArrayList<T> &c) {
     }
 }
 
-//  Move constructor
+//  Move constructor som flytter den reference man får som parameter, ind i et nyt array
 template<typename T>
 ArrayList<T>::ArrayList(ArrayList<T> &&c) {
     mElems = c.mElems;
@@ -104,13 +104,13 @@ ArrayList<T>::ArrayList(ArrayList<T> &&c) {
     c.mSize = 0;
 }
 
-//  Destructor
+//  Destructor som bare sletter arrayet
 template<typename T>
 ArrayList<T>::~ArrayList() {
     delete[] mElems;
 }
 
-//  Copy assignment operator (arr1 = arr2;)
+//  Copy assignment operator (arr1 = arr2;) som kopierer alle elementer fra referencen til et nyt array
 template<typename T>
 ArrayList<T> &ArrayList<T>::operator=(const ArrayList<T> &a) {
     delete[] mElems;
@@ -124,7 +124,7 @@ ArrayList<T> &ArrayList<T>::operator=(const ArrayList<T> &a) {
     return *this;
 }
 
-//  Move assignment operator (arr1 = std::move(arr2);)
+//  Move assignment operator (arr1 = std::move(arr2);) som flytter alle elementer fra referencen til et nyt array
 template<typename T>
 ArrayList<T> &ArrayList<T>::operator=(ArrayList<T> &&a) {
     delete[] mElems;
@@ -139,7 +139,7 @@ ArrayList<T> &ArrayList<T>::operator=(ArrayList<T> &&a) {
     return *this;
 }
 
-//  Fordobler størrelsen af arrayet
+//  Laver et nyt array med dobbelt størrelse af originalen
 template<typename T>
 void ArrayList<T>::extendStorage() {
     T *arr = new T[mReserved * 2];
@@ -182,13 +182,13 @@ void ArrayList<T>::add(int idx, const T &element) {
     mSize++;
 }
 
-//  Firkant parentes operator
+//  Firkant parentes operator som returnerer et const element på en given plads i arrayet
 template<typename T>
 const T &ArrayList<T>::operator[](int idx) const {
     return mElems[idx];
 }
 
-//  Const firkant parentes operator
+//  Firkant parentes operator som returnerer et element på en given plads i arrayet
 template<typename T>
 T &ArrayList<T>::operator[](int idx) {
     return mElems[idx];
@@ -225,7 +225,8 @@ bool ArrayList<T>::isEmpty() const {
     }
 }
 
-//  Trimmer størrelsen på arrayet ned til minimum størrelse
+//  Trimmer størrelsen på arrayet ned til minimum størrelse ved
+//  at lave et nyt array med størrelsen af det gamle arrays mSize
 template<typename T>
 void ArrayList<T>::trimToSize() {
     T *arr = new T[mSize];
@@ -243,7 +244,7 @@ void ArrayList<T>::trimToSize() {
     mReserved = mSize;
 }
 
-//  Sorterer arrayet med en insertion sort
+//  Sorterer arrayet med en bubble sort
 template<typename T>
 void ArrayList<T>::sort() {
 
@@ -268,7 +269,7 @@ ArrayList<T> ArrayList<T>::subArrayList(int fromIdx, int toIdx) const {
     return a1;
 }
 
-//  Konverterer til C style array
+//  Konverterer til C style array (helt normalt array)
 template<typename T>
 T *ArrayList<T>::toArray() {
     T *arr = new T[mSize];
