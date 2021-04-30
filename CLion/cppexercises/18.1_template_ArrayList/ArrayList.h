@@ -142,7 +142,7 @@ ArrayList<T> &ArrayList<T>::operator=(ArrayList<T> &&a) {
 //  Laver et nyt array med dobbelt størrelse af originalen
 template<typename T>
 void ArrayList<T>::extendStorage() {
-    T *arr = new T[mReserved * 2];
+    T *arr = new T[mSize];
     for (int i = 0; i < mSize; i++) {
         arr[i] = mElems[i];
     }
