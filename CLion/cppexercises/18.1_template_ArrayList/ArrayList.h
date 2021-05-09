@@ -75,17 +75,21 @@ ArrayList<T>::ArrayList() {
 //  Constructor som laver et array med plads med en given størrelse (initialized)
 template<typename T>
 ArrayList<T>::ArrayList(int initialized) {
-    mElems = new T[initialized];
-    mSize = 0;
-    mReserved = initialized;
+    if (initialized > 0) {
+        mElems      = new T[initialized];
+        mSize       = 0;
+        mReserved   = initialized;
+    } else {
+        throw std::invalid_argument("Size is not larger than 0");
+    }
 }
 
 //  Copy-constructor som kopierer den reference man får som parameter, ind i et nyt array
 template<typename T>
 ArrayList<T>::ArrayList(ArrayList<T> &c) {
-    mElems = new T[c.mReserved];
-    mSize = c.mSize;
-    mReserved = c.mReserved;
+    mElems      = new T[c.mReserved];
+    mSize       = c.mSize;
+    mReserved   = c.mReserved;
 
     for (int i = 0; i < c.mSize; i++) {
         mElems[i] = c.mElems[i];
@@ -95,46 +99,54 @@ ArrayList<T>::ArrayList(ArrayList<T> &c) {
 //  Move constructor som flytter den reference man får som parameter, ind i et nyt array
 template<typename T>
 ArrayList<T>::ArrayList(ArrayList<T> &&c) {
-    mElems = c.mElems;
-    mSize = c.mSize;
-    mReserved = c.mReserved;
+    mElems      = c.mElems;
+    mSize       = c.mSize;
+    mReserved   = c.mReserved;
 
-    c.mElems = nullptr;
+    c.mElems    = nullptr;
     c.mReserved = 0;
-    c.mSize = 0;
+    c.mSize     = 0;
 }
 
 //  Destructor som bare sletter arrayet
 template<typename T>
 ArrayList<T>::~ArrayList() {
-    delete[] mElems;
+    if (mSize > 0)
+        delete[] mElems;
 }
 
 //  Copy assignment operator (arr1 = arr2;) som kopierer alle elementer fra referencen til et nyt array
 template<typename T>
 ArrayList<T> &ArrayList<T>::operator=(const ArrayList<T> &a) {
-    delete[] mElems;
-    mElems = new T[a.mReserved];
+    if (mSize > 0)
+        delete[] mElems;
+
+    if (mReserved > 0)
+        mElems = new T[a.mReserved];
+
     mSize = a.mSize;
     mReserved = a.mReserved;
 
     for (int i = 0; i < a.mSize; i++) {
         mElems[i] = a.mElems[i];
     }
+
     return *this;
 }
 
 //  Move assignment operator (arr1 = std::move(arr2);) som flytter alle elementer fra referencen til et nyt array
 template<typename T>
 ArrayList<T> &ArrayList<T>::operator=(ArrayList<T> &&a) {
-    delete[] mElems;
-    mElems = a.mElems;
-    mSize = a.mSize;
-    mReserved = a.mReserved;
+    if (mSize > 0)
+        delete[] mElems;
 
-    a.mElems = nullptr;
+    mElems      = a.mElems;
+    mSize       = a.mSize;
+    mReserved   = a.mReserved;
+
+    a.mElems    = nullptr;
     a.mReserved = 0;
-    a.mSize = 0;
+    a.mSize     = 0;
 
     return *this;
 }
@@ -185,13 +197,19 @@ void ArrayList<T>::add(int idx, const T &element) {
 //  Firkant parentes operator som returnerer et const element på en given plads i arrayet
 template<typename T>
 const T &ArrayList<T>::operator[](int idx) const {
-    return mElems[idx];
+    if (idx < mSize) //
+        return mElems[idx];
+    else
+        throw std::invalid_argument("Index out of bounds");
 }
 
 //  Firkant parentes operator som returnerer et element på en given plads i arrayet
 template<typename T>
 T &ArrayList<T>::operator[](int idx) {
-    return mElems[idx];
+    if (idx < mSize) //
+        return mElems[idx];
+    else
+        throw std::invalid_argument("Index out of bounds");
 }
 
 //  Fjerner et element fra idx plads og rykker resten én tand
@@ -229,19 +247,21 @@ bool ArrayList<T>::isEmpty() const {
 //  at lave et nyt array med størrelsen af det gamle arrays mSize
 template<typename T>
 void ArrayList<T>::trimToSize() {
-    T *arr = new T[mSize];
+    if (mReserved > mSize) {
+        T *arr = new T[mSize];
 
-    for (int i = 0; i < mSize; i++) {
-        arr[i] = mElems[i];
-    }
-    delete[] mElems;
-    mElems = new T[mSize];
+        for (int i = 0; i < mSize; i++) {
+            arr[i] = mElems[i];
+        }
+        delete[] mElems;
+        mElems = new T[mSize];
 
-    for (int i = 0; i < mSize; i++) {
-        mElems[i] = arr[i];
+        for (int i = 0; i < mSize; i++) {
+            mElems[i] = arr[i];
+        }
+        delete[] arr;
+        mReserved = mSize;
     }
-    delete[] arr;
-    mReserved = mSize;
 }
 
 //  Sorterer arrayet med en bubble sort
