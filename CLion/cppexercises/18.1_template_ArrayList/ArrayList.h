@@ -67,9 +67,9 @@ private:
 //  Default constructor som laver et array med plads til ét element
 template<typename T>
 ArrayList<T>::ArrayList() {
-    mElems = new T[1];
-    mSize = 0;
-    mReserved = 1;
+    mElems      = new T[1];
+    mSize       = 0;
+    mReserved   = 1;
 }
 
 //  Constructor som laver et array med plads med en given størrelse (initialized)
@@ -87,25 +87,33 @@ ArrayList<T>::ArrayList(int initialized) {
 //  Copy-constructor som kopierer den reference man får som parameter, ind i et nyt array
 template<typename T>
 ArrayList<T>::ArrayList(ArrayList<T> &c) {
-    mElems      = new T[c.mReserved];
-    mSize       = c.mSize;
-    mReserved   = c.mReserved;
+    if (c.mReserved > 0) {
+        mElems      = new T[c.mReserved];
+        mSize       = c.mSize;
+        mReserved   = c.mReserved;
 
-    for (int i = 0; i < c.mSize; i++) {
-        mElems[i] = c.mElems[i];
+        for (int i = 0; i < c.mSize; i++) {
+            mElems[i] = c.mElems[i];
+        }
+    }  else {
+        throw std::invalid_argument("Reference size is not larger than 0");
     }
 }
 
 //  Move constructor som flytter den reference man får som parameter, ind i et nyt array
 template<typename T>
 ArrayList<T>::ArrayList(ArrayList<T> &&c) {
-    mElems      = c.mElems;
-    mSize       = c.mSize;
-    mReserved   = c.mReserved;
+    if (c.mReserved > 0) {
+        mElems      = c.mElems;
+        mSize       = c.mSize;
+        mReserved   = c.mReserved;
 
-    c.mElems    = nullptr;
-    c.mReserved = 0;
-    c.mSize     = 0;
+        c.mElems    = nullptr;
+        c.mReserved = 0;
+        c.mSize     = 0;
+    }  else {
+    throw std::invalid_argument("Reference size is not larger than 0");
+    }
 }
 
 //  Destructor som bare sletter arrayet
@@ -118,37 +126,44 @@ ArrayList<T>::~ArrayList() {
 //  Copy assignment operator (arr1 = arr2;) som kopierer alle elementer fra referencen til et nyt array
 template<typename T>
 ArrayList<T> &ArrayList<T>::operator=(const ArrayList<T> &a) {
-    if (mSize > 0)
-        delete[] mElems;
+    if (a.mReserved > 0) {
+        if (mSize > 0)
+            delete[] mElems;
 
-    if (mReserved > 0)
-        mElems = new T[a.mReserved];
+        mElems      = new T[a.mReserved];
 
-    mSize = a.mSize;
-    mReserved = a.mReserved;
+        mSize       = a.mSize;
+        mReserved   = a.mReserved;
 
-    for (int i = 0; i < a.mSize; i++) {
-        mElems[i] = a.mElems[i];
+        for (int i = 0; i < a.mSize; i++) {
+            mElems[i] = a.mElems[i];
+        }
+
+        return *this;
+    } else {
+        throw std::invalid_argument("Reference size is not larger than 0");
     }
-
-    return *this;
 }
 
 //  Move assignment operator (arr1 = std::move(arr2);) som flytter alle elementer fra referencen til et nyt array
 template<typename T>
 ArrayList<T> &ArrayList<T>::operator=(ArrayList<T> &&a) {
-    if (mSize > 0)
-        delete[] mElems;
+    if (a.mReserved > 0) {
+        if (mSize > 0)
+            delete[] mElems;
 
-    mElems      = a.mElems;
-    mSize       = a.mSize;
-    mReserved   = a.mReserved;
+        mElems      = a.mElems;
+        mSize       = a.mSize;
+        mReserved   = a.mReserved;
 
-    a.mElems    = nullptr;
-    a.mReserved = 0;
-    a.mSize     = 0;
+        a.mElems    = nullptr;
+        a.mReserved = 0;
+        a.mSize     = 0;
 
-    return *this;
+        return *this;
+    } else {
+        throw std::invalid_argument("Reference size is not larger than 0");
+    }
 }
 
 //  Laver et nyt array med dobbelt størrelse af originalen
@@ -181,23 +196,27 @@ void ArrayList<T>::add(const T &element) {
 //  og rykker resten af elementerne én plads frem
 template<typename T>
 void ArrayList<T>::add(int idx, const T &element) {
-    if (mSize == mReserved) {
-        extendStorage();
-    }
+    if (idx < mSize && idx > -1) {
+        if (mSize == mReserved) {
+            extendStorage();
+        }
 
-    T value;
-    mElems[mSize] = value;
-    for (int i = mSize; i > idx; i--) {
-        mElems[i] = mElems[i - 1];
+        T value;
+        mElems[mSize] = value;
+        for (int i = mSize; i > idx; i--) {
+            mElems[i] = mElems[i - 1];
+        }
+        mElems[idx] = element;
+        mSize++;
+    } else {
+        throw std::invalid_argument("Index out of bounds");
     }
-    mElems[idx] = element;
-    mSize++;
 }
 
 //  Firkant parentes operator som returnerer et const element på en given plads i arrayet
 template<typename T>
 const T &ArrayList<T>::operator[](int idx) const {
-    if (idx < mSize) //
+    if (idx < mSize && idx > -1)
         return mElems[idx];
     else
         throw std::invalid_argument("Index out of bounds");
@@ -206,7 +225,7 @@ const T &ArrayList<T>::operator[](int idx) const {
 //  Firkant parentes operator som returnerer et element på en given plads i arrayet
 template<typename T>
 T &ArrayList<T>::operator[](int idx) {
-    if (idx < mSize) //
+    if (idx < mSize && idx > -1) //
         return mElems[idx];
     else
         throw std::invalid_argument("Index out of bounds");
@@ -215,10 +234,14 @@ T &ArrayList<T>::operator[](int idx) {
 //  Fjerner et element fra idx plads og rykker resten én tand
 template<typename T>
 void ArrayList<T>::remove(int idx) {
-    for (int i = idx; i < mSize; i++) {
-        mElems[i] = mElems[i + 1];
+    if (idx < mSize && idx > -1) {
+        for (int i = idx; i < mSize; i++) {
+            mElems[i] = mElems[i + 1];
+        }
+        mSize--;
+    } else {
+        throw std::invalid_argument("Index out of bounds");
     }
-    mSize--;
 }
 
 //  Returnerer størrelsen af arrayet
@@ -236,11 +259,7 @@ int ArrayList<T>::reserved() const {
 //  Tjekker om arrayet er tomt
 template<typename T>
 bool ArrayList<T>::isEmpty() const {
-    if (mSize > 0) {
-        return false;
-    } else {
-        return true;
-    }
+    return (mSize > 0);
 }
 
 //  Trimmer størrelsen på arrayet ned til minimum størrelse ved
@@ -248,26 +267,23 @@ bool ArrayList<T>::isEmpty() const {
 template<typename T>
 void ArrayList<T>::trimToSize() {
     if (mReserved > mSize) {
-        T *arr = new T[mSize];
+        T* arr = new T[2*mReserved];
 
-        for (int i = 0; i < mSize; i++) {
+        for (int i = 0; i < mSize; ++i) {
             arr[i] = mElems[i];
         }
-        delete[] mElems;
-        mElems = new T[mSize];
 
-        for (int i = 0; i < mSize; i++) {
-            mElems[i] = arr[i];
-        }
+        mElems = arr;
+
         delete[] arr;
-        mReserved = mSize;
+
+        mReserved *= 2;
     }
 }
 
 //  Sorterer arrayet med en bubble sort
 template<typename T>
 void ArrayList<T>::sort() {
-
     for (int i = 0; i < mSize - 1; i++) {
         for (int j = i + 1; j < mSize; j++) {
             if (mElems[i] > mElems[j]) {
