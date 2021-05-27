@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+D:/Documents/GitHub/CPP-Learning/CLion/mockexams/010618_Part1/Box.h
+
+D:/Documents/GitHub/CPP-Learning/CLion/mockexams/010618_Part1/main.cpp
+iostream
+-
+Box.h
+D:/Documents/GitHub/CPP-Learning/CLion/mockexams/010618_Part1/Box.h
+
