@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+D:/Documents/GitHub/CPP-Learning/CLion/mockexams/170820/TimeAndMaterials.h
+string
+-
+
+D:/Documents/GitHub/CPP-Learning/CLion/mockexams/170820/TimeSheet.cpp
+ios
+-
+iomanip
+-
+TimeSheet.h
+D:/Documents/GitHub/CPP-Learning/CLion/mockexams/170820/TimeSheet.h
+
+D:/Documents/GitHub/CPP-Learning/CLion/mockexams/170820/TimeSheet.h
+TimeAndMaterials.h
+D:/Documents/GitHub/CPP-Learning/CLion/mockexams/170820/TimeAndMaterials.h
+vector
+-
+
