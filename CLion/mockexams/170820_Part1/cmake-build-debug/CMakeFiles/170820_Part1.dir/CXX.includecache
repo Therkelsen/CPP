@@ -1,0 +1,46 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+D:/Documents/GitHub/CPP-Learning/CLion/mockexams/170820_Part1/Materials.cpp
+Materials.h
+D:/Documents/GitHub/CPP-Learning/CLion/mockexams/170820_Part1/Materials.h
+
+D:/Documents/GitHub/CPP-Learning/CLion/mockexams/170820_Part1/Materials.h
+TimeAndMaterials.h
+D:/Documents/GitHub/CPP-Learning/CLion/mockexams/170820_Part1/TimeAndMaterials.h
+
+D:/Documents/GitHub/CPP-Learning/CLion/mockexams/170820_Part1/TimeAndMaterials.cpp
+ios
+-
+iomanip
+-
+TimeAndMaterials.h
+D:/Documents/GitHub/CPP-Learning/CLion/mockexams/170820_Part1/TimeAndMaterials.h
+
+D:/Documents/GitHub/CPP-Learning/CLion/mockexams/170820_Part1/TimeAndMaterials.h
+string
+-
+
+D:/Documents/GitHub/CPP-Learning/CLion/mockexams/170820_Part1/WorkHours.cpp
+WorkHours.h
+D:/Documents/GitHub/CPP-Learning/CLion/mockexams/170820_Part1/WorkHours.h
+
+D:/Documents/GitHub/CPP-Learning/CLion/mockexams/170820_Part1/WorkHours.h
+TimeAndMaterials.h
+D:/Documents/GitHub/CPP-Learning/CLion/mockexams/170820_Part1/TimeAndMaterials.h
+
+D:/Documents/GitHub/CPP-Learning/CLion/mockexams/170820_Part1/main.cpp
+iostream
+-
+iomanip
+-
+WorkHours.h
+D:/Documents/GitHub/CPP-Learning/CLion/mockexams/170820_Part1/WorkHours.h
+Materials.h
+D:/Documents/GitHub/CPP-Learning/CLion/mockexams/170820_Part1/Materials.h
+

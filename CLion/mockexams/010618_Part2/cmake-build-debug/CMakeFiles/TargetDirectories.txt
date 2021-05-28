@@ -1,0 +1,3 @@
+D:/Documents/GitHub/CPP-Learning/CLion/mockexams/010618_Part2/cmake-build-debug/CMakeFiles/010618_Part2.dir
+D:/Documents/GitHub/CPP-Learning/CLion/mockexams/010618_Part2/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/Documents/GitHub/CPP-Learning/CLion/mockexams/010618_Part2/cmake-build-debug/CMakeFiles/rebuild_cache.dir
