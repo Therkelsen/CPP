@@ -1,0 +1,1 @@
+/usr/bin/g++  -Os -DNDEBUG   CMakeFiles/Traade_og_DB.dir/main.cpp.o CMakeFiles/Traade_og_DB.dir/database.cpp.o  -o Traade_og_DB  /usr/lib/x86_64-linux-gnu/libQt5Sql.so.5.12.8 /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.12.8 
