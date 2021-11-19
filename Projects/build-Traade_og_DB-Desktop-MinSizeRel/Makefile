@@ -123,6 +123,33 @@ Traade_og_DB/fast:
 	$(MAKE) -f CMakeFiles/Traade_og_DB.dir/build.make CMakeFiles/Traade_og_DB.dir/build
 .PHONY : Traade_og_DB/fast
 
+cargenerator.o: cargenerator.cpp.o
+
+.PHONY : cargenerator.o
+
+# target to build an object file
+cargenerator.cpp.o:
+	$(MAKE) -f CMakeFiles/Traade_og_DB.dir/build.make CMakeFiles/Traade_og_DB.dir/cargenerator.cpp.o
+.PHONY : cargenerator.cpp.o
+
+cargenerator.i: cargenerator.cpp.i
+
+.PHONY : cargenerator.i
+
+# target to preprocess a source file
+cargenerator.cpp.i:
+	$(MAKE) -f CMakeFiles/Traade_og_DB.dir/build.make CMakeFiles/Traade_og_DB.dir/cargenerator.cpp.i
+.PHONY : cargenerator.cpp.i
+
+cargenerator.s: cargenerator.cpp.s
+
+.PHONY : cargenerator.s
+
+# target to generate assembly for a file
+cargenerator.cpp.s:
+	$(MAKE) -f CMakeFiles/Traade_og_DB.dir/build.make CMakeFiles/Traade_og_DB.dir/cargenerator.cpp.s
+.PHONY : cargenerator.cpp.s
+
 database.o: database.cpp.o
 
 .PHONY : database.o
@@ -186,6 +213,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... Traade_og_DB"
+	@echo "... cargenerator.o"
+	@echo "... cargenerator.i"
+	@echo "... cargenerator.s"
 	@echo "... database.o"
 	@echo "... database.i"
 	@echo "... database.s"

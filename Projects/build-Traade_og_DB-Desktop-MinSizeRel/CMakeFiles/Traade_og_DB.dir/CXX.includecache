@@ -6,6 +6,16 @@
 
 #IncludeRegexTransform: 
 
+/home/therkelsen/CPP-Learning/Projects/Traade_og_DB/cargenerator.h
+iostream
+-
+utility
+-
+vector
+-
+string
+-
+
 /home/therkelsen/CPP-Learning/Projects/Traade_og_DB/database.h
 iostream
 -
@@ -23,14 +33,16 @@ QString
 -
 
 /home/therkelsen/CPP-Learning/Projects/Traade_og_DB/main.cpp
+mutex
+-
+thread
+-
+iomanip
+-
 database.h
 /home/therkelsen/CPP-Learning/Projects/Traade_og_DB/database.h
-iostream
--
-vector
--
-string
--
+cargenerator.h
+/home/therkelsen/CPP-Learning/Projects/Traade_og_DB/cargenerator.h
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/QCoreApplication
 qcoreapplication.h

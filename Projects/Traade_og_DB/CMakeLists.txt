@@ -16,7 +16,7 @@ set_target_properties(Qt5::Core PROPERTIES MAP_IMPORTED_CONFIG_COVERAGE "RELEASE
 # SQL
 find_package(Qt5 COMPONENTS Sql REQUIRED)
 
-add_executable(Traade_og_DB main.cpp database.h database.cpp)
+add_executable(Traade_og_DB main.cpp database.h database.cpp cargenerator.h cargenerator.cpp)
 
 # Link libraries
 target_link_libraries(Traade_og_DB PRIVATE Qt5::Sql)

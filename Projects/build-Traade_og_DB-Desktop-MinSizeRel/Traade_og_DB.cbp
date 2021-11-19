@@ -96,6 +96,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/therkelsen/CPP-Learning/Projects/Traade_og_DB/cargenerator.cpp">
+			<Option target="Traade_og_DB"/>
+		</Unit>
+		<Unit filename="/home/therkelsen/CPP-Learning/Projects/Traade_og_DB/cargenerator.h">
+			<Option target="Traade_og_DB"/>
+		</Unit>
 		<Unit filename="/home/therkelsen/CPP-Learning/Projects/Traade_og_DB/database.cpp">
 			<Option target="Traade_og_DB"/>
 		</Unit>
