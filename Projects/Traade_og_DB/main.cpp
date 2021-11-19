@@ -2,17 +2,17 @@
 #include "database.h"
 #include <iostream>
 #include <vector>
+#include <string>
 
 using namespace std;
 
+int letterIterator1 = 0;
+int letterIterator2 = 0;
+int numberIterator = 10000;
+
 vector<std::string> generateRegNum(int amount){
   vector<std::string> regNums;
-
   for (int i = 0; i < amount; i++) {
-
-    int letterIterator1 = 0;
-    int letterIterator2 = 0;
-    int numberIterator = 10000;
 
     std::string letters = "";
     std::string numbers = "";
@@ -25,52 +25,43 @@ vector<std::string> generateRegNum(int amount){
       letterIterator1++;
     }
     if (letterIterator1 > 25) {
-
+      return regNums;
     }
 
     char x = 'a' + letterIterator1;
     char y = 'a' + letterIterator2;
-    std::string z = ""; z.push_back(x); z.push_back(y);
+    std::string z = ""; z.push_back(x); z.push_back(y); z = z + std::to_string(numberIterator);
     std::cout << "i: " << i << std::endl;
 
-    if((i > 0 && 1 == 2)) {
-    std::cout << "Wrong combination, skipping" << std::endl;
-    } else {
-      std::cout << "x: " << x << "\n" << "y: " << y << "\n" << "z: " << z << "\n" << "numIt: " << numberIterator << "\n" << std::endl;
-      regNums.push_back("");
-      numberIterator++;
-    }
 
+    regNums.push_back(z);
+    //std::cout << "Regnr: " << z << "\n" << std::endl;
+    std::cout << "Regnr: " << regNums.at(i) << "\n" << std::endl;
+    numberIterator++;
   }
   return regNums;
 }
 
 int main() {
 
-  /*
-  Database db;
+  generateRegNum(100000);
+
+  /*Database db;
 
   db.extractData();
-  std::cout << "\nDB: Table contains " << db.countEntries() << " entries" << std::endl;
+  std::cout << "DB: Table contains " << db.countEntries() << " entries" << std::endl;
 
   db.insertData("QF37218", "Tesla", 2020);
   db.insertData("HG85461", "Ferrari", 1980);
   db.insertData("JR54352", "Ford", 1990);
 
   db.extractData();
-  std::cout << "\nDB: Table contains " << db.countEntries() << " entries" << std::endl;
+  std::cout << "DB: Table contains " << db.countEntries() << " entries" << std::endl;
 
   db.clearDatabase();
   db.extractData();
-  std::cout << "\nDB: Table contains " << db.countEntries() << " entries" << std::endl;
-  */
+  std::cout << "DB: Table contains " << db.countEntries() << " entries" << std::endl;*/
 
-  generateRegNum(1000);
-
-  /*
-  char x = 'a' + 25;
-  std::cout << x << std::endl;
-  */
   return 0;
 }
 

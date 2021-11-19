@@ -11,8 +11,11 @@
         std::cout << "DB: Failed to load database" << std::endl;
       } else {
         std::cout << "DB: Database loaded" << std::endl;
-        countEntries();
-        std::cout << "DB: " << entries << " Entries loaded" << std::endl;
+        QSqlQuery query("CREATE TABLE IF NOT EXISTS bil (bil_id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, registreringsnr char(7) NOT NULL, model char(20) NOT NULL, aargang NOT NULL)");
+        if (!query.exec()) {
+          std::cout << "DB: Table could not be created" << std::endl;
+        }
+        query.prepare("INSERT INTO tasks (taskId) VALUES (:id)");
       }
   }
 
@@ -36,10 +39,9 @@
     countEntries();
     std::cout << "\nDB: Inserting data to database" << std::endl;
     QSqlQuery query;
-    query.prepare("INSERT INTO bil (bil_id, registreringsnr, model, aargang) "
-                  "VALUES (:bil_id, :registreringsnr, :model, :aargang)");
+    query.prepare("INSERT INTO bil (registreringsnr, model, aargang) "
+                  "VALUES (:registreringsnr, :model, :aargang)");
 
-    query.bindValue(":bil_id", (entries + 1));
     query.bindValue(":registreringsnr", regnr);
     query.bindValue(":model", model);
     query.bindValue(":aargang", aar);
@@ -59,7 +61,7 @@
 
   void Database::clearDatabase() {
     QSqlQuery query;
-    query.prepare("DELETE FROM bil");
+    query.prepare("DROP TABLE bil");
     if(!query.exec()) {
        qDebug() << query.lastError();
     } else {
