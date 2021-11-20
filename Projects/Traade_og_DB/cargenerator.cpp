@@ -1,31 +1,46 @@
 #include "cargenerator.h"
 
-CarGenerator::CarGenerator(){}
+CarGenerator::CarGenerator()
+  :rand()
+{}
 
-std::vector<std::vector<std::string>> CarGenerator::generateCar(int amount) {
+// Here I'm using a vector vector string, to spite someone online who told me to use a struct =)
+std::vector<std::vector<std::string>> CarGenerator::generateCar(int amount, std::string currHighestRegNr = "") {
   std::vector<std::vector<std::string>> cars;
   std::vector<std::string> car;
-  srand (time(NULL));
-  letterIterator1 = 0;
-  letterIterator2 = 0;
-  numberIterator = 10000;
+
+  srand((unsigned int)time(NULL));
+
+  if (currHighestRegNr.length() != 7) {
+    letterIterator1 = 0;
+    letterIterator2 = 0;
+    numberIterator = 10000;
+  } else {
+    char x = currHighestRegNr[0];
+    char y = currHighestRegNr[1];
+    int z = stoi(currHighestRegNr.substr(2,6)) + 1;
+    letterIterator1 = int(x) - 65;
+    letterIterator2 = int(y) - 65;
+    numberIterator = z;
+  }
+
   year = 0;
   regNum = "";
   model = "";
   // Since size of the vectors is known, all allocation is done at once to speed up the code
 
   for (int i = 0; i < amount; i++) {
-  car.clear();
-  car.reserve(3);
+    car.clear();
+    car.reserve(3);
     if (numberIterator > 99999) {
       letterIterator2++;
       numberIterator = 10000;
     }
-    if (letterIterator2 > 25) {
+    if (letterIterator2 > 90) {
       letterIterator2 = 0;
       letterIterator1++;
     }
-    if (letterIterator1 > 25) {
+    if (letterIterator1 > 90) {
       return cars;
     }
 
@@ -37,8 +52,8 @@ std::vector<std::vector<std::string>> CarGenerator::generateCar(int amount) {
 
     // Here I use emplace_back in place of push_back, as it's faster
     // (This, along with the pre-emptive allocation saves about 60% process time)
+    int j = 1 + (rand() % 8);
 
-    int j = 1 + (rand() % 7);
     switch (j) {
       case 1:
         model = "Tesla Cybertruck";
@@ -77,9 +92,9 @@ std::vector<std::vector<std::string>> CarGenerator::generateCar(int amount) {
     car.emplace_back(std::to_string(year));
     cars.emplace_back(car);
 
-    std::cout << "Regnr: " << cars.at(i).at(0) << std::endl;
+    /*std::cout << "Regnr: " << cars.at(i).at(0) << std::endl;
     std::cout << "Model: " << cars.at(i).at(1) << std::endl;
-    std::cout << "Aargang: " << cars.at(i).at(2) <<  "\n" << std::endl;
+    std::cout << "Aargang: " << cars.at(i).at(2) <<  "\n" << std::endl;*/
     numberIterator++;
   }
   return cars;

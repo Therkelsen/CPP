@@ -6,6 +6,10 @@
 
 #IncludeRegexTransform: 
 
+/home/therkelsen/CPP-Learning/Projects/Traade_og_DB/cargenerator.cpp
+cargenerator.h
+/home/therkelsen/CPP-Learning/Projects/Traade_og_DB/cargenerator.h
+
 /home/therkelsen/CPP-Learning/Projects/Traade_og_DB/cargenerator.h
 iostream
 -
@@ -19,17 +23,19 @@ string
 /home/therkelsen/CPP-Learning/Projects/Traade_og_DB/database.h
 iostream
 -
+iomanip
+-
 string
 -
 QtSql
 -
-QSqlDatabase
--
-QCoreApplication
+QString
 -
 QSqlDriver
 -
-QString
+QSqlDatabase
+-
+QCoreApplication
 -
 
 /home/therkelsen/CPP-Learning/Projects/Traade_og_DB/main.cpp
