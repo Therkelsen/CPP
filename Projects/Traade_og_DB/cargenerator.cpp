@@ -1,16 +1,25 @@
 #include "cargenerator.h"
 
-CarGenerator::CarGenerator()
-  :rand()
-{}
+CarGenerator::CarGenerator(){}
 
-// Here I'm using a vector vector string, to spite someone online who told me to use a struct =)
+// Her bruger jeg en bonderøvs vector vector string, for at trodse en online som sagde jeg skulle bruge en struct =)
 std::vector<std::vector<std::string>> CarGenerator::generateCar(int amount, std::string currHighestRegNr = "") {
+  std::cout << "CG: Generating " << amount << " cars starting from regNr " << currHighestRegNr << std::endl;
   std::vector<std::vector<std::string>> cars;
   std::vector<std::string> car;
 
-  srand((unsigned int)time(NULL));
+  // Da størrelsen på vektoren kendes, pre-allokeres pladsen for at spare kørselstid
+  cars.reserve(amount);
 
+  // Her bruges en uniform_int_distribution da jeg ikke var glad for ko-klokke-distributionen rand() giver
+  std::random_device rd;
+  std::mt19937 gen(rd());
+  std::uniform_int_distribution<int> dis(0, 1);
+
+  // Generatoren seedes med tiden
+  gen.seed((unsigned int)time(NULL));
+
+  // Hvis vi har fået et registreringsnummer startes der med nummerpladen ét nummer højere
   if (currHighestRegNr.length() != 7) {
     letterIterator1 = 0;
     letterIterator2 = 0;
@@ -27,8 +36,8 @@ std::vector<std::vector<std::string>> CarGenerator::generateCar(int amount, std:
   year = 0;
   regNum = "";
   model = "";
-  // Since size of the vectors is known, all allocation is done at once to speed up the code
-
+  // Nummerplader mellem AA10000 og ZZ99999 kan genereres her
+  // Derudover kan bilen have en af x antal modeller, som alle har deres rigtige produktionsår
   for (int i = 0; i < amount; i++) {
     car.clear();
     car.reserve(3);
@@ -44,57 +53,71 @@ std::vector<std::vector<std::string>> CarGenerator::generateCar(int amount, std:
       return cars;
     }
 
-    // Utilize ascii values to increment letters
+    // Udnytter ascii værdier for at inkrementere bogstaverne
     x = 'A' + letterIterator1;
     y = 'A' + letterIterator2;
-    // Insert license plate number in a string, to be appended onto the vector
+    // Indsætter registreringsnummeret i en stræng, så den kan blive smidt på enden af vektoren
     regNum = ""; regNum.push_back(x); regNum.push_back(y); regNum = regNum + std::to_string(numberIterator);
 
-    // Here I use emplace_back in place of push_back, as it's faster
-    // (This, along with the pre-emptive allocation saves about 60% process time)
-    int j = 1 + (rand() % 8);
+    decltype(dis.param()) new_range (1, 8);
+    dis.param(new_range);
+    int j = dis(gen);
 
     switch (j) {
-      case 1:
+      case 1: {
         model = "Tesla Cybertruck";
         year = 2022;
         break;
-      case 2:
+      } case 2: {
         model = "Ferrari Testarossa";
-        year = rand() % ((1996 - 1984) + 1) + 1984;
+        decltype(dis.param()) new_range (1984, 1996);
+        dis.param(new_range);
+        year = dis(gen);
         break;
-      case 3:
+      } case 3: {
         model = "Lada Riva";
-        year = rand() % ((2015 - 1979) + 1) + 1979;
+        decltype(dis.param()) new_range (1979, 2015);
+        dis.param(new_range);
+        year = dis(gen);
         break;
-      case 4:
+      } case 4: {
         model = "Fiat Multipla";
-        year = rand() % ((2013 - 1998) + 1) + 1998;
+        decltype(dis.param()) new_range (1998, 2013);
+        dis.param(new_range);
+        year = dis(gen);
         break;
-      case 5:
+      } case 5: {
         model = "Ellert";
-        year = rand() % ((2018 - 1987) + 1) + 1987;
-      case 6:
+        decltype(dis.param()) new_range (1987, 2018);
+        dis.param(new_range);
+        year = dis(gen);
+        break;
+      } case 6: {
         model = "Nissan Skyline R34";
-        year = rand() % ((2002 - 1999) + 1) + 1999;
-      case 7:
+        decltype(dis.param()) new_range (1999, 2002);
+        dis.param(new_range);
+        year = dis(gen);
+      } case 7:  {
         model = "Ford Model T";
-        year = rand() % ((1927- 1908) + 1) + 1908;
-      case 8:
+        decltype(dis.param()) new_range (1908, 1927);
+        dis.param(new_range);
+        year = dis(gen);
+      } case 8: {
         model = "Lotus Esprit";
-        year = rand() % ((2004- 1976) + 1) + 1976;
-      default:
+        decltype(dis.param()) new_range (1976, 2004);
+        dis.param(new_range);
+        year = dis(gen);
+      } default:
         break;
     }
 
+    // Her bruges emplace_back i stedet for push_back, da det er hurtigere
+    // Det, sammen med at pre-allokere sparede mig omkring 60% kørselstid
     car.emplace_back(regNum);
     car.emplace_back(model);
     car.emplace_back(std::to_string(year));
     cars.emplace_back(car);
 
-    /*std::cout << "Regnr: " << cars.at(i).at(0) << std::endl;
-    std::cout << "Model: " << cars.at(i).at(1) << std::endl;
-    std::cout << "Aargang: " << cars.at(i).at(2) <<  "\n" << std::endl;*/
     numberIterator++;
   }
   return cars;

@@ -17,13 +17,14 @@ public:
     void insertData(QString regnr, QString model, int aar);
     void extractData();
     std::string extractHighestRegNr();
-    unsigned int countEntries();
+    unsigned int countRows();
+    void clearTable();
     void clearDatabase();
     void disconnect();
 
 private:
     QSqlDatabase db;
-    unsigned int entries = 0;
+    unsigned int rows = 0;
 };
 
 #endif // DATABASE_H

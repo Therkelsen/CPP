@@ -6,14 +6,12 @@
 
 #IncludeRegexTransform: 
 
-/home/therkelsen/CPP-Learning/Projects/Traade_og_DB/cargenerator.cpp
-cargenerator.h
-/home/therkelsen/CPP-Learning/Projects/Traade_og_DB/cargenerator.h
-
 /home/therkelsen/CPP-Learning/Projects/Traade_og_DB/cargenerator.h
 iostream
 -
 utility
+-
+random
 -
 vector
 -

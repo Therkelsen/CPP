@@ -1,5 +1,6 @@
   #include "database.h"
 
+  // Etablerer forbindelse til databasen og forsøger at lave tabellen
   Database::Database()
     :db() {
     db = QSqlDatabase::addDatabase("QSQLITE");
@@ -11,30 +12,31 @@
         std::cout << "\nDB: Failed to load database" << std::endl;
       } else {
         std::cout << "\nDB: Database loaded" << std::endl;
-        QSqlQuery query("CREATE TABLE IF NOT EXISTS bil (bil_id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, registreringsnr char(7) NOT NULL, model char(20) NOT NULL, aargang NOT NULL)");
+        QSqlQuery query("CREATE TABLE bil (bil_id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, registreringsnr char(7) NOT NULL, model char(20) NOT NULL, aargang NOT NULL)");
         if (!query.exec()) {
-          std::cout << "\nDB: Table could not be created" << std::endl;
+          qDebug() << "\nDB: Table could not be created, as it already exists";
+        } else {
+          qDebug() << "\nDB: Table created";
         }
-        query.prepare("INSERT INTO tasks (taskId) VALUES (:id)");
       }
   }
 
+  // Printer al data i terminalen
   void Database::extractData() {
-    entries = 0;
     QSqlQuery query;
     std::cout << "\nDB: All currently existing rows:" << std::endl;
     query.exec("SELECT * FROM bil");
     while(query.next()) {
-      entries++;
       int bil_id = query.value(0).toInt();
       QString regnumm = query.value(1).toString(); std::string regnr = regnumm.toUtf8().constData();
       QString mod = query.value(2).toString(); std::string model = mod.toUtf8().constData();
       int aargang = query.value(3).toInt();
-      std::cout << "bil_id: " << std::setw(6) << std::left << bil_id << " | regnr: " << regnr;
-      std::cout << " | model: " << std::setw(19) << std::left << model << " | aargang: " << aargang << std::endl;
+      std::cout << std::left << "bil_id: " << std::setw(6) << bil_id << " | regnr: " << regnr;
+      std::cout << " | model: " << std::setw(19) << model << " | aargang: " << aargang << std::endl;
     }
   }
 
+  // Returnerer højeste nuværende registreringsnummer i databasen, eller "" hvis der ikke er nogle
   std::string Database::extractHighestRegNr() {
     QSqlQuery query;
     std::string regnr;
@@ -43,14 +45,15 @@
     while(query.next()) {
       QString regnumm = query.value(0).toString(); regnr = regnumm.toUtf8().constData();
     }
-    if(query.exec()) {
-      std::cout << "DB: Highest regnr: " << regnr << std::endl;
+    if(regnr.length() != 7) {
+      return "";
     }
     return regnr;
   }
 
+  // Indsætter data i tabellen, hvis registreringsnummeret allerede eksisterer bliver det overskrevet
   void Database::insertData(QString regnr, QString model, int aar) {
-    countEntries();
+    countRows();
     QSqlQuery query;
     query.prepare("SELECT EXISTS(SELECT 1 FROM bil WHERE registreringsnr = :regnr)");
     query.bindValue(":regnr", regnr);
@@ -84,27 +87,47 @@
     }
   }
 
-  unsigned int Database::countEntries() {
-    entries = 0;
+  // Tæller rækker og returnerer antallet
+  unsigned int Database::countRows() {
+    rows = 0;
     QSqlQuery query;
     query.exec("SELECT * FROM bil");
     while(query.next()) {
-        entries++;
+        rows++;
     }
-    return entries;
+    if(!query.exec()) {
+      qDebug() << query.lastError();
+    } else {
+      qDebug() << "\nDB: Table contains " << rows << " rows";
+    }
+    return rows;
   }
 
+  // Sletter al data fra tabellen
+  void Database::clearTable() {
+    QSqlQuery query;
+    query.prepare("DELETE FROM bil");
+    if(!query.exec()) {
+       qDebug() << query.lastError();
+    } else {
+       qDebug("\nDB: Data cleared from table" );
+    }
+    countRows();
+  }
+
+  // Sletter tabellen
   void Database::clearDatabase() {
     QSqlQuery query;
     query.prepare("DROP TABLE bil");
     if(!query.exec()) {
        qDebug() << query.lastError();
     } else {
-       qDebug("\nDB: Data cleared" );
+       qDebug("\nDB: Table dropped" );
     }
-    countEntries();
+    countRows();
   }
 
+  // Disconnecter fra databasen
   void Database::disconnect() {
     std::cout << "\nDB: Disconnecting from database" << std::endl;
     db.close();

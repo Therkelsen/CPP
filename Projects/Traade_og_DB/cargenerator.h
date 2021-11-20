@@ -18,7 +18,6 @@ private:
   char x, y;
   std::string regNum;
   std::string model;
-  std::uniform_int_distribution<int> rand;
 };
 
 #endif // CARGENERATOR_H
