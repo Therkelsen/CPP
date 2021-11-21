@@ -4,7 +4,6 @@ CarGenerator::CarGenerator(){}
 
 // Her bruger jeg en bonderøvs vector vector string, for at trodse en online som sagde jeg skulle bruge en struct =)
 std::vector<std::vector<std::string>> CarGenerator::generateCar(int amount, std::string currHighestRegNr = "") {
-  std::cout << "CG: Generating " << amount << " cars starting from regNr " << currHighestRegNr << std::endl;
   std::vector<std::vector<std::string>> cars;
   std::vector<std::string> car;
 
@@ -14,10 +13,10 @@ std::vector<std::vector<std::string>> CarGenerator::generateCar(int amount, std:
   // Her bruges en uniform_int_distribution da jeg ikke var glad for ko-klokke-distributionen rand() giver
   std::random_device rd;
   std::mt19937 gen(rd());
-  std::uniform_int_distribution<int> dis(0, 1);
+  std::uniform_int_distribution<int> dis;
 
   // Generatoren seedes med tiden
-  gen.seed((unsigned int)time(NULL));
+  gen.seed(rand());
 
   // Hvis vi har fået et registreringsnummer startes der med nummerpladen ét nummer højere
   if (currHighestRegNr.length() != 7) {

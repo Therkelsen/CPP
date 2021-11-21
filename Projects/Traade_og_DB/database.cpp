@@ -9,16 +9,28 @@
     db.open();
 
     if (!db.open()){
-        std::cout << "\nDB: Failed to load database" << std::endl;
-      } else {
-        std::cout << "\nDB: Database loaded" << std::endl;
-        QSqlQuery query("CREATE TABLE bil (bil_id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, registreringsnr char(7) NOT NULL, model char(20) NOT NULL, aargang NOT NULL)");
-        if (!query.exec()) {
-          qDebug() << "\nDB: Table could not be created, as it already exists";
-        } else {
-          qDebug() << "\nDB: Table created";
-        }
-      }
+      std::cout << "\nDB: Failed to load database" << std::endl;
+    } else {
+      std::cout << "\nDB: Database loaded" << std::endl;
+    }
+  }
+
+  void Database::openDatabase(){
+    db.open();
+    if (!db.open()){
+      std::cout << "\nDB: Failed to load database" << std::endl;
+    } else {
+      std::cout << "\nDB: Database loaded" << std::endl;
+    }
+  }
+
+  void Database::createTable(){
+    QSqlQuery query("CREATE TABLE bil (bil_id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, registreringsnr char(7) NOT NULL, model char(20) NOT NULL, aargang NOT NULL)");
+    if (!query.exec()) {
+      qDebug() << "\nDB: Table could not be created:" << query.lastError();
+    } else {
+      qDebug() << "\nDB: Table created";
+    }
   }
 
   // Printer al data i terminalen
@@ -91,7 +103,7 @@
   unsigned int Database::countRows() {
     rows = 0;
     QSqlQuery query;
-    query.exec("SELECT * FROM bil");
+    query.exec("SELECT bil_id FROM bil");
     while(query.next()) {
         rows++;
     }
@@ -112,7 +124,6 @@
     } else {
        qDebug("\nDB: Data cleared from table" );
     }
-    countRows();
   }
 
   // Sletter tabellen

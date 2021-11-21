@@ -6,17 +6,9 @@
 
 #IncludeRegexTransform: 
 
-/home/therkelsen/CPP-Learning/Projects/Traade_og_DB/cargenerator.h
-iostream
--
-utility
--
-random
--
-vector
--
-string
--
+/home/therkelsen/CPP-Learning/Projects/Traade_og_DB/database.cpp
+database.h
+/home/therkelsen/CPP-Learning/Projects/Traade_og_DB/database.h
 
 /home/therkelsen/CPP-Learning/Projects/Traade_og_DB/database.h
 iostream
@@ -35,18 +27,6 @@ QSqlDatabase
 -
 QCoreApplication
 -
-
-/home/therkelsen/CPP-Learning/Projects/Traade_og_DB/main.cpp
-mutex
--
-thread
--
-iomanip
--
-database.h
-/home/therkelsen/CPP-Learning/Projects/Traade_og_DB/database.h
-cargenerator.h
-/home/therkelsen/CPP-Learning/Projects/Traade_og_DB/cargenerator.h
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/QCoreApplication
 qcoreapplication.h

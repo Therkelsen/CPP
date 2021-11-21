@@ -20,3 +20,5 @@ add_executable(Traade_og_DB main.cpp database.h database.cpp cargenerator.h carg
 
 # Link libraries
 target_link_libraries(Traade_og_DB PRIVATE Qt5::Sql)
+
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread")

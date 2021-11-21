@@ -1,10 +1,12 @@
 #ifndef CARGENERATOR_H
 #define CARGENERATOR_H
 #include <iostream>
+#include <QString>
 #include <utility>
 #include <random>
 #include <vector>
 #include <string>
+#include <ctime>
 
 class CarGenerator {
 public:

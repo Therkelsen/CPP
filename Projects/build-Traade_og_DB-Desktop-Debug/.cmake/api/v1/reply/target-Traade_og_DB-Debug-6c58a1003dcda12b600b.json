@@ -42,7 +42,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-Os -DNDEBUG  "
+					"fragment" : " -pthread -g  "
 				},
 				{
 					"backtrace" : 2,
@@ -57,10 +57,6 @@
 				{
 					"backtrace" : 2,
 					"define" : "QT_CORE_LIB"
-				},
-				{
-					"backtrace" : 2,
-					"define" : "QT_NO_DEBUG"
 				},
 				{
 					"backtrace" : 2,
@@ -105,7 +101,7 @@
 		"commandFragments" : 
 		[
 			{
-				"fragment" : "-Os -DNDEBUG",
+				"fragment" : "-pthread -g",
 				"role" : "flags"
 			},
 			{

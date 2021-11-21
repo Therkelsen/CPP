@@ -18,7 +18,7 @@
 					]
 				}
 			],
-			"name" : "MinSizeRel",
+			"name" : "Debug",
 			"projects" : 
 			[
 				{
@@ -38,7 +38,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "Traade_og_DB::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Traade_og_DB-MinSizeRel-1c6d20356956926bd9d0.json",
+					"jsonFile" : "target-Traade_og_DB-Debug-6c58a1003dcda12b600b.json",
 					"name" : "Traade_og_DB",
 					"projectIndex" : 0
 				}
@@ -48,7 +48,7 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/home/therkelsen/CPP-Learning/Projects/build-Traade_og_DB-Desktop-MinSizeRel",
+		"build" : "/home/therkelsen/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug",
 		"source" : "/home/therkelsen/CPP-Learning/Projects/Traade_og_DB"
 	},
 	"version" : 

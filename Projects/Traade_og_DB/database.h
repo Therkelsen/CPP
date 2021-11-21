@@ -14,6 +14,8 @@ class Database
 {
 public:
     Database();
+    void openDatabase();
+    void createTable();
     void insertData(QString regnr, QString model, int aar);
     void extractData();
     std::string extractHighestRegNr();
