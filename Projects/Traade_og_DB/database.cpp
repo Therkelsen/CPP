@@ -77,7 +77,7 @@
         }
     }
     if (!exists) {
-        //std::cout << "\nDB: Inserting data to database:" << std::endl;
+        std::cout << "\nDB: Inserting data to database:" << std::endl;
         QSqlQuery query;
         query.prepare("INSERT INTO bil (registreringsnr, model, aargang) "
                       "VALUES (:registreringsnr, :model, :aargang)");

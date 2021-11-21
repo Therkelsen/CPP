@@ -2,7 +2,7 @@
 
 CarGenerator::CarGenerator(){}
 
-// Her bruger jeg en bonderøvs vector vector string, for at trodse en online som sagde jeg skulle bruge en struct =)
+// Her bruger jeg en bonderøvs vector vector string, for at trodse en fyr online som sagde jeg skulle bruge en struct =)
 std::vector<std::vector<std::string>> CarGenerator::generateCar(int amount, std::string currHighestRegNr = "") {
   std::vector<std::vector<std::string>> cars;
   std::vector<std::string> car;
@@ -58,6 +58,8 @@ std::vector<std::vector<std::string>> CarGenerator::generateCar(int amount, std:
     // Indsætter registreringsnummeret i en stræng, så den kan blive smidt på enden af vektoren
     regNum = ""; regNum.push_back(x); regNum.push_back(y); regNum = regNum + std::to_string(numberIterator);
 
+    // Random enginens range bliver ændret til at passe til switchen som bruges til at generere modellen
+    // Derudover bliver den også ændret inden i hver case, for at passe til årgans generatoren
     decltype(dis.param()) new_range (1, 8);
     dis.param(new_range);
     int j = dis(gen);
