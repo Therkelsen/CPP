@@ -43,8 +43,8 @@
       QString regnumm = query.value(1).toString(); std::string regnr = regnumm.toUtf8().constData();
       QString mod = query.value(2).toString(); std::string model = mod.toUtf8().constData();
       int aargang = query.value(3).toInt();
-      std::cout << std::left << "bil_id: " << std::setw(6) << bil_id << " | regnr: " << regnr;
-      std::cout << " | model: " << std::setw(19) << model << " | aargang: " << aargang << std::endl;
+      //std::cout << std::left << "bil_id: " << std::setw(6) << bil_id << " | regnr: " << regnr;
+      //std::cout << " | model: " << std::setw(19) << model << " | aargang: " << aargang << std::endl;
     }
   }
 
@@ -77,7 +77,7 @@
         }
     }
     if (!exists) {
-        std::cout << "\nDB: Inserting data to database:" << std::endl;
+        //std::cout << "\nDB: Inserting data to database:" << std::endl;
         QSqlQuery query;
         query.prepare("INSERT INTO bil (registreringsnr, model, aargang) "
                       "VALUES (:registreringsnr, :model, :aargang)");
@@ -115,6 +115,17 @@
     return rows;
   }
 
+  void Database::createIndex() {
+    QSqlQuery query;
+    query.exec("CREATE INDEX bil_idx"
+               "ON bil (bil_id, registreringsnr, model, aargang)");
+    if(!query.exec()) {
+      qDebug() << "Could not create index" << query.lastError();
+    } else {
+      qDebug() << "\nIndex successfully created!";
+    }
+  }
+
   // Sletter al data fra tabellen
   void Database::clearTable() {
     QSqlQuery query;
@@ -134,6 +145,12 @@
        qDebug() << query.lastError();
     } else {
        qDebug("\nDB: Table dropped" );
+    }
+    query.prepare("DROP INDEX bil_idx");
+    if(!query.exec()) {
+       qDebug() << query.lastError();
+    } else {
+       qDebug("\nDB: Index dropped" );
     }
     countRows();
   }

@@ -25,27 +25,19 @@ void addCars(int amount) {
       //std::cout << "regnr: " << cars.at(i).at(0);
       //std::cout << " | model: " << std::setw(19) << std::left << cars.at(i).at(1) << " | aargang: " << cars.at(i).at(2);
   }
-  db.disconnect();
   m.unlock();
-}
-
-void extractCars(){
-  Database db;
-  std::chrono::high_resolution_clock::time_point start = std::chrono::high_resolution_clock::now();
-  db.extractData();
-  std::chrono::high_resolution_clock::time_point end = std::chrono::high_resolution_clock::now();
-  std::chrono::duration<double, std::milli> duration = end - start;
-  std::cout << "\nExtraction without indexing took " << duration.count()/1000.0 << " seconds" << std::endl;
 }
 
 int main() {
   std::chrono::high_resolution_clock::time_point start = std::chrono::high_resolution_clock::now();
   Database db;
-  db.clearDatabase();
+  db.clearTable();
   db.createTable();
-  db.countRows();
+  db.createIndex();
 
-  int amountToCreate = 5;
+  int amountToCreate = 5000;
+  int threads = 4;
+
   std::thread t1(addCars, amountToCreate);
   std::thread t2(addCars, amountToCreate);
   std::thread t3(addCars, amountToCreate);
@@ -56,13 +48,14 @@ int main() {
   t3.join();
   t4.join();
 
+  //db.openDatabase();
+  //db.extractData();
+  //db.disconnect();
+
   std::chrono::high_resolution_clock::time_point end = std::chrono::high_resolution_clock::now();
   std::chrono::duration<double, std::milli> duration = end - start;
 
-  std::cout << "Generation and instertion of " << amountToCreate << " cars took " << duration.count()/1000.0 << " seconds" << std::endl;;
-  std::cout << "That's " << duration.count()/1000.0/amountToCreate << " seconds pr. car" << std::endl;
-
-  extractCars();
+  std::cout << "Code took " << duration.count()/1000.0 << " seconds to generate and extract " << amountToCreate*threads << " cars" << std::endl;
 
   //db.clearDatabase();
 

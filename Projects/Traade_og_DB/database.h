@@ -20,6 +20,7 @@ public:
     void extractData();
     std::string extractHighestRegNr();
     unsigned int countRows();
+    void createIndex();
     void clearTable();
     void clearDatabase();
     void disconnect();
