@@ -1,4 +1,4 @@
-# Install script for directory: /home/therkelsen/CPP-Learning/Projects/Traade_og_DB
+# Install script for directory: /home/host/CPP-Learning/Projects/Traade_og_DB
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/therkelsen/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/host/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

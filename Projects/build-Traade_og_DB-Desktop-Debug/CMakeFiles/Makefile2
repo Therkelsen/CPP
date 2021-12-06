@@ -44,10 +44,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/therkelsen/CPP-Learning/Projects/Traade_og_DB
+CMAKE_SOURCE_DIR = /home/host/CPP-Learning/Projects/Traade_og_DB
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/therkelsen/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug
+CMAKE_BINARY_DIR = /home/host/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -74,14 +74,14 @@ clean: CMakeFiles/Traade_og_DB.dir/clean
 CMakeFiles/Traade_og_DB.dir/all:
 	$(MAKE) -f CMakeFiles/Traade_og_DB.dir/build.make CMakeFiles/Traade_og_DB.dir/depend
 	$(MAKE) -f CMakeFiles/Traade_og_DB.dir/build.make CMakeFiles/Traade_og_DB.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/therkelsen/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug/CMakeFiles --progress-num=1,2,3,4 "Built target Traade_og_DB"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/host/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug/CMakeFiles --progress-num=1,2,3,4 "Built target Traade_og_DB"
 .PHONY : CMakeFiles/Traade_og_DB.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/Traade_og_DB.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/therkelsen/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/host/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug/CMakeFiles 4
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/Traade_og_DB.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/therkelsen/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/host/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug/CMakeFiles 0
 .PHONY : CMakeFiles/Traade_og_DB.dir/rule
 
 # Convenience name for target.

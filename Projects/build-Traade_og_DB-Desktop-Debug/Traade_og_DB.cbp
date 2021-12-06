@@ -8,38 +8,38 @@
 		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\usr\;CMake Files\..\..\..\..\..\usr\lib\;CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\;CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\;CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5\;CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Core\;CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Sql\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/home/therkelsen/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug"/>
+				<Option working_dir="/home/host/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/home/therkelsen/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/therkelsen/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j12 -f &quot;/home/therkelsen/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j12 -f &quot;/home/therkelsen/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j6 -f &quot;/home/host/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j6 -f &quot;/home/host/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j6 -f &quot;/home/host/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j6 -f &quot;/home/host/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/home/therkelsen/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug"/>
+				<Option working_dir="/home/host/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/home/therkelsen/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/therkelsen/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j12 -f &quot;/home/therkelsen/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j12 -f &quot;/home/therkelsen/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j6 -f &quot;/home/host/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j6 -f &quot;/home/host/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j6 -f &quot;/home/host/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j6 -f &quot;/home/host/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/home/therkelsen/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug"/>
+				<Option working_dir="/home/host/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/home/therkelsen/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/therkelsen/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j12 -f &quot;/home/therkelsen/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j12 -f &quot;/home/therkelsen/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j6 -f &quot;/home/host/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j6 -f &quot;/home/host/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j6 -f &quot;/home/host/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j6 -f &quot;/home/host/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Traade_og_DB">
-				<Option output="/home/therkelsen/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug/Traade_og_DB" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/therkelsen/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug"/>
+				<Option output="/home/host/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug/Traade_og_DB" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/host/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -59,15 +59,15 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/home/therkelsen/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug/Makefile&quot;  VERBOSE=1 Traade_og_DB"/>
-					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/therkelsen/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j12 -f &quot;/home/therkelsen/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j12 -f &quot;/home/therkelsen/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j6 -f &quot;/home/host/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug/Makefile&quot;  VERBOSE=1 Traade_og_DB"/>
+					<CompileFile command="/usr/bin/make -j6 -f &quot;/home/host/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j6 -f &quot;/home/host/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j6 -f &quot;/home/host/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Traade_og_DB/fast">
-				<Option output="/home/therkelsen/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug/Traade_og_DB" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/therkelsen/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug"/>
+				<Option output="/home/host/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug/Traade_og_DB" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/host/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -87,59 +87,59 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/home/therkelsen/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug/Makefile&quot;  VERBOSE=1 Traade_og_DB/fast"/>
-					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/therkelsen/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j12 -f &quot;/home/therkelsen/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j12 -f &quot;/home/therkelsen/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j6 -f &quot;/home/host/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug/Makefile&quot;  VERBOSE=1 Traade_og_DB/fast"/>
+					<CompileFile command="/usr/bin/make -j6 -f &quot;/home/host/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j6 -f &quot;/home/host/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j6 -f &quot;/home/host/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/therkelsen/CPP-Learning/Projects/Traade_og_DB/cargenerator.cpp">
+		<Unit filename="/home/host/CPP-Learning/Projects/Traade_og_DB/cargenerator.cpp">
 			<Option target="Traade_og_DB"/>
 		</Unit>
-		<Unit filename="/home/therkelsen/CPP-Learning/Projects/Traade_og_DB/cargenerator.h">
+		<Unit filename="/home/host/CPP-Learning/Projects/Traade_og_DB/cargenerator.h">
 			<Option target="Traade_og_DB"/>
 		</Unit>
-		<Unit filename="/home/therkelsen/CPP-Learning/Projects/Traade_og_DB/database.cpp">
+		<Unit filename="/home/host/CPP-Learning/Projects/Traade_og_DB/database.cpp">
 			<Option target="Traade_og_DB"/>
 		</Unit>
-		<Unit filename="/home/therkelsen/CPP-Learning/Projects/Traade_og_DB/database.h">
+		<Unit filename="/home/host/CPP-Learning/Projects/Traade_og_DB/database.h">
 			<Option target="Traade_og_DB"/>
 		</Unit>
-		<Unit filename="/home/therkelsen/CPP-Learning/Projects/Traade_og_DB/main.cpp">
+		<Unit filename="/home/host/CPP-Learning/Projects/Traade_og_DB/main.cpp">
 			<Option target="Traade_og_DB"/>
 		</Unit>
-		<Unit filename="/home/therkelsen/CPP-Learning/Projects/Traade_og_DB/CMakeLists.txt">
+		<Unit filename="/home/host/CPP-Learning/Projects/Traade_og_DB/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
-		<Unit filename="/home/therkelsen/CPP-Learning/Projects/Traade_og_DB/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5/Qt5Config.cmake">
+		<Unit filename="/home/host/CPP-Learning/Projects/Traade_og_DB/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5/Qt5Config.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5\"/>
 		</Unit>
-		<Unit filename="/home/therkelsen/CPP-Learning/Projects/Traade_og_DB/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5/Qt5ConfigVersion.cmake">
+		<Unit filename="/home/host/CPP-Learning/Projects/Traade_og_DB/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5/Qt5ConfigVersion.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5\"/>
 		</Unit>
-		<Unit filename="/home/therkelsen/CPP-Learning/Projects/Traade_og_DB/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5/Qt5ModuleLocation.cmake">
+		<Unit filename="/home/host/CPP-Learning/Projects/Traade_og_DB/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5/Qt5ModuleLocation.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5\"/>
 		</Unit>
-		<Unit filename="/home/therkelsen/CPP-Learning/Projects/Traade_og_DB/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreConfig.cmake">
+		<Unit filename="/home/host/CPP-Learning/Projects/Traade_og_DB/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreConfig.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Core\"/>
 		</Unit>
-		<Unit filename="/home/therkelsen/CPP-Learning/Projects/Traade_og_DB/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreConfigExtras.cmake">
+		<Unit filename="/home/host/CPP-Learning/Projects/Traade_og_DB/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreConfigExtras.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Core\"/>
 		</Unit>
-		<Unit filename="/home/therkelsen/CPP-Learning/Projects/Traade_og_DB/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreConfigExtrasMkspecDir.cmake">
+		<Unit filename="/home/host/CPP-Learning/Projects/Traade_og_DB/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreConfigExtrasMkspecDir.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Core\"/>
 		</Unit>
-		<Unit filename="/home/therkelsen/CPP-Learning/Projects/Traade_og_DB/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreConfigVersion.cmake">
+		<Unit filename="/home/host/CPP-Learning/Projects/Traade_og_DB/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreConfigVersion.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Core\"/>
 		</Unit>
-		<Unit filename="/home/therkelsen/CPP-Learning/Projects/Traade_og_DB/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreMacros.cmake">
+		<Unit filename="/home/host/CPP-Learning/Projects/Traade_og_DB/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreMacros.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Core\"/>
 		</Unit>
-		<Unit filename="/home/therkelsen/CPP-Learning/Projects/Traade_og_DB/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Sql/Qt5SqlConfig.cmake">
+		<Unit filename="/home/host/CPP-Learning/Projects/Traade_og_DB/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Sql/Qt5SqlConfig.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Sql\"/>
 		</Unit>
-		<Unit filename="/home/therkelsen/CPP-Learning/Projects/Traade_og_DB/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Sql/Qt5SqlConfigVersion.cmake">
+		<Unit filename="/home/host/CPP-Learning/Projects/Traade_og_DB/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Sql/Qt5SqlConfigVersion.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Sql\"/>
 		</Unit>
 	</Project>

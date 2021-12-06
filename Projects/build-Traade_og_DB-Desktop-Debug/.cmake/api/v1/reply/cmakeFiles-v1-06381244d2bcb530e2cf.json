@@ -6,7 +6,7 @@
 		},
 		{
 			"isGenerated" : true,
-			"path" : "/home/therkelsen/CPP-Learning/Projects/build-Traade_og_DB-Desktop-MinSizeRel/CMakeFiles/3.16.3/CMakeSystem.cmake"
+			"path" : "/home/host/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug/CMakeFiles/3.16.3/CMakeSystem.cmake"
 		},
 		{
 			"isCMake" : true,
@@ -15,7 +15,7 @@
 		},
 		{
 			"isGenerated" : true,
-			"path" : "/home/therkelsen/CPP-Learning/Projects/build-Traade_og_DB-Desktop-MinSizeRel/CMakeFiles/3.16.3/CMakeCXXCompiler.cmake"
+			"path" : "/home/host/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug/CMakeFiles/3.16.3/CMakeCXXCompiler.cmake"
 		},
 		{
 			"isCMake" : true,
@@ -168,8 +168,8 @@
 	"kind" : "cmakeFiles",
 	"paths" : 
 	{
-		"build" : "/home/therkelsen/CPP-Learning/Projects/build-Traade_og_DB-Desktop-MinSizeRel",
-		"source" : "/home/therkelsen/CPP-Learning/Projects/Traade_og_DB"
+		"build" : "/home/host/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug",
+		"source" : "/home/host/CPP-Learning/Projects/Traade_og_DB"
 	},
 	"version" : 
 	{

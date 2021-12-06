@@ -1,3 +1,0 @@
-/home/therkelsen/CPP-Learning/Projects/build-Traade_og_DB-Desktop-MinSizeRel/CMakeFiles/rebuild_cache.dir
-/home/therkelsen/CPP-Learning/Projects/build-Traade_og_DB-Desktop-MinSizeRel/CMakeFiles/edit_cache.dir
-/home/therkelsen/CPP-Learning/Projects/build-Traade_og_DB-Desktop-MinSizeRel/CMakeFiles/Traade_og_DB.dir

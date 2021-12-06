@@ -122,7 +122,7 @@
     if(!query.exec()) {
       qDebug() << "Could not create index" << query.lastError();
     } else {
-      qDebug() << "\nIndex successfully created!";
+      qDebug() << "\nIndex successfully created!" << query.lastError();
     }
   }
 

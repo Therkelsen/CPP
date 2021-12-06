@@ -40,7 +40,7 @@ int main() {
   db.createTable();
   db.createIndex();
 
-  int amountToCreate = 5000;
+  int amountToCreate = 2500;
   int threads = 4;
 
   // Laver fire threads til at generere biler
@@ -62,9 +62,33 @@ int main() {
   std::chrono::high_resolution_clock::time_point end = std::chrono::high_resolution_clock::now();
   std::chrono::duration<double, std::milli> duration = end - start;
 
-  std::cout << "Code took " << duration.count()/1000.0 << " seconds to generate and extract " << amountToCreate*threads << " cars" << std::endl;
+  std::cout << "Code took " << duration.count()/1000.0 << " seconds to generate and insert " << amountToCreate*threads << " cars" << std::endl;
 
-  //db.clearDatabase();
+
+  // ------------------------- //
+  // Tiden hvor koden startede gemmes
+  start = std::chrono::high_resolution_clock::now();
+
+  db.clearTable();
+  db.createTable();
+
+  // Laver fire threads til at generere biler
+  std::thread t5(addCars, amountToCreate);
+  std::thread t6(addCars, amountToCreate);
+  std::thread t7(addCars, amountToCreate);
+  std::thread t8(addCars, amountToCreate);
+
+  t5.join();
+  t6.join();
+  t7.join();
+  t8.join();
+
+  // Tiden efter koden har kørt gemmes for at regne kørselstiden ud
+  end = std::chrono::high_resolution_clock::now();
+  std::chrono::duration<double, std::milli> duration2 = end - start;
+
+  std::cout << "Code with index took " << duration.count()/1000.0 << " seconds to generate and insert " << amountToCreate*threads << " cars" << std::endl;
+  std::cout << "Code without index took " << duration2.count()/1000.0 << " seconds to generate and insert " << amountToCreate*threads << " cars" << std::endl;
 
   return 0;
 }

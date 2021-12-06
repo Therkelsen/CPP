@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/therkelsen/CPP-Learning/Projects/Traade_og_DB/cargenerator.h
+/home/host/CPP-Learning/Projects/Traade_og_DB/cargenerator.h
 iostream
 -
 QString
@@ -22,7 +22,7 @@ string
 ctime
 -
 
-/home/therkelsen/CPP-Learning/Projects/Traade_og_DB/database.h
+/home/host/CPP-Learning/Projects/Traade_og_DB/database.h
 iostream
 -
 iomanip
@@ -40,7 +40,7 @@ QSqlDatabase
 QCoreApplication
 -
 
-/home/therkelsen/CPP-Learning/Projects/Traade_og_DB/main.cpp
+/home/host/CPP-Learning/Projects/Traade_og_DB/main.cpp
 mutex
 -
 chrono
@@ -52,9 +52,9 @@ iomanip
 functional
 -
 database.h
-/home/therkelsen/CPP-Learning/Projects/Traade_og_DB/database.h
+/home/host/CPP-Learning/Projects/Traade_og_DB/database.h
 cargenerator.h
-/home/therkelsen/CPP-Learning/Projects/Traade_og_DB/cargenerator.h
+/home/host/CPP-Learning/Projects/Traade_og_DB/cargenerator.h
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/QCoreApplication
 qcoreapplication.h

@@ -43,7 +43,7 @@
 				}
 			],
 			"type" : "STRING",
-			"value" : "MinSizeRel"
+			"value" : "Debug"
 		},
 		{
 			"name" : "CMAKE_CACHEFILE_DIR",
@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/therkelsen/CPP-Learning/Projects/build-Traade_og_DB-Desktop-MinSizeRel"
+			"value" : "/home/host/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -127,7 +127,7 @@
 				}
 			],
 			"type" : "STRING",
-			"value" : "-j12"
+			"value" : "-j6"
 		},
 		{
 			"name" : "CMAKE_COLOR_MAKEFILE",
@@ -539,7 +539,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/therkelsen/CPP-Learning/Projects/Traade_og_DB"
+			"value" : "/home/host/CPP-Learning/Projects/Traade_og_DB"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -1119,7 +1119,7 @@
 				}
 			],
 			"type" : "STRING",
-			"value" : "/usr/lib/x86_64-linux-gnu/qt5/bin/qmake"
+			"value" : "/usr/lib/qt5/bin/qmake"
 		},
 		{
 			"name" : "Qt5Core_DIR",
@@ -1167,7 +1167,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/therkelsen/CPP-Learning/Projects/build-Traade_og_DB-Desktop-MinSizeRel"
+			"value" : "/home/host/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug"
 		},
 		{
 			"name" : "Traade_og_DB_SOURCE_DIR",
@@ -1179,7 +1179,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/therkelsen/CPP-Learning/Projects/Traade_og_DB"
+			"value" : "/home/host/CPP-Learning/Projects/Traade_og_DB"
 		}
 	],
 	"kind" : "cache",

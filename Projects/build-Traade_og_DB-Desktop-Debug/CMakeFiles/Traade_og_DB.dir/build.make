@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/therkelsen/CPP-Learning/Projects/Traade_og_DB
+CMAKE_SOURCE_DIR = /home/host/CPP-Learning/Projects/Traade_og_DB
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/therkelsen/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug
+CMAKE_BINARY_DIR = /home/host/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/Traade_og_DB.dir/depend.make
@@ -58,43 +58,43 @@ include CMakeFiles/Traade_og_DB.dir/progress.make
 include CMakeFiles/Traade_og_DB.dir/flags.make
 
 CMakeFiles/Traade_og_DB.dir/main.cpp.o: CMakeFiles/Traade_og_DB.dir/flags.make
-CMakeFiles/Traade_og_DB.dir/main.cpp.o: /home/therkelsen/CPP-Learning/Projects/Traade_og_DB/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/therkelsen/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Traade_og_DB.dir/main.cpp.o"
-	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Traade_og_DB.dir/main.cpp.o -c /home/therkelsen/CPP-Learning/Projects/Traade_og_DB/main.cpp
+CMakeFiles/Traade_og_DB.dir/main.cpp.o: /home/host/CPP-Learning/Projects/Traade_og_DB/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/host/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Traade_og_DB.dir/main.cpp.o"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Traade_og_DB.dir/main.cpp.o -c /home/host/CPP-Learning/Projects/Traade_og_DB/main.cpp
 
 CMakeFiles/Traade_og_DB.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Traade_og_DB.dir/main.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/therkelsen/CPP-Learning/Projects/Traade_og_DB/main.cpp > CMakeFiles/Traade_og_DB.dir/main.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/host/CPP-Learning/Projects/Traade_og_DB/main.cpp > CMakeFiles/Traade_og_DB.dir/main.cpp.i
 
 CMakeFiles/Traade_og_DB.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Traade_og_DB.dir/main.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/therkelsen/CPP-Learning/Projects/Traade_og_DB/main.cpp -o CMakeFiles/Traade_og_DB.dir/main.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/host/CPP-Learning/Projects/Traade_og_DB/main.cpp -o CMakeFiles/Traade_og_DB.dir/main.cpp.s
 
 CMakeFiles/Traade_og_DB.dir/database.cpp.o: CMakeFiles/Traade_og_DB.dir/flags.make
-CMakeFiles/Traade_og_DB.dir/database.cpp.o: /home/therkelsen/CPP-Learning/Projects/Traade_og_DB/database.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/therkelsen/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Traade_og_DB.dir/database.cpp.o"
-	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Traade_og_DB.dir/database.cpp.o -c /home/therkelsen/CPP-Learning/Projects/Traade_og_DB/database.cpp
+CMakeFiles/Traade_og_DB.dir/database.cpp.o: /home/host/CPP-Learning/Projects/Traade_og_DB/database.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/host/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Traade_og_DB.dir/database.cpp.o"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Traade_og_DB.dir/database.cpp.o -c /home/host/CPP-Learning/Projects/Traade_og_DB/database.cpp
 
 CMakeFiles/Traade_og_DB.dir/database.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Traade_og_DB.dir/database.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/therkelsen/CPP-Learning/Projects/Traade_og_DB/database.cpp > CMakeFiles/Traade_og_DB.dir/database.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/host/CPP-Learning/Projects/Traade_og_DB/database.cpp > CMakeFiles/Traade_og_DB.dir/database.cpp.i
 
 CMakeFiles/Traade_og_DB.dir/database.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Traade_og_DB.dir/database.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/therkelsen/CPP-Learning/Projects/Traade_og_DB/database.cpp -o CMakeFiles/Traade_og_DB.dir/database.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/host/CPP-Learning/Projects/Traade_og_DB/database.cpp -o CMakeFiles/Traade_og_DB.dir/database.cpp.s
 
 CMakeFiles/Traade_og_DB.dir/cargenerator.cpp.o: CMakeFiles/Traade_og_DB.dir/flags.make
-CMakeFiles/Traade_og_DB.dir/cargenerator.cpp.o: /home/therkelsen/CPP-Learning/Projects/Traade_og_DB/cargenerator.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/therkelsen/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Traade_og_DB.dir/cargenerator.cpp.o"
-	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Traade_og_DB.dir/cargenerator.cpp.o -c /home/therkelsen/CPP-Learning/Projects/Traade_og_DB/cargenerator.cpp
+CMakeFiles/Traade_og_DB.dir/cargenerator.cpp.o: /home/host/CPP-Learning/Projects/Traade_og_DB/cargenerator.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/host/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Traade_og_DB.dir/cargenerator.cpp.o"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Traade_og_DB.dir/cargenerator.cpp.o -c /home/host/CPP-Learning/Projects/Traade_og_DB/cargenerator.cpp
 
 CMakeFiles/Traade_og_DB.dir/cargenerator.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Traade_og_DB.dir/cargenerator.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/therkelsen/CPP-Learning/Projects/Traade_og_DB/cargenerator.cpp > CMakeFiles/Traade_og_DB.dir/cargenerator.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/host/CPP-Learning/Projects/Traade_og_DB/cargenerator.cpp > CMakeFiles/Traade_og_DB.dir/cargenerator.cpp.i
 
 CMakeFiles/Traade_og_DB.dir/cargenerator.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Traade_og_DB.dir/cargenerator.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/therkelsen/CPP-Learning/Projects/Traade_og_DB/cargenerator.cpp -o CMakeFiles/Traade_og_DB.dir/cargenerator.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/host/CPP-Learning/Projects/Traade_og_DB/cargenerator.cpp -o CMakeFiles/Traade_og_DB.dir/cargenerator.cpp.s
 
 # Object files for target Traade_og_DB
 Traade_og_DB_OBJECTS = \
@@ -112,7 +112,7 @@ Traade_og_DB: CMakeFiles/Traade_og_DB.dir/build.make
 Traade_og_DB: /usr/lib/x86_64-linux-gnu/libQt5Sql.so.5.12.8
 Traade_og_DB: /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.12.8
 Traade_og_DB: CMakeFiles/Traade_og_DB.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/therkelsen/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable Traade_og_DB"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/host/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable Traade_og_DB"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Traade_og_DB.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -125,6 +125,6 @@ CMakeFiles/Traade_og_DB.dir/clean:
 .PHONY : CMakeFiles/Traade_og_DB.dir/clean
 
 CMakeFiles/Traade_og_DB.dir/depend:
-	cd /home/therkelsen/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/therkelsen/CPP-Learning/Projects/Traade_og_DB /home/therkelsen/CPP-Learning/Projects/Traade_og_DB /home/therkelsen/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug /home/therkelsen/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug /home/therkelsen/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug/CMakeFiles/Traade_og_DB.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/host/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/host/CPP-Learning/Projects/Traade_og_DB /home/host/CPP-Learning/Projects/Traade_og_DB /home/host/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug /home/host/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug /home/host/CPP-Learning/Projects/build-Traade_og_DB-Desktop-Debug/CMakeFiles/Traade_og_DB.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/Traade_og_DB.dir/depend
 
