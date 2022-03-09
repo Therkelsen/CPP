@@ -1,3 +1,0 @@
-C:/Users/Thomas Therkelsen/Documents/GitHub/Numerical_Methods/Projects/Lecture04/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-C:/Users/Thomas Therkelsen/Documents/GitHub/Numerical_Methods/Projects/Lecture04/cmake-build-debug/CMakeFiles/Lecture04.dir
-C:/Users/Thomas Therkelsen/Documents/GitHub/Numerical_Methods/Projects/Lecture04/cmake-build-debug/CMakeFiles/edit_cache.dir
