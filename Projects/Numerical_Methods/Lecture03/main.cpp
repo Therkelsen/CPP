@@ -4,8 +4,8 @@
 
 #include <Eigen/Dense>
 
-#include "../../Assets/NR_C301/code/nr3.h"
-#include "../../Assets/NR_C301/code/utilities.h"
+#include "../Assets/NR_C301/code/nr3.h"
+#include "../Assets/NR_C301/code/utilities.h"
 
 using namespace std;
 
