@@ -1,0 +1,3 @@
+/home/therkelsen/OpenCV-Learning/build-OpenCV_Ex1-Desktop-Debug/CMakeFiles/rebuild_cache.dir
+/home/therkelsen/OpenCV-Learning/build-OpenCV_Ex1-Desktop-Debug/CMakeFiles/edit_cache.dir
+/home/therkelsen/OpenCV-Learning/build-OpenCV_Ex1-Desktop-Debug/CMakeFiles/OpenCVExercises.dir
