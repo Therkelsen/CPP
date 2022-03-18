@@ -1,5 +1,5 @@
 * text=auto
-*.c linguist-vendored=true
-*.cmake linguist-vendored=true
-*.make linguist-vendored=true
-*.xml linguist-vendored=true
+*.c linguist-vendored=false
+*.cmake linguist-vendored=false
+*.make linguist-vendored=false
+*.xml linguist-vendored=false
