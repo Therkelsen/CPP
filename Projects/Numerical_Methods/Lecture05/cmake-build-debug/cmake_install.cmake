@@ -1,8 +1,8 @@
-# Install script for directory: D:/Documents/GitHub/CPP/Projects/Numerical_Methods/Lecture05
+# Install script for directory: C:/Users/Thomas Therkelsen/Documents/GitHub/CPP/Projects/Numerical_Methods/Lecture05
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/Lecture04")
+  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/Lecture05")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "D:/Documents/GitHub/CPP/Projects/Numerical_Methods/Lecture05/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/Thomas Therkelsen/Documents/GitHub/CPP/Projects/Numerical_Methods/Lecture05/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

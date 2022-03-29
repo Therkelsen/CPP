@@ -49,8 +49,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "D:/Documents/GitHub/CPP/Projects/Numerical_Methods/Lecture05/cmake-build-debug",
-		"source" : "D:/Documents/GitHub/CPP/Projects/Numerical_Methods/Lecture05"
+		"build" : "C:/Users/Thomas Therkelsen/Documents/GitHub/CPP/Projects/Numerical_Methods/Lecture05/cmake-build-debug",
+		"source" : "C:/Users/Thomas Therkelsen/Documents/GitHub/CPP/Projects/Numerical_Methods/Lecture05"
 	},
 	"version" : 
 	{
