@@ -37,7 +37,7 @@ VectorXd newtonsMethod(int iterations = 1) {
     x.resize(iterations + 1);
     x(0) = 0;
     for (int i = 0; i < iterations; i++) {
-        x(0)(i + 1) = x(i) - f(x(i))/dfd(x(i));
+        x(i + 1) = x(i) - f(x(i))/dfd(x(i));
     }
     return x;
 }
@@ -115,9 +115,7 @@ VectorXd riddersMethod(int iterations = 1) {
 }
 
 void print(const VectorXd& v, double k) {
-
-
-    if () {
+    if (true) {
         for (int i = 0; i < v.size(); i++) {
             if (i < 2) {
                 cout << setw(5) << i << setw(15) << v(i) << setw(20) << v(i) - 0 << setw(48) << abs(v(i) - 0) / pow(abs(0 - 0), k) << setw(20) << "e[k]" << setw(0) << "C" << endl;
