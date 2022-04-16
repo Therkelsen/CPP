@@ -44,6 +44,18 @@ MatDoub loadData(const string& path){
     return loadedData;
 }
 
+bool vecEqual(VecDoub a, VecDoub b) {
+    if(a.size() != b.size()) {
+        return false;
+    }
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
 double f1(double x) {
     return x - cos(x);
 }
@@ -92,7 +104,7 @@ double richardsonErrorEstimation(int alpha, int k, const VecDoub& areas){
 }
 
 int main() {
-    cout << fixed << setprecision(7);
+    cout << fixed << setprecision(7) << boolalpha;
     cout << "Data is loaded from the provided files Ex1A.dat and Ex1b.dat.\n" << endl;
 
     string path1 = "../Assets/Ex1A.dat";
@@ -116,17 +128,36 @@ int main() {
 
     MatDoub U = SVD.u;
     MatDoub V = SVD.v;
-    VecDoub W = SVD.w;
+    VecDoub Wdiag = SVD.w;
 
-    print(W, "W");
+    print(U, "SVD U");
+    print(V, "SVD V");
 
-    cout << "ii) (5 points) Use SVD to compute the solution x to Ax = b.\n"
+    MatDoub W(Wdiag.size(), Wdiag.size());
+
+    for(int i = 0; i < W.ncols(); i++) {
+        for(int j = 0; j < W.nrows(); j++) {
+            if(i == j) {
+                W[i][j] = Wdiag[i];
+            } else {
+                W[i][j] = 0;
+            }
+        }
+    }
+
+    print(W, "SVD W");
+
+    print(Wdiag, "SVD W Diagonal elements");
+
+    cout << "\nii) (5 points) Use SVD to compute the solution x to Ax = b.\n"
             "State the solution x. Submit the used code.\n" << endl;
 
-    MatDoub W_inv = MatDoub(W.size(),W.size());
-    for(int i = 0; i< W.size(); i++) {
-        W_inv[i][i] = 1.0 / W[i];
+    MatDoub W_inv = MatDoub(Wdiag.size(),Wdiag.size());
+    for(int i = 0; i< Wdiag.size(); i++) {
+        W_inv[i][i] = 1.0 / Wdiag[i];
     }
+
+    print(W_inv, "W^-1");
 
     VecDoub b_vec(b.nrows());
 
@@ -139,11 +170,17 @@ int main() {
 
     x = V * W_inv * T(U) * b_vec;
 
-    print(x);
+    print(x, "x");
 
     print(A*x, "A*x");
 
-    cout << "iii) (5 points) State a vector y element of R^10 so that \174\174y\174\174 = 1 and y * (Ax) is approximately 0 for any vector x with \174\174x\174\174 = 1.\n" << endl;
+    print(b_vec, "b");
+
+    VecDoub Ax = A*x;
+
+    cout << "\nA*x = b? " << vecEqual(Ax, b_vec) << endl;
+
+    /*cout << "iii) (5 points) State a vector y element of R^10 so that \174\174y\174\174 = 1 and y * (Ax) is approximately 0 for any vector x with \174\174x\174\174 = 1.\n" << endl;
 
     cout << "\nExercise 2\n"
             "i) (6 points) At time t = 1:2, find a solution (x; y; z; lambda) satisfying the firstrst order conditions in Eq.(1).\n"
@@ -165,6 +202,6 @@ int main() {
 
     print(ex5area, "ex5area");
 
-    cout << "\nError estimated: " << richardsonErrorEstimation(2, 2, ex5area);
+    cout << "\nError estimated: " << richardsonErrorEstimation(2, 2, ex5area);*/
     return 0;
 }
