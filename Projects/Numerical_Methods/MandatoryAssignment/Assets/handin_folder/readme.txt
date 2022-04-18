@@ -1,0 +1,1 @@
+All code is in one main.cpp. Help functions are defined above the main method, there are comments and cout's to show what the different things do.
