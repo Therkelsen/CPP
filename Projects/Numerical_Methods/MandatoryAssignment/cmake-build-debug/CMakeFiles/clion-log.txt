@@ -1,4 +1,4 @@
-"C:\Program Files\JetBrains\CLion 2021.3.3\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" "C:\Users\Thomas Therkelsen\Documents\GitHub\CPP\Projects\Numerical_Methods\MandatoryAssignment"
+"C:\Program Files\JetBrains\CLion 2021.3.3\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=C:/Program Files/JetBrains/CLion 2021.3.3/bin/ninja/win/ninja.exe" -G Ninja D:\Documents\GitHub\CPP\Projects\Numerical_Methods\MandatoryAssignment
 -- Configuring done
 -- Generating done
--- Build files have been written to: C:/Users/Thomas Therkelsen/Documents/GitHub/CPP/Projects/Numerical_Methods/MandatoryAssignment/cmake-build-debug
+-- Build files have been written to: D:/Documents/GitHub/CPP/Projects/Numerical_Methods/MandatoryAssignment/cmake-build-debug

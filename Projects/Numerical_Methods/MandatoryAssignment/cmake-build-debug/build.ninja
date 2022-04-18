@@ -52,7 +52,7 @@ build cmake_object_order_depends_target_MandatoryAssignment: phony || CMakeFiles
 build CMakeFiles/MandatoryAssignment.dir/main.cpp.obj: CXX_COMPILER__MandatoryAssignment_Debug D$:/Documents/GitHub/CPP/Projects/Numerical_Methods/MandatoryAssignment/main.cpp || cmake_object_order_depends_target_MandatoryAssignment
   DEP_FILE = CMakeFiles\MandatoryAssignment.dir\main.cpp.obj.d
   FLAGS = -g -std=gnu++23
-  INCLUDES = -IC:/CPP_Libs
+  INCLUDES = -ID:/Documents/GitHub/CPP/Projects/Numerical_Methods/MandatoryAssignment/../Assets/NR_C301/code
   OBJECT_DIR = CMakeFiles\MandatoryAssignment.dir
   OBJECT_FILE_DIR = CMakeFiles\MandatoryAssignment.dir
 
