@@ -1,10 +1,9 @@
 
-#include "../../Assets/NR_C301/code/nr3.h"
-#include "../../Assets/NR_C301/code/ludcmp.h"
+#include "nr3.h"
+#include "ludcmp.h"
 
-#include "../../Assets/NR_C301/code/utilities.h"
+#include "utilities.h"
 
-using namespace std;
 using namespace util;
 
 // Exercise 1
