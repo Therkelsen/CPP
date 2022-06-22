@@ -19,6 +19,8 @@
 #include <svd.h>
 #include <quadrature.h>
 #include <derule.h>
+#include <eigen_sym.h>
+#include <eigen_unsym.h>
 
 #include "utilities.h"
 
@@ -61,6 +63,23 @@ namespace nm_util {
     }
 
     // Matrix handling methods
+    MatDoub matTranspose(const MatDoub& m) {
+        MatDoub transpose(m.nrows(), m.ncols());
+
+        if(m.nrows() != m.ncols()) {
+            throw std::invalid_argument("MatDoub must be square! (n x n)");
+        } else {
+            transpose.assign(transpose.nrows(), transpose.ncols(), 0);
+            for (int i = 0; i < m.nrows(); i++) {
+                for (int j = 0; j < m.ncols(); j++) {
+                    if(m[i][j] != 0) {
+                        transpose[i][j] = m[j][i];
+                    }
+                }
+            }
+        }
+        return transpose;
+    }
     MatDoub matInverse(const MatDoub& m) {
         // Computes the inverse vector
         MatDoub m_inv(m.nrows(), m.ncols());
@@ -87,6 +106,38 @@ namespace nm_util {
         }
         return m_vec;
     }
+    bool matEqual(const MatDoub& A, const MatDoub& B) {
+        // Checks whether two matrices are equal
+        if(A.nrows() != B.nrows() || A.nrows() != B.ncols()) {
+            throw std::invalid_argument("MatDoubs must be same size!");
+        } else {
+            for (int i = 0; i < A.nrows(); i++) {
+                for (int j = 0; j < A.ncols(); j++) {
+                    if(A[i][j] != B[i][j]) {
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
+    }
+    bool matSymmetric(const MatDoub& A) {
+        // Checks whether a matrix is symmetric
+        return matEqual(A, matTranspose(A));
+    }
+    bool matPosDef(const MatDoub& A) {
+        // Checks whether matrix is positive definite
+        // (Not always accurate due to limitations of accuracy in Cholesky)
+        if(!matSymmetric(A)) {
+            return false;
+        }
+        try {
+            Cholesky Cho(A);
+            return true;
+        } catch (...) {
+            return false;
+        }
+    } // NOT DONE
 
     // Vector handling methods
     bool vecEqual(const VecDoub& a, const VecDoub& b) {
@@ -141,6 +192,54 @@ namespace nm_util {
         }
         return absolute;
     }
+    VecDoub vecScale(const VecDoub& v, double s) {
+        // Scales v with s
+        VecDoub sv = v;
+        for (int i = 0; i < sv.size(); i++) {
+            sv[i] *= s;
+        }
+        return sv;
+    }
+    double vecDotProduct(const VecDoub& v1, const VecDoub& v2) { // Computes dot product between v1 and v2
+        double dot = 0;
+        for (int i = 0; i < v1.size(); i++) {
+            dot += v1[i]*v2[i];
+        }
+        return dot;
+    }
+    vector<VecDoub> gramSchmidt(const vector<VecDoub>& x, const vector<VecDoub>& e, int K, int R){
+        // Applies the gram schmidt method to a set of vectors
+        vector<VecDoub> gs;
+        gs.reserve(K);
+        for (int i = 0; i < R; i++) {
+            gs[0][i] = x[0][i] / vecNorm(x[0]);
+        }
+        cout << "e[0]" << endl;
+        util::print(gs[0]);
+
+        VecDoub sum(5), temp(5);
+
+        for (int i = 1; i < K; i++) {
+            gs[i] = x[i];
+            /*cout << "\nInitial e[" << i << "]" << endl;
+            util::print(e[i]);*/
+            sum.assign(sum.size(), 0); temp.assign(temp.size(), 0);
+            for (int j = 0; j < i; j++) {
+                // For every iteration, subtract from e[i] the vector e[j] scaled by the dot product between x[i] and e[j]
+                temp = vecScale(gs[j], vecDotProduct(x[i],gs[j]));
+                for (int k = 0; k < sum.size(); k++) {
+                    sum[k] += temp[k];
+                }
+            }
+            for (int j = 0; j < gs[i].size(); j++) {
+                gs[i][j] -= sum[j];
+            }
+            gs[i] = vecNormalize(gs[i]);
+            cout << "\ne[" << i << "] = " << endl;
+            util::print(gs[i]);
+        }
+        return gs;
+    }
 
     // Decomposition stuff
     VecDoub compLUD(const MatDoub& A, const VecDoub& b) {
@@ -149,7 +248,33 @@ namespace nm_util {
             LUdcmp LU(A);
 
             MatDoub _LU = LU.lu;
-            util::print(_LU, "L*U");
+
+            MatDoub L = _LU;
+
+            for(int i = 0; i < L.ncols(); i++) {
+                for(int j = 0; j < L.nrows(); j++) {
+                    if(i == j) {
+                        L[i][j] = 1;
+                    } else if (i < j) {
+                        L[i][j] = 0;
+                    }
+                }
+            }
+
+            util::print(L, "L");
+
+            MatDoub U = _LU;
+            for(int i = 0; i < U.ncols(); i++) {
+                for(int j = 0; j < U.nrows(); j++) {
+                    if (i > j) {
+                        U[i][j] = 0;
+                    }
+                }
+            }
+
+            util::print(U, "U");
+
+            util::print(L*U, "L*U");
 
             LU.solve(b,x);
             util::print(x, "x solution computed by LUd");
@@ -166,6 +291,9 @@ namespace nm_util {
             LU.solve(b,x);
             MatDoub C;
             LU.inverse(C);
+
+            util::print(C, "Variance C");
+
             return C;
         } catch (const std::exception & ex) {
             cerr << ex.what() << endl;
@@ -173,6 +301,10 @@ namespace nm_util {
         }
     }
     VecDoub compCholesky(const MatDoub& A, const VecDoub& b){
+        if(!matPosDef(A)) {
+            cerr << "Cholesky failed, matrix is not positive definite" << endl;
+            return VecDoub{0};
+        }
         try {
             VecDoub x(size(b));
             Cholesky Cho(A);
@@ -186,6 +318,10 @@ namespace nm_util {
         }
     }
     MatDoub compCholeskyVariance(const MatDoub& A, const VecDoub& b){
+        if(!matPosDef(A)) {
+            cerr << "Cholesky failed, matrix is not positive definite" << endl;
+            return MatDoub{0, 0};
+        }
         try {
             VecDoub x(size(b));
             Cholesky Cho(A);
@@ -193,10 +329,8 @@ namespace nm_util {
             Cho.solve(b,x);
             MatDoub C;
             Cho.inverse(C);
-//            util::print(A,"A");
-//            util::print(L*U,"L*U");
-//            util::print(L*U*x,"L*U*x");
-//            util::print(x,"x");
+
+            util::print(C, "Variance C");
 
             return C;
         } catch (const std::exception & ex) {
@@ -217,6 +351,39 @@ namespace nm_util {
             return VecDoub{0};
         }
     }
+    MatDoub compSVDU(const MatDoub& A, const VecDoub& b) {
+        try {
+            VecDoub x(A.ncols());
+            SVD SVD(A);
+
+            return SVD.u;
+        } catch (const std::exception & ex) {
+            cerr << ex.what() << endl;
+            return MatDoub{0, 0};
+        }
+    }
+    MatDoub compSVDV(const MatDoub& A, const VecDoub& b) {
+        try {
+            VecDoub x(A.ncols());
+            SVD SVD(A);
+
+            return SVD.v;
+        } catch (const std::exception & ex) {
+            cerr << ex.what() << endl;
+            return MatDoub{0, 0};
+        }
+    }
+    VecDoub compSVDW(const MatDoub& A, const VecDoub& b) {
+        try {
+            VecDoub x(A.ncols());
+            SVD SVD(A);
+
+            return SVD.w;
+        } catch (const std::exception & ex) {
+            cerr << ex.what() << endl;
+            return VecDoub{0};
+        }
+    }
     double compSVDEpsilonResiduals(const MatDoub& A, const MatDoub& b){
         try {
             VecDoub b_vec = nm_util::matToVec(b);
@@ -225,11 +392,6 @@ namespace nm_util {
 
             SVD.solve(b_vec,x,SVD.eps);
 
-//            util::print(A,"A");
-//            util::print(L*U,"L*U");
-//            util::print(L*U*x,"L*U*x");
-//            util::print(x,"x");
-
             VecDoub Ax = A*x;
             return nm_util::vecNorm(vecSub(Ax, b_vec))/nm_util::vecNorm(b_vec);
         } catch (const std::exception & ex) {
@@ -237,7 +399,56 @@ namespace nm_util {
             return 0;
         }
     }
+    double compResiduals(const VecDoub& Ax, const VecDoub& b){
+        return vecNorm(vecSub(Ax, b));
+    }
 
+    // Numerical integration
+    VecDoub trapezoidalMethod(double (*f)(double x), int N, double a, double b, int iterations) {
+        // This is an implementation of the trapezoidal method which runs for iteration times, doubling N for each iteration.
+        VecDoub areas(iterations);
+        areas.assign(iterations, 0);
+
+        for(int i = 0; i < iterations; i++){
+            double h = (b - a) / (N - 1);
+
+            double area = 0;
+
+            area += 0.5 * f(a);
+            for (int j = 1; j < N - 1; j++) {
+                area += f(a + h * j);
+            }
+            area += 0.5 * f(b);
+
+            area *= h;
+            areas[i] = abs(area);
+            N *= 2;
+        }
+
+        return areas;
+    }
+    VecDoub extendedMidpointMethod(double (*f)(double x), int N, double a, double b, int iterations) {
+        VecDoub areas;
+        areas.assign(iterations, 0);
+
+        for(int i = 0; i < iterations; i++){
+            double h = (b - a) / (N - 1);
+
+            double area = 0;
+
+            for (int j = 0; j < N - 1; j++) {
+                area += f(a + h * j + h * 0.5);
+            }
+
+            area *= h;
+            areas[i] = area;
+            N *= 2;
+        }
+
+        return areas;
+    }
+
+    /*
     // Root finding
     // Some inspiration is taken from Ole Wennerberg Nielsens examples uploaded to ItsLearning
     template <class T>
@@ -523,6 +734,7 @@ namespace nm_util {
         }
         return Ah0;
     }
+    */
 
 }
 

@@ -178,6 +178,26 @@ VecDoub trapezoidalMethod(double (*f)(double x), int N, double a, double b, int 
 
     return areas;
 }
+VecDoub extendedMidpointMethod(double (*f)(double x), int N, double a, double b, int iterations) {
+    VecDoub areas;
+    areas.assign(iterations, 0);
+
+    for(int i = 0; i < iterations; i++){
+        double h = (b - a) / (N - 1);
+
+        double area = 0;
+
+        for (int j = 0; j < N - 1; j++) {
+            area += f(a + h * j + h * 0.5);
+        }
+
+        area *= h;
+        areas[i] = area;
+        N *= 2;
+    }
+
+    return areas;
+}
 
 double richErrorEst(int alpha, int k, const VecDoub& areas, int i){
     // Estimates richardson error
