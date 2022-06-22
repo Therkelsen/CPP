@@ -80,6 +80,7 @@ namespace nm_util {
         }
         return transpose;
     }
+
     MatDoub matInverse(const MatDoub& m) {
         // Computes the inverse vector
         MatDoub m_inv(m.nrows(), m.ncols());
@@ -97,6 +98,7 @@ namespace nm_util {
         }
         return m_inv;
     }
+
     VecDoub matToVec(const MatDoub& m){
         // Transforms single-column matrix to column vector
         VecDoub m_vec(m.nrows());
@@ -106,6 +108,7 @@ namespace nm_util {
         }
         return m_vec;
     }
+
     bool matEqual(const MatDoub& A, const MatDoub& B) {
         // Checks whether two matrices are equal
         if(A.nrows() != B.nrows() || A.nrows() != B.ncols()) {
@@ -121,10 +124,12 @@ namespace nm_util {
         }
         return true;
     }
+
     bool matSymmetric(const MatDoub& A) {
         // Checks whether a matrix is symmetric
         return matEqual(A, matTranspose(A));
     }
+
     bool matPosDef(const MatDoub& A) {
         // Checks whether matrix is positive definite
         // (Not always accurate due to limitations of accuracy in Cholesky)
@@ -152,6 +157,7 @@ namespace nm_util {
         }
         return true;
     }
+
     VecDoub vecSub(const VecDoub& org, const VecDoub& sub){
         // Subtracts sub from org
         VecDoub subtractedVector;
@@ -165,6 +171,7 @@ namespace nm_util {
         }
         return subtractedVector;
     }
+
     double vecNorm(const VecDoub& v) {
         // Computes the norm of v
         double sum = 0;
@@ -175,6 +182,7 @@ namespace nm_util {
 
         return sqrt(sum);
     }
+
     VecDoub vecNormalize(const VecDoub& v) {
         // Normalizes v
         VecDoub normalized = v;
@@ -184,6 +192,7 @@ namespace nm_util {
         }
         return normalized;
     }
+
     VecDoub vecAbsolute(const VecDoub& v) {
         // Absolutes the elements of v
         VecDoub absolute = v;
@@ -192,6 +201,7 @@ namespace nm_util {
         }
         return absolute;
     }
+
     VecDoub vecScale(const VecDoub& v, double s) {
         // Scales v with s
         VecDoub sv = v;
@@ -200,6 +210,7 @@ namespace nm_util {
         }
         return sv;
     }
+
     double vecDotProduct(const VecDoub& v1, const VecDoub& v2) { // Computes dot product between v1 and v2
         double dot = 0;
         for (int i = 0; i < v1.size(); i++) {
@@ -207,6 +218,7 @@ namespace nm_util {
         }
         return dot;
     }
+
     vector<VecDoub> gramSchmidt(const vector<VecDoub>& x, const vector<VecDoub>& e, int K, int R){
         // Applies the gram schmidt method to a set of vectors
         vector<VecDoub> gs;
@@ -284,6 +296,7 @@ namespace nm_util {
             return VecDoub{0};
         }
     }
+
     MatDoub compLUDVariance(const MatDoub& A, const VecDoub& b){
         try {
             VecDoub x(size(b));
@@ -300,6 +313,7 @@ namespace nm_util {
             return MatDoub{0, 0};
         }
     }
+
     VecDoub compCholesky(const MatDoub& A, const VecDoub& b){
         if(!matPosDef(A)) {
             cerr << "Cholesky failed, matrix is not positive definite" << endl;
@@ -317,6 +331,7 @@ namespace nm_util {
             return VecDoub{0};
         }
     }
+
     MatDoub compCholeskyVariance(const MatDoub& A, const VecDoub& b){
         if(!matPosDef(A)) {
             cerr << "Cholesky failed, matrix is not positive definite" << endl;
@@ -338,6 +353,7 @@ namespace nm_util {
             return MatDoub{0, 0};
         }
     }
+
     VecDoub compSVD(const MatDoub& A, const VecDoub& b) {
         try {
             VecDoub x(A.ncols());
@@ -351,6 +367,7 @@ namespace nm_util {
             return VecDoub{0};
         }
     }
+
     MatDoub compSVDU(const MatDoub& A, const VecDoub& b) {
         try {
             VecDoub x(A.ncols());
@@ -362,6 +379,7 @@ namespace nm_util {
             return MatDoub{0, 0};
         }
     }
+
     MatDoub compSVDV(const MatDoub& A, const VecDoub& b) {
         try {
             VecDoub x(A.ncols());
@@ -373,6 +391,7 @@ namespace nm_util {
             return MatDoub{0, 0};
         }
     }
+
     VecDoub compSVDW(const MatDoub& A, const VecDoub& b) {
         try {
             VecDoub x(A.ncols());
@@ -384,6 +403,7 @@ namespace nm_util {
             return VecDoub{0};
         }
     }
+
     double compSVDEpsilonResiduals(const MatDoub& A, const MatDoub& b){
         try {
             VecDoub b_vec = nm_util::matToVec(b);
@@ -399,6 +419,7 @@ namespace nm_util {
             return 0;
         }
     }
+
     double compResiduals(const VecDoub& Ax, const VecDoub& b){
         return vecNorm(vecSub(Ax, b));
     }
@@ -428,8 +449,7 @@ namespace nm_util {
                 area += f(a + h * j);
             }
 
-            area *= h;
-            areas[i] = abs(area);
+            areas[i] = abs(area * h);
             N *= 2;
 
             if(i > 0) {
@@ -474,8 +494,7 @@ namespace nm_util {
                 area += f(a + h * j + h * 0.5);
             }
 
-            area *= h;
-            areas[i] = area;
+            areas[i] = abs(area * h);
             N *= 2;
 
             if(i > 0) {
@@ -522,7 +541,7 @@ namespace nm_util {
                     area += 2./3 * f(a + h * j);
                 }
             }
-            areas[i] = area * h;
+            areas[i] = abs(area * h);
             N *= 2;
 
             if(i > 0) {
