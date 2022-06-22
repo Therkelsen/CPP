@@ -49,7 +49,8 @@ double f9(double x) {
     return (1.0 / sqrt(x)) * cos(pow(x, 2)) * exp(-x);
 }
 
-VecDoub trapezoidalMethod(double (*f)(double x), const VecDoub& info) {
+template<class T>
+VecDoub trapezoidalMethod(T &f, const VecDoub& info) {
     // Uses the trapezoidal method to approximate the numerical integration of a given function
 
     int N = info[0]; // Number of initial subdivisions
@@ -95,7 +96,8 @@ VecDoub trapezoidalMethod(double (*f)(double x), const VecDoub& info) {
     return areas2;
 }
 
-VecDoub extendedMidpointMethod(double (*f)(double x), const VecDoub& info) {
+template<class T>
+VecDoub extendedMidpointMethod(T &f, const VecDoub& info) {
     // Uses the extended method to approximate the numerical integration of a given function
     int N = info[0]; // Number of initial subdivisions
     int maxIt = info[1]; // Number of iterations
@@ -140,7 +142,8 @@ VecDoub extendedMidpointMethod(double (*f)(double x), const VecDoub& info) {
     return areas2;
 }
 
-VecDoub simpsonsMethod(double (*f)(double x), const VecDoub& info) {
+template<class T>
+VecDoub simpsonsMethod(T &f, const VecDoub& info) {
     // Uses simpsons method to approximate the numerical integration of a given function
     int N = info[0]; // Number of initial subdivisions
     int maxIt = info[1]; // Number of iterations

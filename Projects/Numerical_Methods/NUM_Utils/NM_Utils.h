@@ -404,34 +404,68 @@ namespace nm_util {
     }
 
     // Numerical integration
-    VecDoub trapezoidalMethod(double (*f)(double x), int N, double a, double b, int iterations) {
-        // This is an implementation of the trapezoidal method which runs for iteration times, doubling N for each iteration.
-        VecDoub areas(iterations);
-        areas.assign(iterations, 0);
+    template<class T>
+    VecDoub numIntTrapezoidalMethod(T &f, const VecDoub& info) {
+        // Uses the trapezoidal method to approximate the numerical integration of a given function
 
-        for(int i = 0; i < iterations; i++){
+        int N = info[0]; // Number of initial subdivisions
+        int maxIt = info[1]; // Number of iterations
+        double a = info[2]; // lower bound
+        double b = info[3]; // upper bound
+        int acc = info[4]; // desired accuracy
+
+        cout << scientific << "Attempting numerical integration by Trapezoidal method at accuracy of " << abs(1 * pow(10, (-acc))) << endl;
+
+        VecDoub areas, areas2;
+        areas.assign(maxIt, 0);
+
+        for(int i = 0; i < maxIt; i++) {
             double h = (b - a) / (N - 1);
 
             double area = 0;
-
-            area += 0.5 * f(a);
+            area += 0.5 * f(a) + 0.5 * f(b);
             for (int j = 1; j < N - 1; j++) {
                 area += f(a + h * j);
             }
-            area += 0.5 * f(b);
 
             area *= h;
             areas[i] = abs(area);
             N *= 2;
+
+            if(i > 0) {
+                if(abs(areas[i-1]-areas[i]) < abs(pow(10, (-acc)))) {
+                    cout << "Success: Reached accuracy of " << abs(pow(10, (-acc))) << ", terminating."<< endl;
+                    areas2.assign(i, 0);
+                    break;
+                } else if (i == maxIt - 1) {
+                    cout << "Error: Exceeded maximum amount of iterations before reaching accuracy, terminating." << endl;
+                    areas2.assign(i, 0);
+                    break;
+                }
+            }
         }
 
-        return areas;
+        for(int i = 0; i < areas2.size(); i++) {
+            areas2[i] = areas[i];
+        }
+        return areas2;
     }
-    VecDoub extendedMidpointMethod(double (*f)(double x), int N, double a, double b, int iterations) {
-        VecDoub areas;
-        areas.assign(iterations, 0);
 
-        for(int i = 0; i < iterations; i++){
+    template<class T>
+    VecDoub numIntExtendedMidpointMethod(T &f, const VecDoub& info) {
+        // Uses the extended method to approximate the numerical integration of a given function
+        int N = info[0]; // Number of initial subdivisions
+        int maxIt = info[1]; // Number of iterations
+        double a = info[2]; // lower bound
+        double b = info[3]; // upper bound
+        int acc = info[4]; // desired accuracy
+
+        cout << scientific << "Attempting numerical integration by Extended Midpoint method at accuracy of " << abs(1 * pow(10, (-acc))) << endl;
+
+        VecDoub areas, areas2;
+        areas.assign(maxIt, 0);
+
+        for(int i = 0; i < maxIt; i++){
             double h = (b - a) / (N - 1);
 
             double area = 0;
@@ -443,9 +477,136 @@ namespace nm_util {
             area *= h;
             areas[i] = area;
             N *= 2;
+
+            if(i > 0) {
+                if(abs(areas[i-1]-areas[i]) < abs(pow(10, (-acc)))) {
+                    cout << "Success: Reached accuracy of " << abs(pow(10, (-acc))) << ", terminating."<< endl;
+                    areas2.assign(i, 0);
+                    break;
+                } else if (i == maxIt - 1) {
+                    cout << "Error: Exceeded maximum amount of iterations before reaching accuracy, terminating." << endl;
+                    areas2.assign(i, 0);
+                    break;
+                }
+            }
         }
 
-        return areas;
+        for(int i = 0; i < areas2.size(); i++) {
+            areas2[i] = areas[i];
+        }
+        return areas2;
+    }
+
+    template<class T>
+    VecDoub numIntSimpsonsMethod(T &f, const VecDoub& info) {
+        // Uses simpsons method to approximate the numerical integration of a given function
+        int N = info[0]; // Number of initial subdivisions
+        int maxIt = info[1]; // Number of iterations
+        double a = info[2]; // lower bound
+        double b = info[3]; // upper bound
+        int acc = info[4]; // desired accuracy
+
+        cout << scientific << "Attempting numerical integration by Simpsons method at accuracy of " << abs(1 * pow(10, (-acc))) << endl;
+
+        VecDoub areas, areas2;
+        areas.assign(maxIt, 0);
+
+        for(int i = 0; i < maxIt; i++) {
+            double h = (b - a) / (N - 1);
+
+            double area = 1./3 * f(a) + 1./3 * f(b);
+            for (int j = 1; j < N - 1; j++) {
+                if(j % 2 != 0) {
+                    area += 4./3 * f(a + h * j);
+                } else {
+                    area += 2./3 * f(a + h * j);
+                }
+            }
+            areas[i] = area * h;
+            N *= 2;
+
+            if(i > 0) {
+                if(abs(areas[i-1]-areas[i]) < abs(pow(10, (-acc)))) {
+                    cout << "Success: Reached accuracy of " << abs(pow(10, (-acc))) << ", terminating."<< endl;
+                    areas2.assign(i, 0);
+                    break;
+                } else if (i == maxIt - 1) {
+                    cout << "Error: Exceeded maximum amount of iterations before reaching accuracy, terminating." << endl;
+                    areas2.assign(i, 0);
+                    break;
+                }
+            }
+        }
+
+        for(int i = 0; i < areas2.size(); i++) {
+            areas2[i] = areas[i];
+        }
+        return areas2;
+    }
+
+    template<class T>
+    double numIntDerule(T &func, const double a, const double b, const double acc) {
+        //VecDoub areas;
+
+        Doub count = 0;
+        Doub N = 0;
+        Doub Ah0 = 0;
+        Doub Ah1 = 0;
+        DErule<T> rule(func, a, b, 4.3); //3.7    4.3  Vælges ud fra sværheden af singulariteten ved 1/sqrt(x) er 4.3 passende
+        while((abs(Ah0-Ah1)/Ah0 > abs(1 * pow(10, (-acc))) || count==0)) {
+            count++;
+            N = pow(2,count);
+            Ah1=Ah0;
+            Ah0 = rule.next();
+            cout << count << "  " << Ah0 << "   " << abs(Ah0-Ah1) << endl;
+            //areas[count] = Ah0;
+        }
+        return Ah0;
+    }
+
+    double richErrorEst(double alphak, const VecDoub& areas, int i){
+        // Estimates richardson error
+        return abs((areas[i] - areas[i - 1])/(alphak - 1));
+    }
+
+    double richAlphak(const VecDoub& areas, int i) {
+        // Estimates alpha^k
+        return abs(areas[i - 2] - areas[i - 1])/abs(areas[i - 1] - areas[i]);
+    }
+
+    void numIntPrint(const VecDoub& areas, const VecDoub& info, const std::string& method) {
+        // Prints a nicely formatted table showing area, accuracy, richardson error, etc.
+        int N = info[0];
+        int maxIt = info[1];
+        double a = info[2];
+        double b = info[3];
+        int acc = info[4];
+
+        cout << setprecision(acc - 4) << left << setw(7) << "i" << setw(22) << "A(hi)" << setw(22) << "A(hi - 1) - A(hi)" << setw(22) << "Rich - alpha^k" <<  setw(22) << "Rich-error" << setw(16) << "F-Calculations" << endl;
+        int fCalcs, prevFCalcs = 0;
+        for(int i = 0; i < areas.size(); i++) {
+            fCalcs += N - prevFCalcs;
+            switch (i) {
+                case 0:
+                    cout << setw(7) << i + 1 << setw(22) << areas[i] << setw(22) << "*" << setw(22)
+                         << "*" << setw(22) << "*" << setw(16) << fCalcs << endl;
+                    break;
+                case 1:
+                    cout << setw(7) << i + 1 << setw(22) << areas[i] << setw(22) << areas[i - 1] - areas[i] << setw(22)
+                         << "*" << setw(22) << richErrorEst(richAlphak(areas, i), areas, i) << setw(16) << fCalcs << endl;
+                    break;
+                case 2:
+                    cout << setw(7) << i + 1 << setw(22) << areas[i] << setw(22) << areas[i - 1] - areas[i] << setw(22)
+                         << "*" << setw(22)  << richErrorEst(richAlphak(areas, i), areas, i)  << setw(16) << fCalcs << endl;
+                    break;
+                default:
+                    cout << setw(7) << i + 1 << setw(22) << areas[i] << setw(22) << areas[i - 1] - areas[i] << setw(22)
+                         << richAlphak(areas, i) << setw(22)  << richErrorEst(richAlphak(areas, i), areas, i)  << setw(16) << fCalcs << endl;
+                    break;
+            }
+            N *= 2;
+            prevFCalcs = fCalcs;
+        }
     }
 
     /*
