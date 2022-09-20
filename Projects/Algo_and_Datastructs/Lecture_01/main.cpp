@@ -19,6 +19,12 @@ unsigned int evenSquares(unsigned int n) { // returns the sum of the first n eve
     return evenSquares(n - 1);
 }
 
+unsigned int olesEvenSquares(unsigned int n) {
+    if(n <= 1)
+        return 0;
+    return (4 * n * n) + evenSquares(n - 1);
+}
+
 unsigned int fib(unsigned int n) {  // returns the nth Fibonacci number
     if (n <= 1)
         return n;
@@ -33,11 +39,11 @@ bool linear(const string& s, char c, int l) {  // returns true if string s with 
     return linear(s,c,l - 1);
 }
 
-bool binarySearch(int list[], int val, int low, int high) {
+int binarySearch(int list[], int val, int low, int high) {
     if (high >= low && !(high == low && high == val)) {
         int mid = (low + (high - low) / 2);
         if (list[mid] == val) // if val is at mid, then return true
-            return true;
+            return mid;
 
         if (val > list[mid]) // if val is on the right side of the midpoint
             return binarySearch(list, val, mid + 1, high);
@@ -45,6 +51,20 @@ bool binarySearch(int list[], int val, int low, int high) {
         return binarySearch(list, val, low, mid - 1); // if val is on the left side of the midpoint
     }
     return false;
+}
+
+int olesBinarySearch(int array[], int target, int start, int end) {
+    int middle = (start + end) / 2;
+    if (end < start) {
+        return -1;
+    }
+    if (target == array[middle]) {
+        return middle;
+    } else if (target < array[middle]) {
+        return binarySearch(array, start, middle - 1, target);
+    } else {
+        return binarySearch(array, middle + 1, end, target);
+    }
 }
 
 int main() {
