@@ -1,4 +1,4 @@
-# Install script for directory: /home/therkelsen/CPP/Projects/Algo_and_Datastructs/Lecture02
+# Install script for directory: /home/therkelsen/CPP/Projects/Algo_and_Datastructs/Lecture_02
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/therkelsen/CPP/Projects/Algo_and_Datastructs/Lecture02/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/therkelsen/CPP/Projects/Algo_and_Datastructs/Lecture_02/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

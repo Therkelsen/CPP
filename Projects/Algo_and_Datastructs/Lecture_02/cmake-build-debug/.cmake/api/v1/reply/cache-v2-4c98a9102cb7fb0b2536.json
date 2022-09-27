@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/therkelsen/CPP/Projects/Algo_and_Datastructs/Lecture02/cmake-build-debug"
+			"value" : "/home/therkelsen/CPP/Projects/Algo_and_Datastructs/Lecture_02/cmake-build-debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -591,7 +591,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/therkelsen/CPP/Projects/Algo_and_Datastructs/Lecture02"
+			"value" : "/home/therkelsen/CPP/Projects/Algo_and_Datastructs/Lecture_02"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -831,7 +831,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "Lecture02"
+			"value" : "Lecture_02"
 		},
 		{
 			"name" : "CMAKE_RANLIB",
@@ -1114,7 +1114,7 @@
 			"value" : "FALSE"
 		},
 		{
-			"name" : "Lecture02_BINARY_DIR",
+			"name" : "Lecture_02_BINARY_DIR",
 			"properties" : 
 			[
 				{
@@ -1123,10 +1123,10 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/therkelsen/CPP/Projects/Algo_and_Datastructs/Lecture02/cmake-build-debug"
+			"value" : "/home/therkelsen/CPP/Projects/Algo_and_Datastructs/Lecture_02/cmake-build-debug"
 		},
 		{
-			"name" : "Lecture02_IS_TOP_LEVEL",
+			"name" : "Lecture_02_IS_TOP_LEVEL",
 			"properties" : 
 			[
 				{
@@ -1138,7 +1138,7 @@
 			"value" : "ON"
 		},
 		{
-			"name" : "Lecture02_SOURCE_DIR",
+			"name" : "Lecture_02_SOURCE_DIR",
 			"properties" : 
 			[
 				{
@@ -1147,7 +1147,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/therkelsen/CPP/Projects/Algo_and_Datastructs/Lecture02"
+			"value" : "/home/therkelsen/CPP/Projects/Algo_and_Datastructs/Lecture_02"
 		}
 	],
 	"kind" : "cache",

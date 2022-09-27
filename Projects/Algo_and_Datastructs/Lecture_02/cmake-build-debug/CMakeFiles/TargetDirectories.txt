@@ -1,0 +1,3 @@
+/home/therkelsen/CPP/Projects/Algo_and_Datastructs/Lecture_02/cmake-build-debug/CMakeFiles/Lecture_02.dir
+/home/therkelsen/CPP/Projects/Algo_and_Datastructs/Lecture_02/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/therkelsen/CPP/Projects/Algo_and_Datastructs/Lecture_02/cmake-build-debug/CMakeFiles/rebuild_cache.dir

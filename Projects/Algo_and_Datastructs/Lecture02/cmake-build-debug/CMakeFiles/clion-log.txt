@@ -1,4 +1,0 @@
-/snap/clion/206/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/snap/clion/206/bin/ninja/linux/ninja -G Ninja -S /home/therkelsen/CPP/Projects/Algo_and_Datastructs/Lecture02 -B /home/therkelsen/CPP/Projects/Algo_and_Datastructs/Lecture02/cmake-build-debug
--- Configuring done
--- Generating done
--- Build files have been written to: /home/therkelsen/CPP/Projects/Algo_and_Datastructs/Lecture02/cmake-build-debug

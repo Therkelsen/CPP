@@ -27,7 +27,7 @@
 					[
 						0
 					],
-					"name" : "Lecture02",
+					"name" : "Lecture_02",
 					"targetIndexes" : 
 					[
 						0
@@ -38,9 +38,9 @@
 			[
 				{
 					"directoryIndex" : 0,
-					"id" : "Lecture02::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Lecture02-Debug-bb976443b84c5991fac2.json",
-					"name" : "Lecture02",
+					"id" : "Lecture_02::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Lecture_02-Debug-bb13d913cc71829d597a.json",
+					"name" : "Lecture_02",
 					"projectIndex" : 0
 				}
 			]
@@ -49,8 +49,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/home/therkelsen/CPP/Projects/Algo_and_Datastructs/Lecture02/cmake-build-debug",
-		"source" : "/home/therkelsen/CPP/Projects/Algo_and_Datastructs/Lecture02"
+		"build" : "/home/therkelsen/CPP/Projects/Algo_and_Datastructs/Lecture_02/cmake-build-debug",
+		"source" : "/home/therkelsen/CPP/Projects/Algo_and_Datastructs/Lecture_02"
 	},
 	"version" : 
 	{
