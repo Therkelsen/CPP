@@ -19,6 +19,10 @@
   <component name="ChangeListManager">
     <list default="true" id="b04de039-e854-45af-a526-866922ad2489" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Lecture_01.dir/main.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Lecture_01.dir/main.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Lecture_01.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Lecture_01.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
@@ -48,18 +52,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Project.color": "1f2532",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "cf.first.check.clang-format": "false",
-    "cidr.known.project.marker": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Project.color&quot;: &quot;1f2532&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Documents/GitHub/CPP/Projects/Algo_and_Datastructs/Lecture_01&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Lecture_01" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Lecture_01" TARGET_NAME="Lecture_01" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Lecture_01" RUN_TARGET_NAME="Lecture_01">
       <method v="2">
@@ -79,6 +84,15 @@
       <workItem from="1662722456668" duration="576000" />
       <workItem from="1663669481252" duration="344000" />
       <workItem from="1663670004765" duration="298000" />
+      <workItem from="1665268271045" duration="24000" />
+      <workItem from="1665745352251" duration="80000" />
+      <workItem from="1665745569863" duration="1022000" />
+      <workItem from="1665746610709" duration="108000" />
+      <workItem from="1665746731390" duration="2061000" />
+      <workItem from="1665787667982" duration="606000" />
+      <workItem from="1665788350339" duration="597000" />
+      <workItem from="1665875115443" duration="167000" />
+      <workItem from="1665929721254" duration="301000" />
     </task>
     <servers />
   </component>

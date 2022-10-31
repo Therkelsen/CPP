@@ -50,7 +50,7 @@ int binarySearch(int list[], int val, int low, int high) {
 
         return binarySearch(list, val, low, mid - 1); // if val is on the left side of the midpoint
     }
-    return false;
+    return 0;
 }
 
 int olesBinarySearch(int array[], int target, int start, int end) {
@@ -80,6 +80,9 @@ int main() {
     }
 
     int value = 9;
-    cout << boolalpha << binarySearch(arr, value, start, int(sizeof(arr) + start - 1)) << endl;
+    //cout << boolalpha << binarySearch(arr, value, start, int(sizeof(arr) + start - 1)) << endl;
+
+
+
     return 0;
 }
