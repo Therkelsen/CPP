@@ -75,14 +75,14 @@ int sumDivisibleBy3(int N) {
 
 //Exercise 7
 std::vector<int> exercise7(int Z) {
-    // Z must be less than 100.000 and less than 4
+    // Z must be less than 100.000 and greater than 4
     if (Z > 100000 || Z < 4)
         return {0};
 
-    // since 10^5 = 100.000,
-    // upper bounds are 10 for base and exponent
-    // this way we only need to save one combination
-    for (int X = 10; X > 2; X--) {
+    // we find the maximum base value,
+    // by taking the y_root of z_max
+    int X_max = floor(pow(Z, 1/3));
+    for (int X = X_max; X > 2; X--) {
         for (int Y = 10; Y > 2; Y--) {
             // if X^Y = Z, return that combination
             if (pow(X, Y) == Z)
