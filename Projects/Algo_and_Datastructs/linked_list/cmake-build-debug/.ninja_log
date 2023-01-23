@@ -1,0 +1,14 @@
+# ninja log v5
+547	643	6957490922721850	linked_list.exe	64dbe6f230e5471b
+7	409	6957462419851696	CMakeFiles/linked_list.dir/node.cpp.obj	e8f43f22b2d1e13b
+7	496	6957490921271518	CMakeFiles/linked_list.dir/linked_list.cpp.obj	aae8944428dd1421
+3	547	6957490921781635	CMakeFiles/linked_list.dir/main.cpp.obj	a9ed84eea2b79502
+1	157	6960894892129964	build.ninja	b52cc416fb61b567
+2	517	6960898871523707	CMakeFiles/linked_list.dir/main.cpp.obj	a9ed84eea2b79502
+7	525	6960898871603724	CMakeFiles/linked_list.dir/linked_list.cpp.obj	aae8944428dd1421
+525	704	6960898873369106	linked_list.exe	64dbe6f230e5471b
+3	490	6960899067179125	CMakeFiles/linked_list.dir/main.cpp.obj	a9ed84eea2b79502
+492	583	6960899068149687	linked_list.exe	64dbe6f230e5471b
+11	508	6960899857824955	CMakeFiles/linked_list.dir/linked_list.cpp.obj	aae8944428dd1421
+4	532	6960899858085006	CMakeFiles/linked_list.dir/main.cpp.obj	a9ed84eea2b79502
+532	626	6960899858990294	linked_list.exe	64dbe6f230e5471b
