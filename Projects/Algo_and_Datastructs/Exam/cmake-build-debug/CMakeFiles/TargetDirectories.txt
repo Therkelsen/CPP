@@ -1,0 +1,3 @@
+C:/Users/Therkelsen/Documents/Github/CPP/Projects/Algo_and_Datastructs/Exam/cmake-build-debug/CMakeFiles/Exam.dir
+C:/Users/Therkelsen/Documents/Github/CPP/Projects/Algo_and_Datastructs/Exam/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Therkelsen/Documents/Github/CPP/Projects/Algo_and_Datastructs/Exam/cmake-build-debug/CMakeFiles/rebuild_cache.dir
