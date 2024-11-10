@@ -1,31 +1,39 @@
 #include <iostream>
 #include <unordered_map>
 #include <sstream>
+#include <algorithm>
+#include <string>
 #include <utility>
 
-std::pair<std::string, int> mostFreqWord(std::string str){
+std::pair<std::string, int> most_frequently_occurring_word(const std::string& str) {
     std::istringstream ss{str};
     std::string line;
-
     std::unordered_map<std::string, int> map;
 
-    while(std::getline(ss, line, ' ')){
-        if(line.at(line.size()-1) == ',' || line.at(line.size()-1) == '.'){
+    while (ss >> line) {
+        // Remove trailing punctuation if present
+        if (line.back() == ',' || line.back() == '.') {
             line.pop_back();
         }
+        
+        // Convert to lowercase
+        std::transform(line.begin(), line.end(), line.begin(), ::tolower);
+
+        // Update frequency map
         map[line]++;
     }
 
-    std::string key;
-    int value = 0;
-    for(const auto& pair: map) {
-        if(pair.second > value){
-            value = pair.second;
-            key = pair.first;
+    // Find the word with the highest frequency
+    std::string most_frequently_occurring_word;
+    int maximum_frequency = 0;
+    for (const auto& pair : map) {
+        if (pair.second > maximum_frequency) {
+            maximum_frequency = pair.second;
+            most_frequently_occurring_word = pair.first;
         }
     }
 
-    return {key, value};
+    return {most_frequently_occurring_word, maximum_frequency};
 }
 
 int main() {
@@ -33,7 +41,7 @@ int main() {
                       "so the shepherd decided to take a little nap in a bed of grass and early summer flowers. "
                       "Soon he was awakened by a sound he had never heard before.";
 
-    std::pair<std::string, int> res = mostFreqWord(str);
+    std::pair<std::string, int> res = most_frequently_occurring_word(str);
 
     std::cout << "The most common word in the string:\n" << str << "\nIs \""
     << res.first << "\" which appears " << res.second << " times." << std::endl;
